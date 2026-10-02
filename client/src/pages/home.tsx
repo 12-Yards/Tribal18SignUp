@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import logoPath from "@assets/tribal8icon_1783436350353.png";
-import heroAppPath from "@assets/image_1784735462257.png";
+import heroBackgroundPath from "@assets/image_1784735263353.png";
 import { Link } from "wouter";
 import { useSEO } from "@/lib/seo";
 import { 
@@ -15,13 +15,12 @@ import {
   TrendingUp,
   CheckCircle,
   ArrowRight,
-  Play,
   Palette
 } from "lucide-react";
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="absolute inset-x-0 top-0 z-50 w-full border-b border-white/15 bg-black/20 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 gap-4">
         <div className="flex items-center gap-2" data-testid="header-logo">
           <img 
@@ -30,16 +29,16 @@ function Header() {
             className="h-10 w-10 object-contain"
             data-testid="img-logo"
           />
-          <span className="text-xl font-bold text-foreground" data-testid="text-brand-name">Tribal18</span>
+          <span className="text-xl font-bold text-white" data-testid="text-brand-name">Tribal18</span>
         </div>
         <nav className="hidden md:flex items-center gap-6" data-testid="nav-main">
-          <a href="/#features" className="text-sm font-medium text-muted-foreground hover-elevate px-2 py-1 rounded-md" data-testid="link-features">Features</a>
-          <a href="#pricing" className="text-sm font-medium text-muted-foreground hover-elevate px-2 py-1 rounded-md" data-testid="link-pricing">Pricing</a>
+          <a href="/#features" className="text-sm font-medium text-white/80 hover:text-white px-2 py-1 rounded-md" data-testid="link-features">Features</a>
+          <a href="#pricing" className="text-sm font-medium text-white/80 hover:text-white px-2 py-1 rounded-md" data-testid="link-pricing">Pricing</a>
         </nav>
         <div className="flex items-center gap-3">
-          <Link href="/create-account">
-            <Button size="sm" data-testid="button-create-account">Create Account</Button>
-          </Link>
+          <Button size="sm" asChild data-testid="button-create-account">
+            <Link href="/create-account">Sign Up</Link>
+          </Button>
         </div>
       </div>
     </header>
@@ -48,44 +47,43 @@ function Header() {
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-accent/5 to-background py-12 lg:py-20" data-testid="section-hero">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40"></div>
-      <div className="container mx-auto px-4 relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight" data-testid="heading-hero">
+    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-slate-950 pt-24 pb-16" data-testid="section-hero">
+      <img
+        src={heroBackgroundPath}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        data-testid="img-hero-background"
+      />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,10,7,0.94)_0%,rgba(3,10,7,0.78)_42%,rgba(3,10,7,0.24)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/15" />
+      <div className="container mx-auto flex w-full items-center px-6">
+        <div className="max-w-3xl space-y-7 md:space-y-9">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300" data-testid="text-hero-eyebrow">
+              The golf community platform
+            </p>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white" data-testid="heading-hero">
               Built to Help Your{" "}
-              <span className="bg-gradient-to-r from-sky-600 to-sky-500 bg-clip-text text-transparent">Golf Community</span>{" "}
-              <span className="bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent">Flourish</span>
+              <span className="text-emerald-300">Golf Community</span>{" "}
+              Flourish
             </h1>
-            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed" data-testid="text-hero-description">
+            <p className="text-base md:text-xl text-white/80 max-w-2xl leading-relaxed" data-testid="text-hero-description">
               Build a thriving golfing community with Tribal18. Our web and mobile platform gives clubs, societies and golf communities everything they need to manage members, organise competitions and events, connect golfers, arrange games and keep members engaged.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <Link href="/create-account">
-                <Button size="lg" className="gap-2" data-testid="button-start-trial">
-                  Go Live Now
+              <Button size="lg" variant="outline" asChild className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
+                <Link href="/contact">
+                  Book a Demo
                   <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
-              <a href="https://tribal18.com" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="gap-2" data-testid="button-view-platform">
-                  <Play className="w-4 h-4" />
-                  View Platform
-                </Button>
-              </a>
+                </Link>
+              </Button>
+              <Button size="lg" asChild className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-sign-up">
+                <Link href="/create-account">
+                  Sign Up
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
             </div>
-          </div>
-          <div className="relative" data-testid="hero-dashboard-preview">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/60 glow-effect">
-              <img
-                src={heroAppPath}
-                alt="Tribal18 mobile app screens showing feed, events, course map, and member profiles"
-                className="w-full h-auto"
-                data-testid="img-hero-app"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
