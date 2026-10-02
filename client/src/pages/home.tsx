@@ -41,8 +41,7 @@ import {
   Heart,
   Building2,
   Briefcase,
-  BookOpen,
-  Megaphone
+  BookOpen
 } from "lucide-react";
 
 const heroSlides = [
@@ -265,7 +264,7 @@ function FeaturesSection() {
     {
       icon: Smartphone,
       title: "Your Platform",
-      description: "Web · Mobile App · Your URL · Your Branding",
+      description: "Android · iOS · Web · Custom URL · Your Branding",
       colorClass: "bg-cyan-500/10 text-cyan-400",
     },
   ];
@@ -322,7 +321,7 @@ function OwnershipSection() {
     },
     {
       social: "Platform rules and algorithms shape the experience",
-      tribal: "Your own URL, website and app experience",
+      tribal: "Custom URL and access on Android, iOS and web",
     },
     {
       social: "Community activity spread across separate channels",
@@ -428,10 +427,10 @@ function ValueSection() {
 
 function BrandSection() {
   const brandBenefits = [
-    { icon: Link2, title: "Your URL", description: "Give members a clear destination that belongs to your community." },
+    { icon: Link2, title: "Your URL", description: "A custom URL is included with every plan." },
     { icon: Palette, title: "Your branding", description: "Create a community experience that reflects your identity." },
-    { icon: Globe, title: "Your website", description: "Welcome members through a branded web experience." },
-    { icon: Smartphone, title: "Your app", description: "Give members a mobile-friendly way to stay connected." },
+    { icon: Globe, title: "Web access", description: "Members can access Tribal18 on the web." },
+    { icon: Smartphone, title: "Android & iOS", description: "Members can also access Tribal18 on Android and iOS." },
     { icon: Users, title: "Your community and data", description: "Build direct relationships with the people who choose to join." },
   ];
 
@@ -445,7 +444,7 @@ function BrandSection() {
               Built around your brand.
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Bring your community together through your own URL, with a branded website and app experience—not a generic page on someone else&apos;s platform.
+              Every plan includes a custom URL. Members can access Tribal18 on Android, iOS and web, bringing your golf community together across devices.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {brandBenefits.map((benefit, index) => (
@@ -825,7 +824,7 @@ function PricingSection() {
                 <div className="text-sm text-muted-foreground">Forever</div>
               </div>
               <div className="space-y-3 mb-6 flex-1">
-                {["Up to 50 members", "Basic event management", "Community feed", "Content publishing", "Reviews", "Podcasts", "Email support"].map((feature, i) => (
+                {["Up to 50 members", "Custom URL", "Basic event management", "Community feed", "Content publishing", "Reviews", "Podcasts", "Email support"].map((feature, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm" data-testid={`text-starter-feature-${i}`}>
                     <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <span>{feature}</span>
@@ -845,7 +844,7 @@ function PricingSection() {
                 <div className="text-sm text-muted-foreground">Billed monthly</div>
               </div>
               <div className="space-y-3 mb-6 flex-1">
-                {["Up to 500 members", "Advanced competitions", "Reciprocal play", "Search and connect with other golfers", "Priority support"].map((feature, i) => (
+                {["Up to 500 members", "Custom URL", "Advanced competitions", "Reciprocal play", "Search and connect with other golfers", "Priority support"].map((feature, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm" data-testid={`text-pro-feature-${i}`}>
                     <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <span>{feature}</span>
@@ -862,7 +861,7 @@ function PricingSection() {
                 <div className="text-sm text-muted-foreground">Billed annually</div>
               </div>
               <div className="space-y-3 mb-6 flex-1">
-                {["Unlimited members", "White-label branding", "API access", "Dedicated support", "Custom integrations"].map((feature, i) => (
+                {["Unlimited members", "Custom URL", "White-label branding", "API access", "Dedicated support", "Custom integrations"].map((feature, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm" data-testid={`text-enterprise-feature-${i}`}>
                     <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <span>{feature}</span>
@@ -893,8 +892,8 @@ function FAQSection() {
       answer: "No technical team is required. The process is designed to take you through creating, configuring and launching your community.",
     },
     {
-      question: "Can I use my own brand and URL?",
-      answer: "Yes. Tribal18 is built around your brand and supports a community experience at your own URL, with a website and app experience for members.",
+      question: "Does every plan include a custom URL, and where is Tribal18 available?",
+      answer: "Yes. Every plan includes a custom URL, and Tribal18 is available on Android, iOS and web.",
     },
     {
       question: "What can members do in my community?",
