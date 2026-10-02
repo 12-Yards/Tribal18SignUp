@@ -247,8 +247,8 @@ function FeaturesSection() {
     },
     {
       icon: Smartphone,
-      title: "Your Brand",
-      description: "Web · Mobile App · Your URL",
+      title: "Your Platform",
+      description: "Web · Mobile App · Your URL · Your Branding",
       colorClass: "bg-cyan-500/10 text-cyan-400",
     },
   ];
