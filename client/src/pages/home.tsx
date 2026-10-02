@@ -13,6 +13,7 @@ import {
   Award,
   CreditCard,
   Smartphone,
+  Globe,
   CheckCircle,
   ArrowRight,
   ChevronLeft,
@@ -297,6 +298,74 @@ function FeaturesSection() {
   );
 }
 
+function OwnershipSection() {
+  const ownershipPoints = [
+    {
+      icon: Palette,
+      title: "Your brand",
+      description: "A branded web and mobile app built around your community.",
+      colorClass: "bg-emerald-500/10 text-emerald-400",
+    },
+    {
+      icon: Globe,
+      title: "Your URL",
+      description: "Give members one clear destination to come together.",
+      colorClass: "bg-sky-500/10 text-sky-400",
+    },
+    {
+      icon: Users,
+      title: "Your platform",
+      description: "Manage members, content and events together in one place.",
+      colorClass: "bg-violet-500/10 text-violet-400",
+    },
+  ];
+
+  return (
+    <section
+      className="relative overflow-hidden border-y border-border/50 bg-gradient-to-br from-emerald-500/5 via-background to-background py-20 lg:py-28"
+      data-testid="section-ownership"
+      aria-labelledby="heading-ownership"
+    >
+      <div className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
+      <div className="container relative mx-auto px-4">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div>
+            <h2
+              id="heading-ownership"
+              className="text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl"
+              data-testid="heading-ownership"
+            >
+              Stop building your community on{" "}
+              <span className="text-emerald-400">someone else&apos;s platform.</span>
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Your community deserves a home that reflects your identity. Tribal18 gives you a branded web and mobile app at your own URL, with one place to manage members, content and events.
+            </p>
+          </div>
+
+          <div className="space-y-3" data-testid="list-ownership-benefits">
+            {ownershipPoints.map((point, index) => (
+              <div
+                key={point.title}
+                className="flex items-start gap-4 rounded-2xl border border-border/60 bg-card/70 p-5 shadow-sm backdrop-blur-sm transition-colors hover:border-emerald-500/40 sm:p-6"
+                data-testid={`card-ownership-${index}`}
+              >
+                <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${point.colorClass}`}>
+                  <point.icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="font-semibold capitalize">{point.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{point.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CTASection() {
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-br from-emerald-600 to-sky-600 relative overflow-hidden" data-testid="section-cta">
@@ -490,6 +559,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <FeaturesSection />
+        <OwnershipSection />
         <CTASection />
         <PricingSection />
       </main>
