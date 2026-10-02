@@ -123,25 +123,25 @@ function FeaturesSection() {
     {
       icon: FileText,
       title: "Content",
-      description: "News · Articles · Video · Podcasts · Events",
+      description: "News · Articles · Video · Podcasts · Events · Competitions",
       colorClass: "bg-sky-500/10 text-sky-400",
     },
     {
       icon: Calendar,
       title: "Engagement",
-      description: "Polls · Quizzes · Competitions · Petitions · Surveys · Auctions",
+      description: "Polls · Quizzes · Petitions · Surveys · Auctions",
       colorClass: "bg-violet-500/10 text-violet-400",
     },
     {
       icon: Award,
       title: "Rewards",
-      description: "Earn Points · Leaderboards · Redeem · Marketplace · Donate",
+      description: "Earn · Leaderboards · Redeem · Marketplace · Donate",
       colorClass: "bg-amber-500/10 text-amber-400",
     },
     {
       icon: CreditCard,
       title: "Membership",
-      description: "Subscriptions · Payments · Memberships",
+      description: "Subscriptions · Payments · Memberships · Integrations",
       colorClass: "bg-orange-500/10 text-orange-400",
     },
     {
