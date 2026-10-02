@@ -1,1 +1,2 @@
 - [SEO meta injection](seo-meta-injection.md) — new public pages need meta in both client useSEO and server/seo.ts routeMeta + sitemap.xml; crawlers rely on server injection.
+- [Golf community positioning](golf-community-positioning.md) — Tribal18 is golf-focused; charity support is a use case within the golf community.
