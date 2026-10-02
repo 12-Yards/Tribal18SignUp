@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import logoPath from "@assets/tribal8icon_1783436350353.png";
 import heroBackgroundPath from "@assets/image_1784735263353.png";
 import { Link } from "wouter";
@@ -20,7 +26,23 @@ import {
   ChevronRight,
   Pause,
   Play,
-  Palette
+  Palette,
+  MessageCircle,
+  CalendarDays,
+  Trophy,
+  Store,
+  Handshake,
+  CircleDollarSign,
+  Link2,
+  Settings,
+  Rocket,
+  TrendingUp,
+  Layers,
+  Heart,
+  Building2,
+  Briefcase,
+  BookOpen,
+  Megaphone
 } from "lucide-react";
 
 const heroSlides = [
@@ -33,20 +55,20 @@ const heroSlides = [
       "Bring members together with tools for community, competitions, events, and reciprocal play—all in one platform built for clubs and golf societies.",
   },
   {
-    label: "Slide 2 content coming soon",
-    titlePrefix: "Slide 2",
-    titleAccent: "Content TBC",
-    titleSuffix: "",
+    label: "A home for your community",
+    titlePrefix: "Give Your",
+    titleAccent: "Community",
+    titleSuffix: "A Home of Its Own",
     description:
-      "The final headline and supporting copy for this hero will be added once approved.",
+      "Bring members, content and events together in a branded Tribal18 community at your own URL.",
   },
   {
-    label: "Slide 3 content coming soon",
-    titlePrefix: "Slide 3",
-    titleAccent: "Content TBC",
-    titleSuffix: "",
+    label: "Turn engagement into value",
+    titlePrefix: "Turn",
+    titleAccent: "Engagement",
+    titleSuffix: "Into Value",
     description:
-      "The final headline and supporting copy for this hero will be added once approved.",
+      "Build participation through memberships, events and rewards, with tools to support payments and partner opportunities.",
   },
 ];
 
@@ -299,24 +321,18 @@ function FeaturesSection() {
 }
 
 function OwnershipSection() {
-  const ownershipPoints = [
+  const comparisonRows = [
     {
-      icon: Palette,
-      title: "Your brand",
-      description: "A branded web and mobile app built around your community.",
-      colorClass: "bg-emerald-500/10 text-emerald-400",
+      social: "A profile and feed inside someone else’s platform",
+      tribal: "A branded home built around your community",
     },
     {
-      icon: Globe,
-      title: "Your URL",
-      description: "Give members one clear destination to come together.",
-      colorClass: "bg-sky-500/10 text-sky-400",
+      social: "Platform rules and algorithms shape the experience",
+      tribal: "Your own URL, website and app experience",
     },
     {
-      icon: Users,
-      title: "Your platform",
-      description: "Manage members, content and events together in one place.",
-      colorClass: "bg-violet-500/10 text-violet-400",
+      social: "Community activity spread across separate channels",
+      tribal: "Community, content, events and membership together",
     },
   ];
 
@@ -328,36 +344,320 @@ function OwnershipSection() {
     >
       <div className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
       <div className="container relative mx-auto px-4">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
             <h2
               id="heading-ownership"
               className="text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl"
               data-testid="heading-ownership"
             >
-              Stop building your community on{" "}
-              <span className="text-emerald-400">someone else&apos;s platform.</span>
+              Own your community.
+              <span className="mt-1 block text-emerald-400">Don&apos;t rent it.</span>
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Your community deserves a home that reflects your identity. Tribal18 gives you a branded web and mobile app at your own URL, with one place to manage members, content and events.
+              When your audience lives on third-party social platforms, the rules, reach and experience can change without you. Tribal18 gives your community a home designed around your brand, your members and the way you want to bring people together.
             </p>
           </div>
 
-          <div className="space-y-3" data-testid="list-ownership-benefits">
-            {ownershipPoints.map((point, index) => (
-              <div
-                key={point.title}
-                className="flex items-start gap-4 rounded-2xl border border-border/60 bg-card/70 p-5 shadow-sm backdrop-blur-sm transition-colors hover:border-emerald-500/40 sm:p-6"
-                data-testid={`card-ownership-${index}`}
-              >
-                <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${point.colorClass}`}>
-                  <point.icon className="h-5 w-5" aria-hidden="true" />
+          <div className="overflow-hidden rounded-2xl border border-border/60 bg-card/70 shadow-xl shadow-black/5" data-testid="list-ownership-benefits">
+            <div className="grid grid-cols-[1fr_1fr]">
+              <div className="border-b border-border/60 bg-muted/50 p-4 sm:p-5">
+                <span className="text-xs font-bold uppercase tracking-[0.13em] text-muted-foreground">Traditional social platforms</span>
+              </div>
+              <div className="border-b border-l border-border/60 bg-emerald-500/10 p-4 sm:p-5">
+                <span className="text-xs font-bold uppercase tracking-[0.13em] text-emerald-500">Your Tribal18 community</span>
+              </div>
+              {comparisonRows.map((row, index) => (
+                <div key={row.social} className="contents" data-testid={`row-ownership-comparison-${index}`}>
+                  <div className="flex items-start gap-3 border-b border-border/50 p-4 text-sm leading-relaxed text-muted-foreground sm:p-5">
+                    <span className="mt-0.5 text-muted-foreground/70" aria-hidden="true">—</span>
+                    <span>{row.social}</span>
+                  </div>
+                  <div className="flex items-start gap-3 border-b border-l border-border/50 bg-emerald-500/[0.03] p-4 text-sm font-medium leading-relaxed sm:p-5">
+                    <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" aria-hidden="true" />
+                    <span>{row.tribal}</span>
+                  </div>
+                </div>
+              ))}
+              <div className="col-span-2 bg-emerald-500/[0.06] px-4 py-3 text-center text-sm font-medium text-emerald-500 sm:px-5">
+                Your brand. Your URL. Your community.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ValueSection() {
+  const valueFeatures = [
+    { icon: Users, title: "Memberships", description: "Bring members into a shared community experience." },
+    { icon: CalendarDays, title: "Events", description: "Give people a reason to meet, take part and return." },
+    { icon: Trophy, title: "Rewards", description: "Recognise participation with rewards and points." },
+    { icon: Store, title: "Marketplace", description: "Connect your community with relevant offers and opportunities." },
+    { icon: Handshake, title: "Partners", description: "Build partner relationships into your community experience." },
+    { icon: CircleDollarSign, title: "Payments", description: "Support paid memberships and other community payments." },
+  ];
+
+  return (
+    <section className="py-20 lg:py-28" data-testid="section-value" aria-labelledby="heading-value">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Engagement that adds value</p>
+          <h2 id="heading-value" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-value">
+            Turn engagement into value.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Make it easier for members to take part—and create more ways for your community to deliver value.
+          </p>
+        </div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {valueFeatures.map((feature, index) => (
+            <Card key={feature.title} className="h-full border-border/60 bg-card/70 transition-colors hover:border-emerald-500/40" data-testid={`card-value-${index}`}>
+              <CardContent className="flex h-full items-start gap-4 p-5 sm:p-6">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+                  <feature.icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-semibold capitalize">{point.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{point.description}</p>
+                  <h3 className="font-semibold">{feature.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BrandSection() {
+  const brandBenefits = [
+    { icon: Link2, title: "Your URL", description: "Give members a clear destination that belongs to your community." },
+    { icon: Palette, title: "Your branding", description: "Create a community experience that reflects your identity." },
+    { icon: Globe, title: "Your website", description: "Welcome members through a branded web experience." },
+    { icon: Smartphone, title: "Your app", description: "Give members a mobile-friendly way to stay connected." },
+    { icon: Users, title: "Your community and data", description: "Build direct relationships with the people who choose to join." },
+  ];
+
+  return (
+    <section className="overflow-hidden border-y border-border/50 bg-muted/20 py-20 lg:py-28" data-testid="section-brand" aria-labelledby="heading-brand">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">A home that feels like yours</p>
+            <h2 id="heading-brand" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-brand">
+              Built around your brand.
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Bring your community together through your own URL, with a branded website and app experience—not a generic page on someone else&apos;s platform.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {brandBenefits.map((benefit, index) => (
+                <div className="flex items-start gap-3" key={benefit.title} data-testid={`brand-benefit-${index}`}>
+                  <benefit.icon className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" aria-hidden="true" />
+                  <div>
+                    <h3 className="text-sm font-semibold">{benefit.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{benefit.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-xl" aria-label="Illustration of a branded Tribal18 community on desktop and mobile">
+            <div className="absolute -right-8 -top-8 h-48 w-48 rounded-full bg-emerald-500/10 blur-3xl" />
+            <div className="relative rounded-2xl border border-border/60 bg-background p-3 shadow-2xl sm:p-4" data-testid="brand-desktop-preview">
+              <div className="flex items-center gap-2 border-b border-border/60 px-2 pb-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+                <div className="ml-3 flex h-7 flex-1 items-center rounded-md bg-muted px-3 text-xs text-muted-foreground">
+                  yourcommunity.com
                 </div>
               </div>
+              <div className="grid min-h-64 grid-cols-[1fr_1.3fr] gap-3 p-3 sm:gap-4 sm:p-5">
+                <div className="rounded-xl bg-gradient-to-br from-emerald-800 to-slate-900 p-4 text-white sm:p-5">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/15">
+                    <Users className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <p className="mt-8 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-200">Your community</p>
+                  <p className="mt-2 text-xl font-bold">Together, here.</p>
+                  <div className="mt-5 h-2 w-4/5 rounded-full bg-white/20" />
+                  <div className="mt-2 h-2 w-3/5 rounded-full bg-white/15" />
+                </div>
+                <div className="space-y-3">
+                  <div className="rounded-xl border border-border/60 bg-card p-3 sm:p-4">
+                    <div className="flex items-center gap-2">
+                      <div className="h-8 w-8 rounded-full bg-emerald-500/15" />
+                      <div className="flex-1">
+                        <div className="h-2 w-24 rounded-full bg-foreground/15" />
+                        <div className="mt-1.5 h-1.5 w-16 rounded-full bg-muted-foreground/20" />
+                      </div>
+                    </div>
+                    <div className="mt-4 h-2 w-full rounded-full bg-muted-foreground/15" />
+                    <div className="mt-2 h-2 w-4/5 rounded-full bg-muted-foreground/10" />
+                    <div className="mt-4 flex gap-2">
+                      <span className="rounded-full bg-emerald-500/10 px-2 py-1 text-[10px] font-medium text-emerald-500">Community update</span>
+                      <span className="rounded-full bg-muted px-2 py-1 text-[10px] text-muted-foreground">Members</span>
+                    </div>
+                  </div>
+                  <div className="rounded-xl border border-border/60 bg-card p-3 sm:p-4">
+                    <div className="flex items-center gap-2 text-sm font-semibold">
+                      <CalendarDays className="h-4 w-4 text-emerald-500" aria-hidden="true" />
+                      Upcoming event
+                    </div>
+                    <div className="mt-3 h-2 w-4/5 rounded-full bg-foreground/15" />
+                    <div className="mt-2 h-2 w-1/2 rounded-full bg-muted-foreground/15" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute -bottom-7 right-3 w-32 rounded-[1.6rem] border-[5px] border-slate-900 bg-background p-2 shadow-2xl sm:right-0 sm:w-36" data-testid="brand-mobile-preview">
+              <div className="mx-auto mb-3 h-1 w-9 rounded-full bg-muted-foreground/30" />
+              <div className="rounded-xl bg-emerald-800 p-3 text-white">
+                <div className="h-2 w-12 rounded-full bg-white/50" />
+                <div className="mt-3 h-2 w-16 rounded-full bg-white/80" />
+                <div className="mt-2 h-2 w-10 rounded-full bg-white/50" />
+              </div>
+              <div className="mt-2 space-y-2 rounded-lg border border-border/60 p-2">
+                <div className="h-2 w-full rounded-full bg-muted-foreground/15" />
+                <div className="h-2 w-4/5 rounded-full bg-muted-foreground/10" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AudiencesSection() {
+  const audiences = [
+    { icon: Trophy, title: "Sports & fan communities", description: "Bring supporters and participants closer to the action." },
+    { icon: Users, title: "Membership organisations", description: "Give members a place to connect and get involved." },
+    { icon: Megaphone, title: "Creators & personal brands", description: "Build a direct community around your work and ideas." },
+    { icon: Heart, title: "Charities & causes", description: "Help supporters stay connected to your mission." },
+    { icon: Briefcase, title: "Brands & businesses", description: "Create a shared space for customers and advocates." },
+    { icon: Building2, title: "Associations & groups", description: "Bring people together around a common interest or purpose." },
+  ];
+
+  return (
+    <section className="py-20 lg:py-28" data-testid="section-audiences" aria-labelledby="heading-audiences">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Made for people who bring people together</p>
+          <h2 id="heading-audiences" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-audiences">
+            One platform. Endless possibilities.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Whether your community is built around a shared passion, a membership or a mission, give it a place of its own.
+          </p>
+        </div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {audiences.map((audience, index) => (
+            <Card key={audience.title} className="h-full border-border/60 bg-card/60" data-testid={`card-audience-${index}`}>
+              <CardContent className="flex h-full items-start gap-4 p-5 sm:p-6">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+                  <audience.icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">{audience.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{audience.description}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HowItWorksSection() {
+  const steps = [
+    { icon: Layers, number: "01", title: "Create", description: "Set up the foundations of your community." },
+    { icon: Settings, number: "02", title: "Configure", description: "Shape the experience around your brand and needs." },
+    { icon: Rocket, number: "03", title: "Launch", description: "Open your community and welcome your members." },
+    { icon: TrendingUp, number: "04", title: "Grow", description: "Keep people involved with content, events and more." },
+  ];
+
+  return (
+    <section className="border-y border-border/50 bg-muted/20 py-20 lg:py-28" data-testid="section-how-it-works" aria-labelledby="heading-how-it-works">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">A clear path from idea to launch</p>
+          <h2 id="heading-how-it-works" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-how-it-works">
+            How it works.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Create, configure, launch and grow your community—with no technical team required.
+          </p>
+        </div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, index) => (
+            <div key={step.title} className="relative" data-testid={`step-how-it-works-${index}`}>
+              <Card className="h-full border-border/60 bg-background/80">
+                <CardContent className="p-5 sm:p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+                      <step.icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <span className="text-sm font-bold tracking-widest text-muted-foreground/60">{step.number}</span>
+                  </div>
+                  <h3 className="mt-6 text-lg font-semibold">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+                </CardContent>
+              </Card>
+              {index < steps.length - 1 && (
+                <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 -translate-y-1/2 text-emerald-500 lg:block" aria-hidden="true" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PlatformSection() {
+  const capabilities = [
+    { icon: Users, title: "Community", description: "Bring members together in one shared space." },
+    { icon: BookOpen, title: "Content", description: "Publish updates and useful content for your members." },
+    { icon: MessageCircle, title: "Engagement", description: "Use events, competitions, polls and other activities to invite participation." },
+    { icon: Award, title: "Rewards", description: "Recognise involvement with points, leaderboards and rewards." },
+    { icon: CreditCard, title: "Monetisation", description: "Support memberships and payments as part of your community." },
+    { icon: Settings, title: "Administration", description: "Manage community activity from a central platform." },
+    { icon: Link2, title: "Integrations", description: "Talk with the Tribal18 team about integration and API options." },
+  ];
+
+  return (
+    <section className="py-20 lg:py-28" data-testid="section-platform" aria-labelledby="heading-platform">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Everything under one roof</p>
+            <h2 id="heading-platform" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl" data-testid="heading-platform">
+              Everything you need to run your community.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              Bring the essential parts of your community experience into one branded platform, instead of stitching together disconnected tools.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {capabilities.map((capability, index) => (
+              <Card key={capability.title} className="border-border/60 bg-card/60" data-testid={`card-platform-${index}`}>
+                <CardContent className="flex items-start gap-4 p-5">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400">
+                    <capability.icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">{capability.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{capability.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -368,27 +668,139 @@ function OwnershipSection() {
 
 function CTASection() {
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-emerald-600 to-sky-600 relative overflow-hidden" data-testid="section-cta">
+    <section className="relative overflow-hidden bg-gradient-to-br from-emerald-600 to-sky-600 py-16 lg:py-24" data-testid="section-cta">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white" data-testid="heading-cta">Ready to Get Started?</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white" data-testid="heading-cta">
+            Your audience is already there. Give them somewhere to belong.
+          </h2>
           <p className="text-white/90 text-lg mb-8">
-            Join thousands of communities already using Tribal18 to engage their members.
+            Build a community you own, control and grow with Tribal18.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://tribal18.com" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="gap-2 bg-white text-emerald-700" data-testid="button-view-platform-home">
-                View Platform
+            <Link href="/create-account">
+              <Button size="lg" className="gap-2 bg-white text-emerald-700 hover:bg-white/90" data-testid="button-view-platform-home">
+                Get Started
                 <ArrowRight className="w-4 h-4" />
               </Button>
-            </a>
+            </Link>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-contact-us-home">
-                Contact Us
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" data-testid="button-contact-us-home">
+                Talk to our team
               </Button>
             </Link>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EngagementSection() {
+  return (
+    <section className="overflow-hidden border-y border-border/50 bg-muted/20 py-20 lg:py-28" data-testid="section-engagement" aria-labelledby="heading-engagement">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Built for participation</p>
+            <h2 id="heading-engagement" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-engagement">
+              Real community.
+              <span className="mt-1 block text-emerald-400">Real engagement.</span>
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Community is more than a feed. Give people useful reasons to show up, take part and stay connected through conversations, content, events and shared activities.
+            </p>
+            <ul className="mt-7 space-y-3">
+              {["Share updates members care about", "Bring people together around events and activities", "Give members ways to contribute and connect"].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm font-medium">
+                  <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-border/60 bg-background p-4 shadow-xl shadow-black/5 sm:p-6" data-testid="engagement-product-visual">
+            <div className="flex items-center justify-between border-b border-border/60 pb-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.13em] text-emerald-500">Community home</p>
+                <p className="mt-1 text-lg font-bold">What&apos;s happening</p>
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500">
+                <Users className="h-4 w-4" aria-hidden="true" />
+              </div>
+            </div>
+            <div className="mt-4 space-y-3">
+              <div className="rounded-xl border border-border/60 p-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-500/10 text-sky-500">
+                    <FileText className="h-4 w-4" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">A community update</p>
+                    <p className="text-xs text-muted-foreground">News and content for members</p>
+                  </div>
+                </div>
+                <div className="mt-4 h-2 w-full rounded-full bg-muted-foreground/15" />
+                <div className="mt-2 h-2 w-4/5 rounded-full bg-muted-foreground/10" />
+                <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5"><MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />Conversation</span>
+                  <span className="inline-flex items-center gap-1.5"><Award className="h-3.5 w-3.5" aria-hidden="true" />Participation</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 rounded-xl border border-border/60 p-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-violet-500/10 text-violet-400">
+                  <CalendarDays className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-semibold">An event to look forward to</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Share details and invite members to join in</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GrowthSection() {
+  const growthStages = [
+    { icon: Rocket, title: "Start", description: "Create a home for your community and bring your first members together." },
+    { icon: Users, title: "Grow", description: "Build participation through content, events and community activity." },
+    { icon: CircleDollarSign, title: "Monetise", description: "Explore memberships, payments, partners and marketplace opportunities." },
+    { icon: TrendingUp, title: "Scale", description: "Develop your community experience as your needs and ambitions evolve." },
+  ];
+
+  return (
+    <section className="py-20 lg:py-28" data-testid="section-growth" aria-labelledby="heading-growth">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Your community, at every stage</p>
+          <h2 id="heading-growth" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-growth">
+            Built to grow.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Start with what your community needs today. Keep building as it grows.
+          </p>
+        </div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {growthStages.map((stage, index) => (
+            <Card key={stage.title} className="relative h-full border-border/60 bg-card/70" data-testid={`card-growth-${index}`}>
+              <CardContent className="p-5 sm:p-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+                  <stage.icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold">{stage.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{stage.description}</p>
+              </CardContent>
+              {index < growthStages.length - 1 && (
+                <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 -translate-y-1/2 text-emerald-500 lg:block" aria-hidden="true" />
+              )}
+            </Card>
+          ))}
         </div>
       </div>
     </section>
@@ -470,6 +882,74 @@ function PricingSection() {
           <Link href="/create-account">
             <Button size="lg" data-testid="button-pricing-go-live">Go Live Now - pay nothing for 30 days</Button>
           </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is Tribal18?",
+      answer: "Tribal18 is a community platform that brings your members, content, events, engagement and membership tools together in one branded place.",
+    },
+    {
+      question: "Do I need a technical team to get started?",
+      answer: "No technical team is required. The process is designed to take you through creating, configuring and launching your community.",
+    },
+    {
+      question: "Can I use my own brand and URL?",
+      answer: "Yes. Tribal18 is built around your brand and supports a community experience at your own URL, with a website and app experience for members.",
+    },
+    {
+      question: "What can members do in my community?",
+      answer: "Members can connect with your community, access content, take part in events and activities, and engage with the features you make available.",
+    },
+    {
+      question: "Can I monetise my community?",
+      answer: "Tribal18 includes tools for memberships and payments, as well as marketplace and partner opportunities. The right setup depends on your community.",
+    },
+    {
+      question: "Is Tribal18 only for golf communities?",
+      answer: "No. Tribal18 can support sports and fan communities, membership organisations, creators, charities, brands, businesses, associations and groups.",
+    },
+    {
+      question: "What do the plans cost?",
+      answer: "See the pricing section for the current plans and included features. You can start with the free plan or choose a paid plan as your needs grow.",
+    },
+    {
+      question: "Can I connect other tools or use the API?",
+      answer: "Integration and API options are available through the Tribal18 team. Contact us to discuss what your community needs.",
+    },
+  ];
+
+  return (
+    <section className="border-y border-border/50 bg-muted/20 py-20 lg:py-28" data-testid="section-faq" aria-labelledby="heading-faq">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Good questions</p>
+            <h2 id="heading-faq" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-faq">
+              Frequently asked questions.
+            </h2>
+          </div>
+          <Accordion type="single" collapsible className="mt-10 rounded-2xl border border-border/60 bg-background px-5 sm:px-7" data-testid="accordion-faq">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={faq.question} value={`faq-${index}`} data-testid={`faq-item-${index}`}>
+                <AccordionTrigger className="text-left text-sm font-semibold hover:no-underline sm:text-base">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Have another question?{" "}
+            <Link href="/contact" className="font-semibold text-emerald-500 underline-offset-4 hover:underline">Talk to our team</Link>
+          </p>
         </div>
       </div>
     </section>
@@ -560,8 +1040,16 @@ export default function Home() {
         <HeroSection />
         <FeaturesSection />
         <OwnershipSection />
-        <CTASection />
+        <ValueSection />
+        <BrandSection />
+        <AudiencesSection />
+        <HowItWorksSection />
+        <PlatformSection />
+        <EngagementSection />
+        <GrowthSection />
         <PricingSection />
+        <FAQSection />
+        <CTASection />
       </main>
       <Footer />
     </div>
