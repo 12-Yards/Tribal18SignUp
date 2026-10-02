@@ -46,7 +46,7 @@ const audienceGroups = [
   },
   {
     number: "03",
-    label: "Golf businesses",
+    label: "Golf businesses & organisations",
     icon: Briefcase,
     items: [
       {
@@ -54,13 +54,6 @@ const audienceGroups = [
         title: "Golf brands & partners",
         description: "Connect golf communities with relevant partners and opportunities.",
       },
-    ],
-  },
-  {
-    number: "04",
-    label: "Golf organisations",
-    icon: Trophy,
-    items: [
       {
         icon: Trophy,
         title: "Golf associations",
@@ -127,7 +120,7 @@ export function Refined() {
           </div>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:mt-14 xl:grid-cols-4 xl:items-start">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
           {audienceGroups.map((group) => (
             <Card
               key={group.number}

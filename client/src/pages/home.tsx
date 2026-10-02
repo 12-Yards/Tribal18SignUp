@@ -227,10 +227,10 @@ function FeaturesSection() {
 
 function OwnershipSection() {
   const comparisonRows = [
-      {
-        social: "A profile and feed inside someone else’s platform",
-        tribal: "A branded space designed around your community",
-      },
+    {
+      social: "A profile and feed inside someone else’s platform",
+      tribal: "A branded space designed around your community",
+    },
     {
       social: "Your community is tied to a platform profile",
       tribal: "A custom URL is included with every plan",
@@ -240,8 +240,8 @@ function OwnershipSection() {
       tribal: "Manage members, content, events and memberships from one admin dashboard",
     },
     {
-      social: "Members rely on public feeds for community updates",
-      tribal: "Connect with your community on web, Android and iOS",
+      social: "Members return to public feeds to find community updates",
+      tribal: "Connect on web, Android and iOS in one branded golf community",
     },
   ];
 
@@ -483,7 +483,6 @@ function AudiencesSection() {
     </section>
   );
 }
-              </div>
 function HowItWorksSection() {
   const steps = [
     { icon: Layers, number: "01", title: "Create", description: "Set up the foundations of your community." },
