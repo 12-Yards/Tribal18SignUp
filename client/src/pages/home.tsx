@@ -152,45 +152,108 @@ function FeaturesSection() {
     },
   ];
 
+  const communityFeature = features[0];
+  const supportingFeatures = features.slice(1, 5);
+  const platformFeature = features[5];
+
   return (
     <section id="features" className="relative overflow-hidden bg-muted/20 py-20 lg:py-28" data-testid="section-features">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-features">
+        <div className="mx-auto grid max-w-6xl gap-6 md:gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">
+              The Tribal18 platform
+            </p>
+            <h2 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-features">
             Everything your community needs.
-            <span className="mt-1 block text-emerald-400">In one place.</span>
-          </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-lg font-semibold leading-relaxed md:text-xl" data-testid="text-features-lead">
-            Your community shouldn&apos;t be spread across five different platforms.
-          </p>
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg" data-testid="text-features-description">
-            Tribal18 brings your community, content, events, engagement, rewards and membership into one branded platform—giving your members one place to connect and giving you one place to manage it.
-          </p>
+              <span className="mt-1 block text-emerald-400">In one place.</span>
+            </h2>
+          </div>
+          <div className="max-w-xl lg:justify-self-end lg:pb-1">
+            <p className="text-lg font-semibold leading-relaxed md:text-xl" data-testid="text-features-lead">
+              Your community shouldn&apos;t be spread across five different platforms.
+            </p>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg" data-testid="text-features-description">
+              Tribal18 brings your community, content, events, engagement, rewards and membership into one branded platform—giving your members one place to connect and giving you one place to manage it.
+            </p>
+          </div>
         </div>
 
-        <div className="mx-auto mt-12 max-w-6xl rounded-3xl border border-border/60 bg-card/50 p-3 shadow-xl shadow-black/5 sm:p-5 md:mt-16 md:p-7">
-          <div className="mb-5 flex items-center justify-center">
-            <span className="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-emerald-400">
-              ONE BRANDED PLATFORM
+        <div className="mx-auto mt-12 grid max-w-6xl gap-x-8 gap-y-8 md:mt-16 lg:grid-cols-12 lg:items-stretch">
+          <article
+            className="relative isolate flex min-h-[19rem] flex-col justify-between overflow-hidden rounded-[1.75rem] border border-emerald-900/20 bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-950 p-7 text-white shadow-xl shadow-emerald-950/10 sm:p-9 lg:col-span-5"
+            data-testid="card-feature-0"
+          >
+            <div className="pointer-events-none absolute -bottom-28 -right-16 -z-10 h-80 w-80 rounded-full border border-white/10" aria-hidden="true" />
+            <div className="pointer-events-none absolute -bottom-16 -right-4 -z-10 h-56 w-56 rounded-full border border-white/10" aria-hidden="true" />
+            <div className="flex items-center justify-between gap-4">
+              <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${communityFeature.colorClass}`}>
+                <communityFeature.icon className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200/80">
+                01 / At the heart of it
+              </span>
+            </div>
+            <div className="relative mt-12 max-w-sm">
+              <h3 className="text-3xl font-bold tracking-tight sm:text-4xl" data-testid="heading-feature-0">
+                {communityFeature.title}
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-white/75" data-testid="text-feature-0">
+                {communityFeature.description}
+              </p>
+            </div>
+          </article>
+
+          <div className="grid gap-x-7 sm:grid-cols-2 lg:col-span-7 lg:gap-x-8">
+            {supportingFeatures.map((feature, index) => {
+              const featureIndex = index + 1;
+              return (
+                <article
+                  key={feature.title}
+                  className={`border-t border-border/70 py-5 sm:py-6 ${index % 2 === 0 ? "sm:pr-3 lg:pr-5" : "sm:pl-3 lg:pl-5"}`}
+                  data-testid={`card-feature-${featureIndex}`}
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="mt-1 w-6 shrink-0 text-xs font-bold tabular-nums text-emerald-500/80">
+                      0{featureIndex + 1}
+                    </span>
+                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${feature.colorClass}`}>
+                      <feature.icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-base font-semibold tracking-tight sm:text-lg" data-testid={`heading-feature-${featureIndex}`}>
+                        {feature.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground" data-testid={`text-feature-${featureIndex}`}>
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div
+            className="flex flex-col gap-5 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.06] px-5 py-5 sm:flex-row sm:items-center sm:gap-6 sm:px-7 lg:col-span-12"
+            data-testid="card-feature-5"
+          >
+            <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${platformFeature.colorClass}`}>
+              <platformFeature.icon className="h-5 w-5" aria-hidden="true" />
+            </div>
+            <div className="min-w-0 sm:flex-1">
+              <h3 className="text-base font-semibold tracking-tight sm:text-lg" data-testid="heading-feature-5">
+                {platformFeature.title}
+              </h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground" data-testid="text-feature-5">
+                {platformFeature.description}
+              </p>
+            </div>
+            <span className="shrink-0 text-xs font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">
+              One branded platform
             </span>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 md:gap-4">
-          {features.map((feature, i) => (
-            <Card key={feature.title} className="h-full border-border/60 bg-background/75 transition-colors hover:border-emerald-500/40 hover:bg-background" data-testid={`card-feature-${i}`}>
-              <CardContent className="flex h-full min-h-32 items-start gap-4 p-5 sm:p-6">
-                <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${feature.colorClass}`}>
-                  <feature.icon className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-sm font-bold uppercase tracking-[0.12em]" data-testid={`heading-feature-${i}`}>{feature.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground" data-testid={`text-feature-${i}`}>{feature.description}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-          </div>
-        </div>
       </div>
     </section>
   );
