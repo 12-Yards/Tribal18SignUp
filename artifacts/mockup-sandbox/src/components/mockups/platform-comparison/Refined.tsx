@@ -80,15 +80,15 @@ export function Refined() {
               className="relative overflow-hidden rounded-[1.35rem] border border-emerald-100/[0.12] bg-[#0c1a14]/90 shadow-[0_28px_90px_rgba(0,0,0,0.28)]"
               data-testid="list-ownership-benefits"
             >
-              <div className="grid grid-cols-[1fr_1fr]">
-                <div className="flex min-h-[76px] items-end border-b border-emerald-100/[0.09] bg-[#101d17] px-4 pb-4 pt-5 sm:px-6">
-                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#87968d]">
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+                <div className="hidden min-h-[76px] items-end border-b border-emerald-100/[0.09] bg-[#101d17] px-4 pb-4 pt-5 sm:flex sm:px-6">
+                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#9baaa1]">
                     Traditional social platforms
                   </span>
                 </div>
-                <div className="relative flex min-h-[76px] items-end border-b border-l border-emerald-100/[0.1] bg-[#173c2b] px-4 pb-4 pt-5 sm:px-6">
+                <div className="relative hidden min-h-[76px] items-end border-b border-l border-emerald-100/[0.1] bg-[#173c2b] px-4 pb-4 pt-5 sm:flex sm:px-6">
                   <span className="absolute left-0 top-0 h-full w-px bg-emerald-200/50" />
-                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#a7dbb7]">
+                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#b7e3c4]">
                     Your Tribal18 community
                   </span>
                 </div>
@@ -96,31 +96,48 @@ export function Refined() {
                 {comparisonRows.map((row, index) => (
                   <div
                     key={row.social}
-                    className="contents"
+                    className="col-span-1 grid grid-cols-1 overflow-hidden rounded-xl border border-emerald-100/[0.11] sm:contents"
                     data-testid={`row-ownership-comparison-${index}`}
                   >
-                    <div className="flex min-h-[91px] items-start gap-2.5 border-b border-emerald-100/[0.075] px-4 py-5 text-[13px] leading-[1.55] text-[#94a39b] sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-sm">
-                      <Minus
-                        className="mt-[2px] h-3.5 w-3.5 shrink-0 text-[#73847a]"
-                        strokeWidth={1.6}
-                        aria-hidden="true"
-                      />
-                      <span>{row.social}</span>
+                    <div className="flex items-start gap-3 border-b border-emerald-100/[0.08] bg-[#101d17] px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:border-b sm:px-6 sm:py-6">
+                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.12] bg-[#17251e] sm:h-8 sm:w-8">
+                        <Minus
+                          className="h-4 w-4 text-[#87978e]"
+                          strokeWidth={1.7}
+                          aria-hidden="true"
+                        />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#9baaa1] sm:hidden">
+                          Traditional social platforms
+                        </span>
+                        <span className="block text-[15px] leading-[1.55] text-[#b2beb7] sm:text-[15px] sm:leading-[1.55]">
+                          {row.social}
+                        </span>
+                      </span>
                     </div>
-                    <div className="relative flex min-h-[91px] items-start gap-2.5 border-b border-l border-emerald-100/[0.075] bg-emerald-300/[0.035] px-4 py-5 text-[13px] font-medium leading-[1.55] text-[#e2eee6] sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-sm">
-                      <span className="absolute bottom-0 left-0 top-0 w-px bg-emerald-200/[0.14]" />
-                      <Check
-                        className="mt-[2px] h-3.5 w-3.5 shrink-0 text-[#8ed2a7]"
-                        strokeWidth={2}
-                        aria-hidden="true"
-                      />
-                      <span>{row.tribal}</span>
+                    <div className="relative flex items-start gap-3 border-l-[3px] border-[#78bd91] bg-[#153423] px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:border-b sm:border-l-[3px] sm:px-6 sm:py-6">
+                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#8ed2a7] text-[#12301f] sm:h-8 sm:w-8">
+                        <Check
+                          className="h-4 w-4"
+                          strokeWidth={2.4}
+                          aria-hidden="true"
+                        />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#b7e3c4] sm:hidden">
+                          Your Tribal18 community
+                        </span>
+                        <span className="block text-[16px] font-semibold leading-[1.5] text-[#f0f6f1] sm:text-[16px] sm:leading-[1.5]">
+                          {row.tribal}
+                        </span>
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="flex items-center justify-between gap-4 bg-[#12271c] px-4 py-4 sm:px-6">
-                <span className="text-[11px] font-medium leading-relaxed text-[#c5d8cb] sm:text-xs">
+              <div className="flex items-center justify-between gap-4 border-t border-emerald-100/[0.08] bg-[#12271c] px-4 py-4 sm:px-6">
+                <span className="text-xs font-medium leading-relaxed text-[#cfddd3] sm:text-[13px]">
                   One branded home for members, events and content.
                 </span>
                 <span className="hidden shrink-0 text-[9px] font-bold uppercase tracking-[0.18em] text-[#86c69e] sm:block">

@@ -299,14 +299,13 @@ function OwnershipSection() {
             className="relative overflow-hidden rounded-[1.35rem] border border-emerald-100/[0.12] bg-card/90 shadow-[0_28px_90px_rgba(0,0,0,0.28)]"
             data-testid="list-ownership-benefits"
           >
-            <div className="grid grid-cols-[1fr_1fr]">
-              <div className="flex min-h-[76px] items-end border-b border-emerald-100/[0.09] bg-muted/70 px-4 pb-4 pt-5 sm:px-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+              <div className="hidden min-h-[76px] items-end border-b border-emerald-100/[0.09] bg-muted/70 px-4 pb-4 pt-5 sm:flex sm:px-6">
                 <span className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   Traditional social platforms
                 </span>
               </div>
-              <div className="relative flex min-h-[76px] items-end border-b border-l border-emerald-100/[0.1] bg-emerald-900/60 px-4 pb-4 pt-5 sm:px-6">
-                <span className="absolute left-0 top-0 h-full w-px bg-emerald-200/50" aria-hidden="true" />
+              <div className="relative hidden min-h-[76px] items-end border-b border-l-[3px] border-emerald-300 bg-emerald-900/60 px-4 pb-4 pt-5 sm:flex sm:px-6">
                 <span className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-200">
                   Your Tribal18 community
                 </span>
@@ -314,25 +313,42 @@ function OwnershipSection() {
               {comparisonRows.map((row, index) => (
                 <div
                   key={row.social}
-                  className="contents"
+                  className="col-span-1 grid grid-cols-1 overflow-hidden rounded-xl border border-emerald-100/[0.11] sm:contents"
                   data-testid={`row-ownership-comparison-${index}`}
                 >
-                  <div className="flex min-h-[91px] items-start gap-2.5 border-b border-emerald-100/[0.075] px-4 py-5 text-[13px] leading-[1.55] text-muted-foreground sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-sm">
-                    <Minus
-                      className="mt-[2px] h-3.5 w-3.5 shrink-0 text-muted-foreground/70"
-                      strokeWidth={1.6}
-                      aria-hidden="true"
-                    />
-                    <span>{row.social}</span>
+                  <div className="flex items-start gap-3 border-b border-emerald-100/[0.08] bg-muted/30 px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:px-6 sm:py-6">
+                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.12] bg-muted/70 sm:h-8 sm:w-8">
+                      <Minus
+                        className="h-4 w-4 text-muted-foreground"
+                        strokeWidth={1.7}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-muted-foreground sm:hidden">
+                        Traditional social platforms
+                      </span>
+                      <span className="block text-[15px] leading-[1.55] text-muted-foreground">
+                        {row.social}
+                      </span>
+                    </span>
                   </div>
-                  <div className="relative flex min-h-[91px] items-start gap-2.5 border-b border-l border-emerald-100/[0.075] bg-emerald-300/[0.035] px-4 py-5 text-[13px] font-medium leading-[1.55] text-foreground/90 sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-sm">
-                    <span className="absolute bottom-0 left-0 top-0 w-px bg-emerald-200/[0.14]" aria-hidden="true" />
-                    <Check
-                      className="mt-[2px] h-3.5 w-3.5 shrink-0 text-emerald-300"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    />
-                    <span>{row.tribal}</span>
+                  <div className="relative flex items-start gap-3 border-l-[3px] border-emerald-300 bg-emerald-900/50 px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:border-b sm:px-6 sm:py-6">
+                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-300 text-emerald-950 sm:h-8 sm:w-8">
+                      <Check
+                        className="h-4 w-4"
+                        strokeWidth={2.4}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-emerald-200 sm:hidden">
+                        Your Tribal18 community
+                      </span>
+                      <span className="block text-base font-semibold leading-[1.5] text-foreground">
+                        {row.tribal}
+                      </span>
+                    </span>
                   </div>
                 </div>
               ))}
