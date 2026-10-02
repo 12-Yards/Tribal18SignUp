@@ -529,24 +529,24 @@ function BrandSection() {
 
 function AudiencesSection() {
   const audiences = [
-    { icon: Trophy, title: "Sports & fan communities", description: "Bring supporters and participants closer to the action." },
-    { icon: Users, title: "Membership organisations", description: "Give members a place to connect and get involved." },
-    { icon: Megaphone, title: "Creators & personal brands", description: "Build a direct community around your work and ideas." },
-    { icon: Heart, title: "Charities & causes", description: "Help supporters stay connected to your mission." },
-    { icon: Briefcase, title: "Brands & businesses", description: "Create a shared space for customers and advocates." },
-    { icon: Building2, title: "Associations & groups", description: "Bring people together around a common interest or purpose." },
+    { icon: Users, title: "Golf clubs & societies", description: "Bring members together for club updates, events and competitions." },
+    { icon: Trophy, title: "Golfers & fan communities", description: "Build stronger connections around clubs, players and the game." },
+    { icon: Heart, title: "Charity golf & causes", description: "Bring golf communities together to support charitable causes." },
+    { icon: CalendarDays, title: "Golf events & competitions", description: "Create shared experiences that keep players involved." },
+    { icon: Briefcase, title: "Golf brands & partners", description: "Connect golf communities with relevant partners and opportunities." },
+    { icon: Building2, title: "Golf associations", description: "Keep members and groups connected across the golf community." },
   ];
 
   return (
     <section className="py-20 lg:py-28" data-testid="section-audiences" aria-labelledby="heading-audiences">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Made for people who bring people together</p>
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Built around the golf community</p>
           <h2 id="heading-audiences" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-audiences">
-            One platform. Endless possibilities.
+            One platform. Every part of golf.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Whether your community is built around a shared passion, a membership or a mission, give it a place of its own.
+            From clubs and societies to charitable causes and golf events, give members a place to connect and get involved.
           </p>
         </div>
         <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -906,7 +906,7 @@ function FAQSection() {
     },
     {
       question: "Is Tribal18 only for golf communities?",
-      answer: "No. Tribal18 can support sports and fan communities, membership organisations, creators, charities, brands, businesses, associations and groups.",
+      answer: "Tribal18 is golf-focused, built for clubs, societies and the wider golf community. Its community and event tools can also help golf organisations support charitable causes.",
     },
     {
       question: "What do the plans cost?",
@@ -964,7 +964,7 @@ function Footer() {
                 <span className="text-xl font-bold">Tribal18</span>
               </div>
               <p className="text-sm text-muted-foreground max-w-md leading-relaxed" data-testid="text-footer-description">
-                Tribal18 is a leading community management software platform helping clubs and communities connect members, manage events and competitions, enable reciprocal play, and grow participation.
+                Tribal18 is a golf-focused community platform helping clubs and societies connect members, manage events and competitions, enable reciprocal play, and bring golf communities together to support charitable causes.
               </p>
             </div>
             <div>
