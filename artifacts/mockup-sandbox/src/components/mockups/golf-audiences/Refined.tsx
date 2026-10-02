@@ -46,7 +46,7 @@ const audienceGroups = [
   },
   {
     number: "03",
-    label: "Golf businesses & organisations",
+    label: "Businesses & organisations",
     icon: Briefcase,
     items: [
       {

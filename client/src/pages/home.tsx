@@ -374,7 +374,7 @@ function AudiencesSection() {
     },
     {
       number: "03",
-      label: "Golf businesses & organisations",
+      label: "Businesses & organisations",
       icon: Briefcase,
       items: [
         { icon: Briefcase, title: "Golf brands & partners", description: "Connect golf communities with relevant partners and opportunities." },
