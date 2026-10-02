@@ -25,7 +25,6 @@ import {
 const heroSlides = [
   {
     label: "Tribal18 golf community platform",
-    eyebrow: "The golf community platform",
     titlePrefix: "Built to Help Your",
     titleAccent: "Golf Community",
     titleSuffix: "Flourish",
@@ -34,7 +33,6 @@ const heroSlides = [
   },
   {
     label: "Slide 2 content coming soon",
-    eyebrow: "Slide 2 · Content TBC",
     titlePrefix: "Slide 2",
     titleAccent: "Content TBC",
     titleSuffix: "",
@@ -43,7 +41,6 @@ const heroSlides = [
   },
   {
     label: "Slide 3 content coming soon",
-    eyebrow: "Slide 3 · Content TBC",
     titlePrefix: "Slide 3",
     titleAccent: "Content TBC",
     titleSuffix: "",
@@ -133,9 +130,6 @@ function HeroSection() {
               className="space-y-5 sm:space-y-7 md:space-y-9"
               data-testid={`hero-slide-${activeSlide + 1}`}
             >
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300" data-testid="text-hero-eyebrow">
-              {slide.eyebrow}
-            </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white" data-testid="heading-hero">
               {slide.titlePrefix}{" "}
               <span className="text-emerald-300">{slide.titleAccent}</span>{" "}
