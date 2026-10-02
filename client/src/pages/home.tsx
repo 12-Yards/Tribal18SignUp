@@ -29,10 +29,12 @@ import {
   Settings,
   Rocket,
   Layers,
+  TrendingUp,
   Heart,
   Building2,
   Briefcase
 } from "lucide-react";
+import { HomeProofSection } from "@/components/home-proof-section";
 
 function Header() {
   return (
@@ -264,48 +266,6 @@ function OwnershipSection() {
   );
 }
 
-function ValueSection() {
-  const valueFeatures = [
-    { icon: Users, title: "Memberships", description: "Bring members into a shared community experience." },
-    { icon: CalendarDays, title: "Events", description: "Give people a reason to meet, take part and return." },
-    { icon: Trophy, title: "Rewards", description: "Recognise participation with rewards and points." },
-    { icon: Store, title: "Marketplace", description: "Connect your community with relevant offers and opportunities." },
-    { icon: Handshake, title: "Partners", description: "Build partner relationships into your community experience." },
-    { icon: CircleDollarSign, title: "Payments", description: "Support paid memberships and other community payments." },
-  ];
-
-  return (
-    <section className="py-20 lg:py-28" data-testid="section-value" aria-labelledby="heading-value">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Engagement that adds value</p>
-          <h2 id="heading-value" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-value">
-            Turn engagement into value.
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Make it easier for members to take part—and create more ways for your community to deliver value.
-          </p>
-        </div>
-        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {valueFeatures.map((feature, index) => (
-            <Card key={feature.title} className="h-full border-border/60 bg-card/70 transition-colors hover:border-emerald-500/40" data-testid={`card-value-${index}`}>
-              <CardContent className="flex h-full items-start gap-4 p-5 sm:p-6">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
-                  <feature.icon className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">{feature.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function BrandSection() {
   const brandBenefits = [
     { icon: Link2, title: "Your URL", description: "A custom URL is included with every plan." },
@@ -495,51 +455,6 @@ function HowItWorksSection() {
   );
 }
 
-function PlatformSection() {
-  const capabilities = [
-    { icon: Users, title: "Community", description: "Bring members together in one shared space." },
-    { icon: BookOpen, title: "Content", description: "Publish updates and useful content for your members." },
-    { icon: MessageCircle, title: "Engagement", description: "Use events, competitions, polls and other activities to invite participation." },
-    { icon: Award, title: "Rewards", description: "Recognise involvement with points, leaderboards and rewards." },
-    { icon: CreditCard, title: "Monetisation", description: "Support memberships and payments as part of your community." },
-    { icon: Settings, title: "Administration", description: "Manage community activity from a central platform." },
-    { icon: Link2, title: "Integrations", description: "Talk with the Tribal18 team about integration and API options." },
-  ];
-
-  return (
-    <section className="py-20 lg:py-28" data-testid="section-platform" aria-labelledby="heading-platform">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Everything under one roof</p>
-            <h2 id="heading-platform" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl" data-testid="heading-platform">
-              Everything you need to run your community.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Bring the essential parts of your community experience into one branded platform, instead of stitching together disconnected tools.
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {capabilities.map((capability, index) => (
-              <Card key={capability.title} className="border-border/60 bg-card/60" data-testid={`card-platform-${index}`}>
-                <CardContent className="flex items-start gap-4 p-5">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400">
-                    <capability.icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">{capability.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{capability.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function CTASection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-emerald-600 to-sky-600 py-16 lg:py-24" data-testid="section-cta">
@@ -571,116 +486,6 @@ function CTASection() {
   );
 }
 
-function EngagementSection() {
-  return (
-    <section className="overflow-hidden border-y border-border/50 bg-muted/20 py-20 lg:py-28" data-testid="section-engagement" aria-labelledby="heading-engagement">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Built for participation</p>
-            <h2 id="heading-engagement" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-engagement">
-              Real community.
-              <span className="mt-1 block text-emerald-400">Real engagement.</span>
-            </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Community is more than a feed. Give people useful reasons to show up, take part and stay connected through conversations, content, events and shared activities.
-            </p>
-            <ul className="mt-7 space-y-3">
-              {["Share updates members care about", "Bring people together around events and activities", "Give members ways to contribute and connect"].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm font-medium">
-                  <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" aria-hidden="true" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-border/60 bg-background p-4 shadow-xl shadow-black/5 sm:p-6" data-testid="engagement-product-visual">
-            <div className="flex items-center justify-between border-b border-border/60 pb-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.13em] text-emerald-500">Community home</p>
-                <p className="mt-1 text-lg font-bold">What&apos;s happening</p>
-              </div>
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500">
-                <Users className="h-4 w-4" aria-hidden="true" />
-              </div>
-            </div>
-            <div className="mt-4 space-y-3">
-              <div className="rounded-xl border border-border/60 p-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-500/10 text-sky-500">
-                    <FileText className="h-4 w-4" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold">A community update</p>
-                    <p className="text-xs text-muted-foreground">News and content for members</p>
-                  </div>
-                </div>
-                <div className="mt-4 h-2 w-full rounded-full bg-muted-foreground/15" />
-                <div className="mt-2 h-2 w-4/5 rounded-full bg-muted-foreground/10" />
-                <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
-                  <span className="inline-flex items-center gap-1.5"><MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />Conversation</span>
-                  <span className="inline-flex items-center gap-1.5"><Award className="h-3.5 w-3.5" aria-hidden="true" />Participation</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl border border-border/60 p-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-violet-500/10 text-violet-400">
-                  <CalendarDays className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-semibold">An event to look forward to</p>
-                  <p className="mt-1 text-xs text-muted-foreground">Share details and invite members to join in</p>
-                </div>
-                <ArrowRight className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GrowthSection() {
-  const growthStages = [
-    { icon: Rocket, title: "Start", description: "Create a home for your community and bring your first members together." },
-    { icon: Users, title: "Grow", description: "Build participation through content, events and community activity." },
-    { icon: CircleDollarSign, title: "Monetise", description: "Explore memberships, payments, partners and marketplace opportunities." },
-    { icon: TrendingUp, title: "Scale", description: "Develop your community experience as your needs and ambitions evolve." },
-  ];
-
-  return (
-    <section className="py-20 lg:py-28" data-testid="section-growth" aria-labelledby="heading-growth">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Your community, at every stage</p>
-          <h2 id="heading-growth" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-growth">
-            Built to grow.
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Start with what your community needs today. Keep building as it grows.
-          </p>
-        </div>
-        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {growthStages.map((stage, index) => (
-            <Card key={stage.title} className="relative h-full border-border/60 bg-card/70" data-testid={`card-growth-${index}`}>
-              <CardContent className="p-5 sm:p-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
-                  <stage.icon className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <h3 className="mt-5 text-lg font-semibold">{stage.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{stage.description}</p>
-              </CardContent>
-              {index < growthStages.length - 1 && (
-                <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 -translate-y-1/2 text-emerald-500 lg:block" aria-hidden="true" />
-              )}
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function PricingSection() {
   return (
     <section id="pricing" className="pt-5 lg:pt-7 pb-20 lg:pb-28" data-testid="section-pricing">
@@ -690,7 +495,7 @@ function PricingSection() {
             Choose your Plan
           </h2>
           <p className="text-muted-foreground text-lg" data-testid="text-pricing-description">
-            Choose the plan that fits your golf community. Paid plans start with 30 days free.
+            Choose the plan that fits your golf community.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -751,10 +556,10 @@ function PricingSection() {
               <div className="text-center mb-6">
                 <h3 className="font-semibold text-lg mb-2" data-testid="heading-plan-enterprise">Enterprise</h3>
                 <div className="text-4xl font-bold mb-1" data-testid="text-price-enterprise">£150<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
-                <div className="text-sm text-muted-foreground">£1,800 billed annually</div>
+                <div className="text-sm text-muted-foreground">£1,800 per year, billed annually</div>
                 <div className="mt-3 rounded-lg bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
                   Free for the first 30 days
-                  <span className="mt-1 block text-xs font-normal">Then £1,800 per year, billed annually</span>
+                  <span className="mt-1 block text-xs font-normal">After 30 days: £1,800 per year, billed annually</span>
                   <span className="mt-1 block text-xs font-normal">No card details needed to go live</span>
                 </div>
               </div>
@@ -807,7 +612,7 @@ function FAQSection() {
     },
     {
       question: "What do the plans cost?",
-      answer: "Starter is free forever. Professional is £49 per month, billed monthly after the first 30 days free. Enterprise is £150 per month equivalent (£1,800 billed annually) after the first 30 days free. No card details are needed to go live.",
+      answer: "Starter is free forever. Professional is £49 per month, billed monthly after the first 30 days free. Enterprise is £150 per month equivalent (£1,800 per year, billed annually) after the first 30 days free. No card details are needed to go live.",
     },
     {
       question: "Can I connect other tools or use the API?",
