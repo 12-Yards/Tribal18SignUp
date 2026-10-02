@@ -99,7 +99,7 @@ export function Refined() {
                     className="contents"
                     data-testid={`row-ownership-comparison-${index}`}
                   >
-                    <div className="flex min-h-[91px] items-start gap-2.5 border-b border-emerald-100/[0.075] px-4 py-5 text-[12px] leading-[1.55] text-[#94a39b] sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-[13px]">
+                    <div className="flex min-h-[91px] items-start gap-2.5 border-b border-emerald-100/[0.075] px-4 py-5 text-[13px] leading-[1.55] text-[#94a39b] sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-sm">
                       <Minus
                         className="mt-[2px] h-3.5 w-3.5 shrink-0 text-[#73847a]"
                         strokeWidth={1.6}
@@ -107,7 +107,7 @@ export function Refined() {
                       />
                       <span>{row.social}</span>
                     </div>
-                    <div className="relative flex min-h-[91px] items-start gap-2.5 border-b border-l border-emerald-100/[0.075] bg-emerald-300/[0.035] px-4 py-5 text-[12px] font-medium leading-[1.55] text-[#e2eee6] sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-[13px]">
+                    <div className="relative flex min-h-[91px] items-start gap-2.5 border-b border-l border-emerald-100/[0.075] bg-emerald-300/[0.035] px-4 py-5 text-[13px] font-medium leading-[1.55] text-[#e2eee6] sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-sm">
                       <span className="absolute bottom-0 left-0 top-0 w-px bg-emerald-200/[0.14]" />
                       <Check
                         className="mt-[2px] h-3.5 w-3.5 shrink-0 text-[#8ed2a7]"
