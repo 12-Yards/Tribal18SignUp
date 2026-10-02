@@ -135,7 +135,7 @@ function FeaturesSection() {
     {
       icon: Award,
       title: "Rewards",
-      description: "Points · Leaderboards · Rewards · Marketplace",
+      description: "Earn Points · Leaderboards · Redeem · Marketplace · Donate",
       colorClass: "bg-amber-500/10 text-amber-400",
     },
     {
