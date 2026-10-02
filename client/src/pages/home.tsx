@@ -47,28 +47,22 @@ import {
 
 const heroSlides = [
   {
-    label: "Tribal18 golf community platform",
-    titlePrefix: "Built to Help Your",
-    titleAccent: "Golf Community",
-    titleSuffix: "Flourish",
-    description:
-      "Bring members together with tools for community, competitions, events, and reciprocal play—all in one platform built for clubs and golf societies.",
+    label: "OWN",
+    titlePrefix: "Your community.",
+    titleAccent: "Your platform.",
+    titleSuffix: "Your opportunity.",
   },
   {
-    label: "A home for your community",
-    titlePrefix: "Give Your",
-    titleAccent: "Community",
-    titleSuffix: "A Home of Its Own",
-    description:
-      "Bring members, content and events together in a branded Tribal18 community at your own URL.",
+    label: "CONTROL",
+    titlePrefix: "Stop renting your community.",
+    titleAccent: "Own it.",
+    titleSuffix: "",
   },
   {
-    label: "Turn engagement into value",
-    titlePrefix: "Turn",
-    titleAccent: "Engagement",
-    titleSuffix: "Into Value",
-    description:
-      "Build participation through memberships, events and rewards, with tools to support payments and partner opportunities.",
+    label: "GROW",
+    titlePrefix: "Turn your audience into a",
+    titleAccent: "thriving community.",
+    titleSuffix: "",
   },
 ];
 
@@ -153,14 +147,14 @@ function HeroSection() {
               className="space-y-5 sm:space-y-7 md:space-y-9"
               data-testid={`hero-slide-${activeSlide + 1}`}
             >
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300" data-testid="text-hero-eyebrow">
+              {slide.label}
+            </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white" data-testid="heading-hero">
               {slide.titlePrefix}{" "}
               <span className="text-emerald-300">{slide.titleAccent}</span>{" "}
               {slide.titleSuffix}
             </h1>
-            <p className="text-base md:text-xl text-white/80 max-w-2xl leading-relaxed" data-testid="text-hero-description">
-              {slide.description}
-            </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button size="lg" variant="outline" asChild className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
                 <Link href="/contact">
