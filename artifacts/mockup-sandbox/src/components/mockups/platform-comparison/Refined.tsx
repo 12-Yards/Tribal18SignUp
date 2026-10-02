@@ -50,12 +50,9 @@ export function Refined() {
         <div className="container relative mx-auto px-4 sm:px-6">
           <div className="mx-auto grid max-w-7xl items-center gap-11 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
             <div className="max-w-xl">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-9 bg-emerald-300/80" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-200/80">
-                  A better home for the club
-                </span>
-              </div>
+              <p className="mb-6 text-sm font-bold uppercase tracking-[0.16em] text-[#87c7a0]">
+                A better home for your community
+              </p>
               <h2
                 id="heading-ownership"
                 className="text-[2.65rem] font-semibold leading-[1.04] tracking-[-0.045em] sm:text-5xl lg:text-[3.45rem]"
@@ -85,14 +82,13 @@ export function Refined() {
             >
               <div className="grid grid-cols-[1fr_1fr]">
                 <div className="flex min-h-[76px] items-end border-b border-emerald-100/[0.09] bg-[#101d17] px-4 pb-4 pt-5 sm:px-6">
-                  <span className="text-[9px] font-bold uppercase leading-relaxed tracking-[0.17em] text-[#87968d] sm:text-[10px]">
-                    Traditional social
-                    <br className="sm:hidden" /> platforms
+                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#87968d]">
+                    Traditional social platforms
                   </span>
                 </div>
                 <div className="relative flex min-h-[76px] items-end border-b border-l border-emerald-100/[0.1] bg-[#173c2b] px-4 pb-4 pt-5 sm:px-6">
                   <span className="absolute left-0 top-0 h-full w-px bg-emerald-200/50" />
-                  <span className="text-[9px] font-bold uppercase leading-relaxed tracking-[0.17em] text-[#a7dbb7] sm:text-[10px]">
+                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#a7dbb7]">
                     Your Tribal18 community
                   </span>
                 </div>
