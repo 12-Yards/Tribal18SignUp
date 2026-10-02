@@ -88,7 +88,7 @@ export function Current() {
               >
                 <CardContent className="flex h-full flex-col p-5 sm:p-6">
                   <div className="flex items-center justify-between gap-4">
-                    <p className="text-xs font-bold uppercase tracking-[0.17em] text-emerald-300">
+                    <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-300">
                       {group.label}
                     </p>
                     <span className="font-mono text-xs tracking-[0.14em] text-muted-foreground/60">

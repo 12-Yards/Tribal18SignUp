@@ -65,7 +65,7 @@ function HeroSection() {
               </Button>
               <Button size="lg" variant="outline" asChild className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
                 <Link href="/contact">
-                  Book a Demo
+                  View Demo
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
@@ -462,7 +462,7 @@ function AudiencesSection() {
                     {group.number}
                   </span>
                 </div>
-                <p className="relative mt-5 text-[11px] font-bold uppercase tracking-[0.17em] text-emerald-300">
+                <p className="section-eyebrow relative mt-5">
                   {group.label}
                 </p>
                 <div className="relative mt-5 divide-y divide-border/80">

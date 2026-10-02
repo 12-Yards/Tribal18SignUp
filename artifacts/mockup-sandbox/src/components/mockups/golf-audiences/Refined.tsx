@@ -145,7 +145,7 @@ export function Refined() {
                   </span>
                 </div>
 
-                <p className="relative mt-5 text-[11px] font-bold uppercase tracking-[0.17em] text-emerald-300">
+                <p className="relative mt-5 text-sm font-bold uppercase tracking-[0.16em] text-emerald-300">
                   {group.label}
                 </p>
 
