@@ -13,6 +13,7 @@ import {
   CreditCard,
   Smartphone,
   CheckCircle,
+  ArrowDown,
   ArrowRight,
   CalendarDays,
   Trophy,
@@ -503,34 +504,72 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section className="border-y border-border/50 bg-muted/20 py-20 lg:py-28" data-testid="section-how-it-works" aria-labelledby="heading-how-it-works">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="section-eyebrow">A clear path from idea to launch</p>
-          <h2 id="heading-how-it-works" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-how-it-works">
+    <section
+      className="relative isolate overflow-hidden border-y border-border/50 bg-[radial-gradient(ellipse_at_50%_0%,rgba(43,89,63,0.22),transparent_62%)] py-16 sm:py-20 lg:py-28"
+      data-testid="section-how-it-works"
+      aria-labelledby="heading-how-it-works"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 opacity-[0.13]">
+        <div className="absolute -left-32 top-20 h-72 w-72 rounded-full border border-emerald-100/30" />
+        <div className="absolute -left-20 top-32 h-48 w-48 rounded-full border border-emerald-100/25" />
+        <div className="absolute -right-40 bottom-[-12rem] h-[28rem] w-[28rem] rounded-full border border-emerald-100/30" />
+      </div>
+
+      <div className="container mx-auto px-5 sm:px-8">
+        <header className="mx-auto max-w-3xl text-center">
+          <p className="section-eyebrow inline-flex items-center gap-3">
+            <span className="h-px w-7 bg-emerald-300/50" aria-hidden="true" />
+            A clear path from idea to launch
+            <span className="h-px w-7 bg-emerald-300/50" aria-hidden="true" />
+          </p>
+          <h2
+            id="heading-how-it-works"
+            className="mt-4 text-[2.65rem] font-semibold leading-[1.04] tracking-[-0.045em] sm:text-5xl lg:text-[3.45rem]"
+            data-testid="heading-how-it-works"
+          >
             How it works.
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-5 max-w-[38rem] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
             Create, configure, launch and grow your community—with no technical team required.
           </p>
-        </div>
-        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        </header>
+
+        <div className="mx-auto mt-11 grid max-w-6xl gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           {steps.map((step, index) => (
             <div key={step.title} className="relative" data-testid={`step-how-it-works-${index}`}>
-              <Card className="h-full border-border/60 bg-background/80">
-                <CardContent className="p-5 sm:p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
-                      <step.icon className="h-5 w-5" aria-hidden="true" />
+              <Card className="group relative h-full overflow-hidden rounded-[1.15rem] border border-emerald-100/[0.11] bg-gradient-to-br from-card via-card to-emerald-950/30 text-foreground shadow-[0_16px_40px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:-translate-y-1">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/55 to-transparent"
+                />
+                <CardContent className="flex min-h-[176px] flex-col p-5 sm:min-h-[190px] sm:p-6">
+                  <div className="flex items-start justify-between">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-[0.85rem] border border-emerald-200/15 bg-emerald-300/[0.12] text-emerald-200 transition-colors duration-300 group-hover:bg-emerald-300/20">
+                      <step.icon className="h-[1.15rem] w-[1.15rem]" aria-hidden="true" />
                     </div>
-                    <span className="text-sm font-bold tracking-widest text-muted-foreground/60">{step.number}</span>
+                    <span className="font-mono text-[0.7rem] font-semibold tracking-[0.16em] text-muted-foreground/80">
+                      {step.number}
+                    </span>
                   </div>
-                  <h3 className="mt-6 text-lg font-semibold">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+                  <h3 className="mt-5 text-[1.08rem] font-semibold tracking-[-0.02em] text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-[0.84rem] leading-[1.65] text-muted-foreground">
+                    {step.description}
+                  </p>
                 </CardContent>
               </Card>
               {index < steps.length - 1 && (
-                <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 -translate-y-1/2 text-emerald-500 lg:block" aria-hidden="true" />
+                <>
+                  <ArrowRight
+                    className="absolute -right-[0.7rem] top-1/2 z-10 hidden h-5 w-5 -translate-y-1/2 text-emerald-300 lg:block"
+                    aria-hidden="true"
+                  />
+                  <ArrowDown
+                    className="absolute -bottom-[0.68rem] left-1/2 z-10 h-5 w-5 -translate-x-1/2 text-emerald-300 sm:hidden"
+                    aria-hidden="true"
+                  />
+                </>
               )}
             </div>
           ))}
@@ -600,8 +639,19 @@ function PricingSection() {
                 ))}
               </div>
               <Link href="/create-account" className="mt-auto">
-                <Button size="lg" className="w-full whitespace-normal leading-tight" data-testid="button-pricing-go-live-starter">
-                  Go Live Now - free forever
+                <Button
+                  size="lg"
+                  className="h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
+                  data-testid="button-pricing-go-live-starter"
+                  aria-label="Go Live Now. Free forever."
+                >
+                  <span className="flex flex-col items-center gap-1 text-center">
+                    <span className="text-sm font-semibold">Go Live Now</span>
+                    <span className="inline-flex items-baseline gap-1.5 text-sm leading-tight">
+                      <span className="font-extrabold text-emerald-700">Free</span>
+                      <span className="font-medium text-primary-foreground/75">forever</span>
+                    </span>
+                  </span>
                 </Button>
               </Link>
             </CardContent>
@@ -625,8 +675,19 @@ function PricingSection() {
                 ))}
               </div>
               <Link href="/create-account" className="mt-auto">
-                <Button size="lg" className="w-full whitespace-normal leading-tight" data-testid="button-pricing-go-live-professional">
-                  Go Live Now - free for 30 days
+                <Button
+                  size="lg"
+                  className="h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
+                  data-testid="button-pricing-go-live-professional"
+                  aria-label="Go Live Now. Free for 30 days."
+                >
+                  <span className="flex flex-col items-center gap-1 text-center">
+                    <span className="text-sm font-semibold">Go Live Now</span>
+                    <span className="inline-flex items-baseline gap-1.5 text-sm leading-tight">
+                      <span className="font-extrabold text-emerald-700">Free</span>
+                      <span className="font-medium text-primary-foreground/75">for 30 days</span>
+                    </span>
+                  </span>
                 </Button>
               </Link>
             </CardContent>
@@ -647,8 +708,19 @@ function PricingSection() {
                 ))}
               </div>
               <Link href="/create-account" className="mt-auto">
-                <Button size="lg" className="w-full whitespace-normal leading-tight" data-testid="button-pricing-go-live-enterprise">
-                  Go Live Now - free for 30 days
+                <Button
+                  size="lg"
+                  className="h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
+                  data-testid="button-pricing-go-live-enterprise"
+                  aria-label="Go Live Now. Free for 30 days."
+                >
+                  <span className="flex flex-col items-center gap-1 text-center">
+                    <span className="text-sm font-semibold">Go Live Now</span>
+                    <span className="inline-flex items-baseline gap-1.5 text-sm leading-tight">
+                      <span className="font-extrabold text-emerald-700">Free</span>
+                      <span className="font-medium text-primary-foreground/75">for 30 days</span>
+                    </span>
+                  </span>
                 </Button>
               </Link>
             </CardContent>
