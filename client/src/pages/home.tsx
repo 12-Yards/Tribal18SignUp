@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -22,48 +22,17 @@ import {
   Globe,
   CheckCircle,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  Pause,
-  Play,
   Palette,
-  MessageCircle,
   CalendarDays,
   Trophy,
-  Store,
-  Handshake,
-  CircleDollarSign,
   Link2,
   Settings,
   Rocket,
-  TrendingUp,
   Layers,
   Heart,
   Building2,
-  Briefcase,
-  BookOpen
+  Briefcase
 } from "lucide-react";
-
-const heroSlides = [
-  {
-    label: "OWN",
-    titlePrefix: "Your community.",
-    titleAccent: "Your platform.",
-    titleSuffix: "Your opportunity.",
-  },
-  {
-    label: "CONTROL",
-    titlePrefix: "Stop renting your community.",
-    titleAccent: "Own it.",
-    titleSuffix: "",
-  },
-  {
-    label: "GROW",
-    titlePrefix: "Turn your audience into a",
-    titleAccent: "thriving community.",
-    titleSuffix: "",
-  },
-];
 
 function Header() {
   return (
@@ -93,39 +62,11 @@ function Header() {
 }
 
 function HeroSection() {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [rotationPaused, setRotationPaused] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const slide = heroSlides[activeSlide];
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updatePreference = (event?: MediaQueryListEvent) => {
-      setPrefersReducedMotion(event?.matches ?? mediaQuery.matches);
-    };
-    updatePreference();
-    mediaQuery.addEventListener("change", updatePreference);
-    return () => mediaQuery.removeEventListener("change", updatePreference);
-  }, []);
-
-  useEffect(() => {
-    if (rotationPaused || prefersReducedMotion) return;
-    const interval = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 7000);
-    return () => window.clearInterval(interval);
-  }, [activeSlide, prefersReducedMotion, rotationPaused]);
-
-  const showSlide = (index: number) => {
-    setActiveSlide((index + heroSlides.length) % heroSlides.length);
-  };
-
   return (
     <section
       className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-slate-950 pt-24 pb-16"
       data-testid="section-hero"
-      aria-label="Tribal18 featured content"
-      aria-roledescription="carousel"
+      aria-labelledby="heading-hero"
     >
       <img
         src={heroBackgroundPath}
@@ -137,92 +78,32 @@ function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,10,7,0.94)_0%,rgba(3,10,7,0.78)_42%,rgba(3,10,7,0.24)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/15" />
       <div className="container mx-auto flex w-full items-center px-6">
-        <div className="max-w-3xl space-y-5 sm:space-y-7 md:space-y-9" aria-live={rotationPaused || prefersReducedMotion ? "polite" : "off"}>
-            <div
-              key={`hero-copy-${activeSlide}`}
-              role="group"
-              aria-roledescription="slide"
-              aria-label={`Slide ${activeSlide + 1} of ${heroSlides.length}: ${slide.label}`}
-              className="space-y-5 sm:space-y-7 md:space-y-9"
-              data-testid={`hero-slide-${activeSlide + 1}`}
-            >
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300" data-testid="text-hero-eyebrow">
-              {slide.label}
+        <div className="max-w-3xl space-y-5 sm:space-y-7 md:space-y-9">
+          <div className="space-y-5 sm:space-y-7 md:space-y-9">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-300" data-testid="text-hero-eyebrow">
+              For golf clubs, societies and events
             </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white" data-testid="heading-hero">
-              {slide.titlePrefix}{" "}
-              <span className="text-emerald-300">{slide.titleAccent}</span>{" "}
-              {slide.titleSuffix}
+            <h1 id="heading-hero" className="text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl" data-testid="heading-hero">
+              Bring your <span className="text-emerald-300">golf community</span> together.
             </h1>
+            <p className="max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+              A branded home for members, content and events, with a custom URL and access on web, Android and iOS.
+            </p>
             <div className="flex flex-wrap items-center gap-4">
+              <Button size="lg" asChild className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-go-live-hero">
+                <Link href="/create-account">
+                  Go Live Now
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
               <Button size="lg" variant="outline" asChild className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
                 <Link href="/contact">
                   Book a Demo
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
-              <Button size="lg" asChild className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-sign-up">
-                <Link href="/create-account">
-                  Go Live Now
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
             </div>
-            </div>
-            <div className="flex items-center gap-2" aria-label="Carousel controls" data-testid="hero-carousel-controls">
-              <Button
-                type="button"
-                variant="outline"
-                size="icon"
-                className="h-9 w-9 rounded-full border-white/40 bg-black/20 p-0 text-white hover:bg-white/15 hover:text-white"
-                aria-label="Previous hero slide"
-                onClick={() => showSlide(activeSlide - 1)}
-                data-testid="button-hero-previous"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              {heroSlides.map((item, index) => (
-                <button
-                  key={item.label}
-                  type="button"
-                  className="flex h-9 items-center justify-center rounded-full px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                  aria-label={`Show slide ${index + 1}: ${item.label}`}
-                  aria-pressed={activeSlide === index}
-                  onClick={() => showSlide(index)}
-                  data-testid={`button-hero-slide-${index + 1}`}
-                >
-                  <span
-                    className={`h-2 rounded-full transition-all ${activeSlide === index ? "w-6 bg-emerald-300" : "w-2 bg-white/50"}`}
-                    aria-hidden="true"
-                  />
-                </button>
-              ))}
-              {!prefersReducedMotion && (
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="icon"
-                  className="h-9 w-9 rounded-full border-white/40 bg-black/20 p-0 text-white hover:bg-white/15 hover:text-white"
-                  aria-label={rotationPaused ? "Resume slide rotation" : "Pause slide rotation"}
-                  aria-pressed={rotationPaused}
-                  onClick={() => setRotationPaused((paused) => !paused)}
-                  data-testid="button-hero-rotation"
-                >
-                  {rotationPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
-                </Button>
-              )}
-              <Button
-                type="button"
-                variant="outline"
-                size="icon"
-                className="h-9 w-9 rounded-full border-white/40 bg-black/20 p-0 text-white hover:bg-white/15 hover:text-white"
-                aria-label="Next hero slide"
-                onClick={() => showSlide(activeSlide + 1)}
-                data-testid="button-hero-next"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -315,10 +196,10 @@ function FeaturesSection() {
 
 function OwnershipSection() {
   const comparisonRows = [
-    {
-      social: "A profile and feed inside someone else’s platform",
-      tribal: "A branded home built around your community",
-    },
+      {
+        social: "A profile and feed inside someone else’s platform",
+        tribal: "A branded space designed around your community",
+      },
     {
       social: "Platform rules and algorithms shape the experience",
       tribal: "Custom URL and access on Android, iOS and web",
@@ -344,11 +225,11 @@ function OwnershipSection() {
               className="text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl"
               data-testid="heading-ownership"
             >
-              Own your community.
-              <span className="mt-1 block text-emerald-400">Don&apos;t rent it.</span>
+              A home for your golf community.
+              <span className="mt-1 block text-emerald-400">Built around your brand.</span>
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              When your audience lives on third-party social platforms, the rules, reach and experience can change without you. Tribal18 gives your community a home designed around your brand, your members and the way you want to bring people together.
+              Social profiles and feeds can help people discover you, but they are not a dedicated space for your members. Tribal18 brings community, content, events and membership tools together in a branded experience on a custom URL.
             </p>
           </div>
 
@@ -431,7 +312,7 @@ function BrandSection() {
     { icon: Palette, title: "Your branding", description: "Create a community experience that reflects your identity." },
     { icon: Globe, title: "Web access", description: "Members can access Tribal18 on the web." },
     { icon: Smartphone, title: "Android & iOS", description: "Members can also access Tribal18 on Android and iOS." },
-    { icon: Users, title: "Your community and data", description: "Build direct relationships with the people who choose to join." },
+    { icon: Users, title: "Member relationships", description: "Build direct relationships with the people who choose to join." },
   ];
 
   return (
@@ -666,10 +547,10 @@ function CTASection() {
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white" data-testid="heading-cta">
-            Your audience is already there. Give them somewhere to belong.
+            Give your golf community a place to come together.
           </h2>
           <p className="text-white/90 text-lg mb-8">
-            Build a community you own, control and grow with Tribal18.
+            Bring members together around content, events and activities in one branded place.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/create-account">
@@ -809,7 +690,7 @@ function PricingSection() {
             Choose your Plan
           </h2>
           <p className="text-muted-foreground text-lg" data-testid="text-pricing-description">
-            Choose the plan that fits your golf community.
+            Choose the plan that fits your golf community. Paid plans start with 30 days free.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -846,6 +727,7 @@ function PricingSection() {
                 <div className="text-sm text-muted-foreground">Billed monthly</div>
                 <div className="mt-3 rounded-lg bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
                   Free for the first 30 days
+                  <span className="mt-1 block text-xs font-normal">Then £49/month, billed monthly</span>
                   <span className="mt-1 block text-xs font-normal">No card details needed to go live</span>
                 </div>
               </div>
@@ -869,9 +751,10 @@ function PricingSection() {
               <div className="text-center mb-6">
                 <h3 className="font-semibold text-lg mb-2" data-testid="heading-plan-enterprise">Enterprise</h3>
                 <div className="text-4xl font-bold mb-1" data-testid="text-price-enterprise">£150<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
-                <div className="text-sm text-muted-foreground">Billed annually</div>
+                <div className="text-sm text-muted-foreground">£1,800 billed annually</div>
                 <div className="mt-3 rounded-lg bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
                   Free for the first 30 days
+                  <span className="mt-1 block text-xs font-normal">Then £1,800 per year, billed annually</span>
                   <span className="mt-1 block text-xs font-normal">No card details needed to go live</span>
                 </div>
               </div>
@@ -924,7 +807,7 @@ function FAQSection() {
     },
     {
       question: "What do the plans cost?",
-      answer: "Starter is free forever. Professional and Enterprise plans are paid plans with the first 30 days free. See the pricing cards for billing details and included features.",
+      answer: "Starter is free forever. Professional is £49 per month, billed monthly after the first 30 days free. Enterprise is £150 per month equivalent (£1,800 billed annually) after the first 30 days free. No card details are needed to go live.",
     },
     {
       question: "Can I connect other tools or use the API?",
@@ -1047,14 +930,11 @@ export default function Home() {
       <main>
         <HeroSection />
         <FeaturesSection />
+        <HomeProofSection />
         <OwnershipSection />
-        <ValueSection />
         <BrandSection />
         <AudiencesSection />
         <HowItWorksSection />
-        <PlatformSection />
-        <EngagementSection />
-        <GrowthSection />
         <PricingSection />
         <FAQSection />
         <CTASection />
