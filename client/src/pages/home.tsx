@@ -58,17 +58,17 @@ function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,10,7,0.94)_0%,rgba(3,10,7,0.78)_42%,rgba(3,10,7,0.24)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/15" />
       <div className="container mx-auto flex w-full items-center px-6">
-        <div className="max-w-3xl space-y-7 md:space-y-9">
+        <div className="max-w-3xl space-y-5 sm:space-y-7 md:space-y-9">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300" data-testid="text-hero-eyebrow">
               The golf community platform
             </p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white" data-testid="heading-hero">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white" data-testid="heading-hero">
               Built to Help Your{" "}
               <span className="text-emerald-300">Golf Community</span>{" "}
               Flourish
             </h1>
             <p className="text-base md:text-xl text-white/80 max-w-2xl leading-relaxed" data-testid="text-hero-description">
-              Build a thriving golfing community with Tribal18. Our web and mobile platform gives clubs, societies and golf communities everything they need to manage members, organise competitions and events, connect golfers, arrange games and keep members engaged.
+              Bring members together with tools for community, competitions, events, and reciprocal play—all in one platform built for clubs and golf societies.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button size="lg" variant="outline" asChild className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
