@@ -599,11 +599,6 @@ function PricingSection() {
                 <h3 className="font-semibold text-lg mb-2" data-testid="heading-plan-professional">Professional</h3>
                 <div className="text-4xl font-bold mb-1" data-testid="text-price-professional">£49<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
                 <div className="text-sm text-muted-foreground">Billed monthly</div>
-                <div className="mt-3 rounded-lg bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                  Free for the first 30 days
-                  <span className="mt-1 block text-xs font-normal">Then £49/month, billed monthly</span>
-                  <span className="mt-1 block text-xs font-normal">No card details needed to go live</span>
-                </div>
               </div>
               <div className="space-y-3 mb-6 flex-1">
                 {["Up to 500 members", "Custom URL", "Advanced competitions", "Reciprocal play", "Search and connect with other golfers", "Priority support"].map((feature, i) => (
@@ -626,11 +621,6 @@ function PricingSection() {
                 <h3 className="font-semibold text-lg mb-2" data-testid="heading-plan-enterprise">Enterprise</h3>
                 <div className="text-4xl font-bold mb-1" data-testid="text-price-enterprise">£150<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
                 <div className="text-sm text-muted-foreground">£1,800 per year, billed annually</div>
-                <div className="mt-3 rounded-lg bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                  Free for the first 30 days
-                  <span className="mt-1 block text-xs font-normal">After 30 days: £1,800 per year, billed annually</span>
-                  <span className="mt-1 block text-xs font-normal">No card details needed to go live</span>
-                </div>
               </div>
               <div className="space-y-3 mb-6 flex-1">
                 {["Unlimited members", "Custom URL", "White-label branding", "API access", "Dedicated support", "Custom integrations"].map((feature, i) => (
