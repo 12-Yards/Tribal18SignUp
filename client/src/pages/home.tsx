@@ -129,13 +129,13 @@ function FeaturesSection() {
     {
       icon: Calendar,
       title: "Engagement",
-      description: "Polls · Quizzes · Petitions · Surveys · Auctions",
+      description: "Polls · Quizzes · Leaderboards · Petitions · Surveys · Auctions",
       colorClass: "bg-violet-500/10 text-violet-400",
     },
     {
       icon: Award,
       title: "Rewards",
-      description: "Earn · Leaderboards · Redeem · Marketplace · Donate",
+      description: "Earn · Redeem · Marketplace · Donate",
       colorClass: "bg-amber-500/10 text-amber-400",
     },
     {
