@@ -698,10 +698,10 @@ export default function Home() {
         <HomeProofSection />
         <OwnershipSection />
         <AudiencesSection />
+        <CTASection />
         <HowItWorksSection />
         <PricingSection />
         <FAQSection />
-        <CTASection />
       </main>
       <Footer />
     </div>
