@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,8 +15,42 @@ import {
   TrendingUp,
   CheckCircle,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
   Palette
 } from "lucide-react";
+
+const heroSlides = [
+  {
+    label: "Tribal18 golf community platform",
+    eyebrow: "The golf community platform",
+    titlePrefix: "Built to Help Your",
+    titleAccent: "Golf Community",
+    titleSuffix: "Flourish",
+    description:
+      "Bring members together with tools for community, competitions, events, and reciprocal play—all in one platform built for clubs and golf societies.",
+  },
+  {
+    label: "Slide 2 content coming soon",
+    eyebrow: "Slide 2 · Content TBC",
+    titlePrefix: "Slide 2",
+    titleAccent: "Content TBC",
+    titleSuffix: "",
+    description:
+      "The final headline and supporting copy for this hero will be added once approved.",
+  },
+  {
+    label: "Slide 3 content coming soon",
+    eyebrow: "Slide 3 · Content TBC",
+    titlePrefix: "Slide 3",
+    titleAccent: "Content TBC",
+    titleSuffix: "",
+    description:
+      "The final headline and supporting copy for this hero will be added once approved.",
+  },
+];
 
 function Header() {
   return (
@@ -46,8 +80,40 @@ function Header() {
 }
 
 function HeroSection() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [rotationPaused, setRotationPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const slide = heroSlides[activeSlide];
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = (event?: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event?.matches ?? mediaQuery.matches);
+    };
+    updatePreference();
+    mediaQuery.addEventListener("change", updatePreference);
+    return () => mediaQuery.removeEventListener("change", updatePreference);
+  }, []);
+
+  useEffect(() => {
+    if (rotationPaused || prefersReducedMotion) return;
+    const interval = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 7000);
+    return () => window.clearInterval(interval);
+  }, [activeSlide, prefersReducedMotion, rotationPaused]);
+
+  const showSlide = (index: number) => {
+    setActiveSlide((index + heroSlides.length) % heroSlides.length);
+  };
+
   return (
-    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-slate-950 pt-24 pb-16" data-testid="section-hero">
+    <section
+      className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-slate-950 pt-24 pb-16"
+      data-testid="section-hero"
+      aria-label="Tribal18 featured content"
+      aria-roledescription="carousel"
+    >
       <img
         src={heroBackgroundPath}
         alt=""
@@ -58,17 +124,25 @@ function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,10,7,0.94)_0%,rgba(3,10,7,0.78)_42%,rgba(3,10,7,0.24)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/15" />
       <div className="container mx-auto flex w-full items-center px-6">
-        <div className="max-w-3xl space-y-5 sm:space-y-7 md:space-y-9">
+        <div className="max-w-3xl space-y-5 sm:space-y-7 md:space-y-9" aria-live={rotationPaused || prefersReducedMotion ? "polite" : "off"}>
+            <div
+              key={`hero-copy-${activeSlide}`}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Slide ${activeSlide + 1} of ${heroSlides.length}: ${slide.label}`}
+              className="space-y-5 sm:space-y-7 md:space-y-9"
+              data-testid={`hero-slide-${activeSlide + 1}`}
+            >
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300" data-testid="text-hero-eyebrow">
-              The golf community platform
+              {slide.eyebrow}
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white" data-testid="heading-hero">
-              Built to Help Your{" "}
-              <span className="text-emerald-300">Golf Community</span>{" "}
-              Flourish
+              {slide.titlePrefix}{" "}
+              <span className="text-emerald-300">{slide.titleAccent}</span>{" "}
+              {slide.titleSuffix}
             </h1>
             <p className="text-base md:text-xl text-white/80 max-w-2xl leading-relaxed" data-testid="text-hero-description">
-              Bring members together with tools for community, competitions, events, and reciprocal play—all in one platform built for clubs and golf societies.
+              {slide.description}
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button size="lg" variant="outline" asChild className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
@@ -82,6 +156,61 @@ function HeroSection() {
                   Sign Up
                   <ArrowRight className="w-4 h-4" />
                 </Link>
+              </Button>
+            </div>
+            </div>
+            <div className="flex items-center gap-2" aria-label="Carousel controls" data-testid="hero-carousel-controls">
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                className="h-9 w-9 rounded-full border-white/40 bg-black/20 p-0 text-white hover:bg-white/15 hover:text-white"
+                aria-label="Previous hero slide"
+                onClick={() => showSlide(activeSlide - 1)}
+                data-testid="button-hero-previous"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              {heroSlides.map((item, index) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  className="flex h-9 items-center justify-center rounded-full px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  aria-label={`Show slide ${index + 1}: ${item.label}`}
+                  aria-pressed={activeSlide === index}
+                  onClick={() => showSlide(index)}
+                  data-testid={`button-hero-slide-${index + 1}`}
+                >
+                  <span
+                    className={`h-2 rounded-full transition-all ${activeSlide === index ? "w-6 bg-emerald-300" : "w-2 bg-white/50"}`}
+                    aria-hidden="true"
+                  />
+                </button>
+              ))}
+              {!prefersReducedMotion && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="icon"
+                  className="h-9 w-9 rounded-full border-white/40 bg-black/20 p-0 text-white hover:bg-white/15 hover:text-white"
+                  aria-label={rotationPaused ? "Resume slide rotation" : "Pause slide rotation"}
+                  aria-pressed={rotationPaused}
+                  onClick={() => setRotationPaused((paused) => !paused)}
+                  data-testid="button-hero-rotation"
+                >
+                  {rotationPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+                </Button>
+              )}
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                className="h-9 w-9 rounded-full border-white/40 bg-black/20 p-0 text-white hover:bg-white/15 hover:text-white"
+                aria-label="Next hero slide"
+                onClick={() => showSlide(activeSlide + 1)}
+                data-testid="button-hero-next"
+              >
+                <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
         </div>
