@@ -117,13 +117,13 @@ function FeaturesSection() {
     {
       icon: Users,
       title: "Community",
-      description: "Private groups · Discussions · Chat",
+      description: "Private groups · Discussions · Chat · Social",
       colorClass: "bg-emerald-500/10 text-emerald-400",
     },
     {
       icon: FileText,
       title: "Content",
-      description: "News · Articles · Video · Social · Podcasts",
+      description: "News · Articles · Video · Podcasts",
       colorClass: "bg-sky-500/10 text-sky-400",
     },
     {
