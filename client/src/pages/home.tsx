@@ -19,13 +19,10 @@ import {
   Award,
   CreditCard,
   Smartphone,
-  Globe,
   CheckCircle,
   ArrowRight,
-  Palette,
   CalendarDays,
   Trophy,
-  Link2,
   Settings,
   Rocket,
   Layers,
@@ -267,12 +264,12 @@ function OwnershipSection() {
         tribal: "A branded space designed around your community",
       },
     {
-      social: "Platform rules and algorithms shape the experience",
-      tribal: "Custom URL and access on Android, iOS and web",
+      social: "Your community is tied to a platform profile",
+      tribal: "A custom URL is included with every plan",
     },
     {
       social: "Community activity spread across separate channels",
-      tribal: "Community, content, events and membership together",
+      tribal: "Manage members, content, events and memberships from one admin dashboard",
     },
   ];
 
@@ -295,7 +292,7 @@ function OwnershipSection() {
               <span className="mt-1 block text-emerald-400">Built around your brand.</span>
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Social profiles and feeds can help people discover you, but they are not a dedicated space for your members. Tribal18 brings community, content, events and membership tools together in a branded experience on a custom URL.
+              Social profiles and feeds can help people discover you, but they are not a dedicated space for your members. Tribal18 gives your golf community a branded home, with an admin dashboard for your team.
             </p>
           </div>
 
@@ -320,108 +317,7 @@ function OwnershipSection() {
                 </div>
               ))}
               <div className="col-span-2 bg-emerald-500/[0.06] px-4 py-3 text-center text-sm font-medium text-emerald-500 sm:px-5">
-                Your brand. Your URL. Your community.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function BrandSection() {
-  const brandBenefits = [
-    { icon: Link2, title: "Your URL", description: "A custom URL is included with every plan." },
-    { icon: Palette, title: "Your branding", description: "Create a community experience that reflects your identity." },
-    { icon: Globe, title: "Web access", description: "Members can access Tribal18 on the web." },
-    { icon: Smartphone, title: "Android & iOS", description: "Members can also access Tribal18 on Android and iOS." },
-    { icon: Users, title: "Member relationships", description: "Build direct relationships with the people who choose to join." },
-  ];
-
-  return (
-    <section className="overflow-hidden border-y border-border/50 bg-muted/20 py-20 lg:py-28" data-testid="section-brand" aria-labelledby="heading-brand">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">A home that feels like yours</p>
-            <h2 id="heading-brand" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-brand">
-              Built around your brand.
-            </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Every plan includes a custom URL. Members can access Tribal18 on Android, iOS and web, bringing your golf community together across devices.
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {brandBenefits.map((benefit, index) => (
-                <div className="flex items-start gap-3" key={benefit.title} data-testid={`brand-benefit-${index}`}>
-                  <benefit.icon className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" aria-hidden="true" />
-                  <div>
-                    <h3 className="text-sm font-semibold">{benefit.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{benefit.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-xl" aria-label="Illustration of a branded Tribal18 community on desktop and mobile">
-            <div className="absolute -right-8 -top-8 h-48 w-48 rounded-full bg-emerald-500/10 blur-3xl" />
-            <div className="relative rounded-2xl border border-border/60 bg-background p-3 shadow-2xl sm:p-4" data-testid="brand-desktop-preview">
-              <div className="flex items-center gap-2 border-b border-border/60 px-2 pb-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
-                <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
-                <div className="ml-3 flex h-7 flex-1 items-center rounded-md bg-muted px-3 text-xs text-muted-foreground">
-                  yourcommunity.com
-                </div>
-              </div>
-              <div className="grid min-h-64 grid-cols-[1fr_1.3fr] gap-3 p-3 sm:gap-4 sm:p-5">
-                <div className="rounded-xl bg-gradient-to-br from-emerald-800 to-slate-900 p-4 text-white sm:p-5">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/15">
-                    <Users className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <p className="mt-8 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-200">Your community</p>
-                  <p className="mt-2 text-xl font-bold">Together, here.</p>
-                  <div className="mt-5 h-2 w-4/5 rounded-full bg-white/20" />
-                  <div className="mt-2 h-2 w-3/5 rounded-full bg-white/15" />
-                </div>
-                <div className="space-y-3">
-                  <div className="rounded-xl border border-border/60 bg-card p-3 sm:p-4">
-                    <div className="flex items-center gap-2">
-                      <div className="h-8 w-8 rounded-full bg-emerald-500/15" />
-                      <div className="flex-1">
-                        <div className="h-2 w-24 rounded-full bg-foreground/15" />
-                        <div className="mt-1.5 h-1.5 w-16 rounded-full bg-muted-foreground/20" />
-                      </div>
-                    </div>
-                    <div className="mt-4 h-2 w-full rounded-full bg-muted-foreground/15" />
-                    <div className="mt-2 h-2 w-4/5 rounded-full bg-muted-foreground/10" />
-                    <div className="mt-4 flex gap-2">
-                      <span className="rounded-full bg-emerald-500/10 px-2 py-1 text-[10px] font-medium text-emerald-500">Community update</span>
-                      <span className="rounded-full bg-muted px-2 py-1 text-[10px] text-muted-foreground">Members</span>
-                    </div>
-                  </div>
-                  <div className="rounded-xl border border-border/60 bg-card p-3 sm:p-4">
-                    <div className="flex items-center gap-2 text-sm font-semibold">
-                      <CalendarDays className="h-4 w-4 text-emerald-500" aria-hidden="true" />
-                      Upcoming event
-                    </div>
-                    <div className="mt-3 h-2 w-4/5 rounded-full bg-foreground/15" />
-                    <div className="mt-2 h-2 w-1/2 rounded-full bg-muted-foreground/15" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="absolute -bottom-7 right-3 w-32 rounded-[1.6rem] border-[5px] border-slate-900 bg-background p-2 shadow-2xl sm:right-0 sm:w-36" data-testid="brand-mobile-preview">
-              <div className="mx-auto mb-3 h-1 w-9 rounded-full bg-muted-foreground/30" />
-              <div className="rounded-xl bg-emerald-800 p-3 text-white">
-                <div className="h-2 w-12 rounded-full bg-white/50" />
-                <div className="mt-3 h-2 w-16 rounded-full bg-white/80" />
-                <div className="mt-2 h-2 w-10 rounded-full bg-white/50" />
-              </div>
-              <div className="mt-2 space-y-2 rounded-lg border border-border/60 p-2">
-                <div className="h-2 w-full rounded-full bg-muted-foreground/15" />
-                <div className="h-2 w-4/5 rounded-full bg-muted-foreground/10" />
+                A dedicated home for members. Admin tools for your team.
               </div>
             </div>
           </div>
@@ -801,7 +697,6 @@ export default function Home() {
         <FeaturesSection />
         <HomeProofSection />
         <OwnershipSection />
-        <BrandSection />
         <AudiencesSection />
         <HowItWorksSection />
         <PricingSection />
