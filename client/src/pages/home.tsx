@@ -5,6 +5,7 @@ import heroBackgroundPath from "@assets/image_1784735263353.png";
 import { Link } from "wouter";
 import { useSEO } from "@/lib/seo";
 import { 
+  Check,
   Users,
   Calendar, 
   FileText, 
@@ -20,6 +21,7 @@ import {
   Layers,
   TrendingUp,
   Heart,
+  Minus,
   Building2,
   Briefcase
 } from "lucide-react";
@@ -237,54 +239,116 @@ function OwnershipSection() {
       social: "Community activity spread across separate channels",
       tribal: "Manage members, content, events and memberships from one admin dashboard",
     },
+    {
+      social: "Members rely on public feeds for community updates",
+      tribal: "Connect with your community on web, Android and iOS",
+    },
   ];
 
   return (
     <section
-      className="relative overflow-hidden border-y border-border/50 bg-gradient-to-br from-emerald-500/5 via-background to-background py-20 lg:py-28"
+      className="relative isolate overflow-hidden border-y border-border/50 bg-gradient-to-br from-emerald-500/5 via-background to-background py-16 sm:py-20 lg:py-24"
       data-testid="section-ownership"
       aria-labelledby="heading-ownership"
     >
-      <div className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
-      <div className="container relative mx-auto px-4">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.12]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(181,220,196,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(181,220,196,.09) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          maskImage: "linear-gradient(90deg, black, transparent 75%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 -top-48 h-[34rem] w-[34rem] rounded-full border border-emerald-100/[0.07]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-20 -top-36 h-[26rem] w-[26rem] rounded-full border border-emerald-100/[0.06]"
+      />
+
+      <div className="container relative mx-auto px-4 sm:px-6">
+        <div className="mx-auto grid max-w-7xl items-center gap-11 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
+          <div className="max-w-xl">
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-9 bg-emerald-300/80" aria-hidden="true" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-200/80">
+                A better home for your community
+              </span>
+            </div>
             <h2
               id="heading-ownership"
-              className="text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl"
+              className="text-[2.65rem] font-semibold leading-[1.04] tracking-[-0.045em] sm:text-5xl lg:text-[3.45rem]"
               data-testid="heading-ownership"
             >
               A home for your golf community.
-              <span className="mt-1 block text-emerald-400">Built around your brand.</span>
+              <span className="mt-2 block text-emerald-300">Built around your brand.</span>
             </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            <p className="mt-6 max-w-lg text-[15px] leading-[1.8] text-muted-foreground sm:text-base">
               Social profiles and feeds can help people discover you, but they are not a dedicated space for your members. Tribal18 gives your golf community a branded home, with an admin dashboard for your team.
             </p>
+            <div className="mt-9 flex items-center gap-3 border-t border-emerald-100/[0.12] pt-5">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-emerald-200/20 bg-emerald-300/[0.08]">
+                <span className="h-2 w-2 rounded-full bg-emerald-300" />
+              </span>
+              <span className="text-xs font-medium tracking-wide text-foreground/85">
+                Your people. Your place. Your game.
+              </span>
+            </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-border/60 bg-card/70 shadow-xl shadow-black/5" data-testid="list-ownership-benefits">
+          <div
+            className="relative overflow-hidden rounded-[1.35rem] border border-emerald-100/[0.12] bg-card/90 shadow-[0_28px_90px_rgba(0,0,0,0.28)]"
+            data-testid="list-ownership-benefits"
+          >
             <div className="grid grid-cols-[1fr_1fr]">
-              <div className="border-b border-border/60 bg-muted/50 p-4 sm:p-5">
-                <span className="text-xs font-bold uppercase tracking-[0.13em] text-muted-foreground">Traditional social platforms</span>
+              <div className="flex min-h-[76px] items-end border-b border-emerald-100/[0.09] bg-muted/70 px-4 pb-4 pt-5 sm:px-6">
+                <span className="text-[9px] font-bold uppercase leading-relaxed tracking-[0.17em] text-muted-foreground sm:text-[10px]">
+                  Traditional social platforms
+                </span>
               </div>
-              <div className="border-b border-l border-border/60 bg-emerald-500/10 p-4 sm:p-5">
-                <span className="text-xs font-bold uppercase tracking-[0.13em] text-emerald-500">Your Tribal18 community</span>
+              <div className="relative flex min-h-[76px] items-end border-b border-l border-emerald-100/[0.1] bg-emerald-900/60 px-4 pb-4 pt-5 sm:px-6">
+                <span className="absolute left-0 top-0 h-full w-px bg-emerald-200/50" aria-hidden="true" />
+                <span className="text-[9px] font-bold uppercase leading-relaxed tracking-[0.17em] text-emerald-200 sm:text-[10px]">
+                  Your Tribal18 community
+                </span>
               </div>
               {comparisonRows.map((row, index) => (
-                <div key={row.social} className="contents" data-testid={`row-ownership-comparison-${index}`}>
-                  <div className="flex items-start gap-3 border-b border-border/50 p-4 text-sm leading-relaxed text-muted-foreground sm:p-5">
-                    <span className="mt-0.5 text-muted-foreground/70" aria-hidden="true">—</span>
+                <div
+                  key={row.social}
+                  className="contents"
+                  data-testid={`row-ownership-comparison-${index}`}
+                >
+                  <div className="flex min-h-[91px] items-start gap-2.5 border-b border-emerald-100/[0.075] px-4 py-5 text-[12px] leading-[1.55] text-muted-foreground sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-[13px]">
+                    <Minus
+                      className="mt-[2px] h-3.5 w-3.5 shrink-0 text-muted-foreground/70"
+                      strokeWidth={1.6}
+                      aria-hidden="true"
+                    />
                     <span>{row.social}</span>
                   </div>
-                  <div className="flex items-start gap-3 border-b border-l border-border/50 bg-emerald-500/[0.03] p-4 text-sm font-medium leading-relaxed sm:p-5">
-                    <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" aria-hidden="true" />
+                  <div className="relative flex min-h-[91px] items-start gap-2.5 border-b border-l border-emerald-100/[0.075] bg-emerald-300/[0.035] px-4 py-5 text-[12px] font-medium leading-[1.55] text-foreground/90 sm:min-h-[88px] sm:gap-3 sm:px-6 sm:text-[13px]">
+                    <span className="absolute bottom-0 left-0 top-0 w-px bg-emerald-200/[0.14]" aria-hidden="true" />
+                    <Check
+                      className="mt-[2px] h-3.5 w-3.5 shrink-0 text-emerald-300"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    />
                     <span>{row.tribal}</span>
                   </div>
                 </div>
               ))}
-              <div className="col-span-2 bg-emerald-500/[0.06] px-4 py-3 text-center text-sm font-medium text-emerald-500 sm:px-5">
-                A dedicated home for members. Admin tools for your team.
-              </div>
+            </div>
+            <div className="flex items-center justify-between gap-4 bg-emerald-950/40 px-4 py-4 sm:px-6">
+              <span className="text-[11px] font-medium leading-relaxed text-foreground/80 sm:text-xs">
+                One branded home for members, events and content.
+              </span>
+              <span className="hidden shrink-0 text-[9px] font-bold uppercase tracking-[0.18em] text-emerald-300 sm:block">
+                Made for golf
+              </span>
             </div>
           </div>
         </div>
@@ -298,6 +362,7 @@ function AudiencesSection() {
     {
       number: "01",
       label: "People & places",
+      icon: Building2,
       items: [
         { icon: Building2, title: "Golf clubs & societies", description: "Bring members together for club updates, events and competitions." },
         { icon: Users, title: "Golfers & fan communities", description: "Build stronger connections around clubs, players and the game." },
@@ -306,6 +371,7 @@ function AudiencesSection() {
     {
       number: "02",
       label: "Events & causes",
+      icon: CalendarDays,
       items: [
         { icon: CalendarDays, title: "Golf events & competitions", description: "Create shared experiences that keep players involved." },
         { icon: Heart, title: "Charity golf & causes", description: "Bring golf communities together to support charitable causes." },
@@ -313,7 +379,8 @@ function AudiencesSection() {
     },
     {
       number: "03",
-      label: "Businesses & organisations",
+      label: "Golf businesses & organisations",
+      icon: Briefcase,
       items: [
         { icon: Briefcase, title: "Golf brands & partners", description: "Connect golf communities with relevant partners and opportunities." },
         { icon: Trophy, title: "Golf associations", description: "Keep members and groups connected across the golf community." },
@@ -360,26 +427,37 @@ function AudiencesSection() {
           </div>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-6xl gap-4 lg:mt-14 lg:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
           {audienceGroups.map((group) => (
             <Card
               key={group.number}
-              className="h-full rounded-2xl border-border/70 bg-card/70 shadow-lg shadow-black/10 transition-transform duration-300 hover:-translate-y-1"
+              className="group relative isolate overflow-hidden rounded-2xl border border-border/70 bg-gradient-to-br from-card via-card to-emerald-950/25 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300/30 hover:shadow-xl hover:shadow-emerald-950/40"
               data-testid={`card-audience-group-${group.number}`}
             >
-              <CardContent className="flex h-full flex-col p-5 sm:p-6">
-                <div className="flex items-center justify-between gap-4">
-                  <p className="text-xs font-bold uppercase tracking-[0.17em] text-emerald-300">
-                    {group.label}
-                  </p>
-                  <span className="font-mono text-xs tracking-[0.14em] text-muted-foreground/60">
+              <CardContent className="relative flex flex-col overflow-hidden p-5 sm:p-6">
+                <div
+                  className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-emerald-300/[0.06] blur-3xl transition-colors duration-500 group-hover:bg-emerald-300/[0.12]"
+                  aria-hidden="true"
+                />
+                <div
+                  className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/50 to-transparent"
+                  aria-hidden="true"
+                />
+                <div className="relative flex items-start justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-300/20 to-emerald-950/60 text-emerald-200 shadow-lg shadow-emerald-950/30 ring-1 ring-emerald-200/20">
+                    <group.icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <span className="rounded-full border border-border/70 bg-background/40 px-2.5 py-1 font-mono text-[10px] tracking-[0.14em] text-muted-foreground/70">
                     {group.number}
                   </span>
                 </div>
-                <div className="mt-4 divide-y divide-border/80">
+                <p className="relative mt-5 text-[11px] font-bold uppercase tracking-[0.17em] text-emerald-300">
+                  {group.label}
+                </p>
+                <div className="relative mt-5 divide-y divide-border/80">
                   {group.items.map((audience) => (
-                    <div key={audience.title} className="flex gap-3.5 py-4 first:pt-0 last:pb-0">
-                      <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-300">
+                    <div key={audience.title} className="flex gap-3.5 border-t border-border/80 pt-4 first:border-t-0 first:pt-0">
+                      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-300 ring-1 ring-emerald-300/10">
                         <audience.icon className="h-[18px] w-[18px]" aria-hidden="true" />
                       </div>
                       <div className="min-w-0">
@@ -405,7 +483,7 @@ function AudiencesSection() {
     </section>
   );
 }
-
+              </div>
 function HowItWorksSection() {
   const steps = [
     { icon: Layers, number: "01", title: "Create", description: "Set up the foundations of your community." },

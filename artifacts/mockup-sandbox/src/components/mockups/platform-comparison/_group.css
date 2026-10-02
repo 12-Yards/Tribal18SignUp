@@ -1,0 +1,23 @@
+:root {
+  --background: 160 15% 6%;
+  --foreground: 0 0% 100%;
+  --border: 160 10% 15%;
+  --card: 160 15% 8%;
+  --card-foreground: 0 0% 100%;
+  --muted: 160 10% 12%;
+  --muted-foreground: 160 10% 68%;
+  --font-sans: 'Montserrat', sans-serif;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 160 15% 6%;
+  --foreground: 0 0% 100%;
+  --border: 160 10% 15%;
+  --card: 160 15% 8%;
+  --card-foreground: 0 0% 100%;
+  --muted: 160 10% 12%;
+  --muted-foreground: 160 10% 68%;
+  --font-sans: 'Montserrat', sans-serif;
+  --radius: 0.5rem;
+}

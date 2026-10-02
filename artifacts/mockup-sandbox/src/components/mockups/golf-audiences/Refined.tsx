@@ -9,57 +9,64 @@ import {
   Users,
 } from "lucide-react";
 
-const audiences = [
-  {
-    icon: Building2,
-    title: "Golf clubs & societies",
-    description: "Bring members together for club updates, events and competitions.",
-  },
-  {
-    icon: Users,
-    title: "Golfers & fan communities",
-    description: "Build stronger connections around clubs, players and the game.",
-  },
-  {
-    icon: CalendarDays,
-    title: "Golf events & competitions",
-    description: "Create shared experiences that keep players involved.",
-  },
-  {
-    icon: Heart,
-    title: "Charity golf & causes",
-    description: "Bring golf communities together to support charitable causes.",
-  },
-  {
-    icon: Briefcase,
-    title: "Golf brands & partners",
-    description: "Connect golf communities with relevant partners and opportunities.",
-  },
-  {
-    icon: Trophy,
-    title: "Golf associations",
-    description: "Keep members and groups connected across the golf community.",
-  },
-];
-
 const audienceGroups = [
   {
     number: "01",
     label: "People & places",
-    items: audiences.slice(0, 2),
-    className: "lg:col-span-5",
+    icon: Building2,
+    items: [
+      {
+        icon: Building2,
+        title: "Golf clubs & societies",
+        description: "Bring members together for club updates, events and competitions.",
+      },
+      {
+        icon: Users,
+        title: "Golfers & fan communities",
+        description: "Build stronger connections around clubs, players and the game.",
+      },
+    ],
   },
   {
     number: "02",
-    label: "Gather & give",
-    items: audiences.slice(2, 4),
-    className: "lg:col-span-4",
+    label: "Events & causes",
+    icon: CalendarDays,
+    items: [
+      {
+        icon: CalendarDays,
+        title: "Golf events & competitions",
+        description: "Create shared experiences that keep players involved.",
+      },
+      {
+        icon: Heart,
+        title: "Charity golf & causes",
+        description: "Bring golf communities together to support charitable causes.",
+      },
+    ],
   },
   {
     number: "03",
-    label: "Business of golf",
-    items: audiences.slice(4, 6),
-    className: "lg:col-span-3",
+    label: "Golf businesses",
+    icon: Briefcase,
+    items: [
+      {
+        icon: Briefcase,
+        title: "Golf brands & partners",
+        description: "Connect golf communities with relevant partners and opportunities.",
+      },
+    ],
+  },
+  {
+    number: "04",
+    label: "Golf organisations",
+    icon: Trophy,
+    items: [
+      {
+        icon: Trophy,
+        title: "Golf associations",
+        description: "Keep members and groups connected across the golf community.",
+      },
+    ],
   },
 ];
 
@@ -75,7 +82,7 @@ function Eyebrow({ children }: { children: string }) {
 export function Refined() {
   return (
     <section
-      className="relative isolate min-h-[100dvh] overflow-hidden bg-background py-16 text-foreground sm:py-20 lg:py-[5.5rem]"
+      className="relative isolate min-h-[100dvh] overflow-hidden border-y border-border/50 bg-muted/15 py-20 text-foreground lg:py-28"
       data-testid="section-audiences"
       aria-labelledby="heading-audiences"
     >
@@ -92,68 +99,77 @@ export function Refined() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-16">
+      <div className="container relative mx-auto px-4">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
           <div className="max-w-3xl">
-            <Eyebrow>Built around the golf community</Eyebrow>
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-300">
+              Built around the golf community
+            </p>
             <h2
               id="heading-audiences"
-              className="mt-5 max-w-[13ch] font-['Montserrat'] text-[2.7rem] font-semibold leading-[1.03] tracking-[-0.055em] text-foreground sm:text-6xl lg:text-[4.5rem]"
+              className="mt-5 max-w-[13ch] text-3xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
               data-testid="heading-audiences"
             >
               One platform.
-              <br />
-              <span className="text-emerald-300">Every part of golf.</span>
+              <span className="mt-1 block text-emerald-300">Every part of golf.</span>
             </h2>
           </div>
 
-          <div className="relative max-w-xl border-l border-border pb-1 pl-6 sm:pl-8 lg:mb-2">
-            <Eyebrow>For golf clubs, societies and events</Eyebrow>
-            <p className="mt-4 text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              A home for the people, organisations and businesses connected to
-              the game — from the first tee to the final handshake.
+          <div className="max-w-xl border-l border-border/80 pb-1 pl-6 sm:pl-8 lg:mb-2">
+            <p className="text-lg font-semibold leading-relaxed md:text-xl">
+              For any business or community connected to golf, Tribal18 brings
+              people together in one branded home.
+            </p>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">
+              From clubs and societies to event organisers, golf brands,
+              associations, golfers and charitable causes within the game.
             </p>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-y border-border py-4 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:py-5">
-          <Eyebrow>The Tribal18 platform</Eyebrow>
-          <p className="max-w-2xl text-sm leading-6 text-muted-foreground sm:text-right sm:text-[15px]">
-            One connected space for golfers, organisers, causes, partners and
-            the organisations that help golf thrive.
-          </p>
-        </div>
-
-        <div className="mt-5 grid gap-3 lg:grid-cols-12 lg:gap-4">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:mt-14 xl:grid-cols-4 xl:items-start">
           {audienceGroups.map((group) => (
             <Card
               key={group.number}
-              className={`group h-full rounded-[1.35rem] border border-border/70 bg-card/70 shadow-lg shadow-black/10 transition-transform duration-300 hover:-translate-y-1 ${group.className}`}
+              className="group relative isolate overflow-hidden rounded-2xl border border-border/70 bg-gradient-to-br from-card via-card to-emerald-950/30 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300/35 hover:shadow-emerald-950/40"
+              data-testid={`card-audience-group-${group.number}`}
             >
-              <CardContent className="flex h-full flex-col p-5 sm:p-6">
-                <div className="flex items-center justify-between gap-4">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-emerald-300/90">
-                    {group.label}
-                  </p>
-                  <span className="font-mono text-[10px] tracking-[0.14em] text-muted-foreground/60">
+              <CardContent className="relative flex flex-col overflow-hidden p-5 sm:p-6">
+                <div
+                  className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-emerald-300/[0.07] blur-3xl transition-colors duration-500 group-hover:bg-emerald-300/[0.14]"
+                  aria-hidden="true"
+                />
+                <div
+                  className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/60 to-transparent"
+                  aria-hidden="true"
+                />
+                <div className="relative flex items-start justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-300/25 to-emerald-950/60 text-emerald-200 shadow-lg shadow-emerald-950/40 ring-1 ring-emerald-200/25">
+                    <group.icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <span className="rounded-full border border-border/70 bg-background/40 px-2.5 py-1 font-mono text-[10px] tracking-[0.14em] text-muted-foreground/70">
                     {group.number}
                   </span>
                 </div>
 
-                <div className="mt-4 divide-y divide-border/80">
+                <p className="relative mt-5 text-[11px] font-bold uppercase tracking-[0.17em] text-emerald-300">
+                  {group.label}
+                </p>
+
+                <div className="relative mt-5 divide-y divide-border/80">
                   {group.items.map((audience) => (
                     <div
                       key={audience.title}
-                      className="flex gap-3.5 py-4 first:pt-0 last:pb-0"
+                      className="flex gap-3.5 border-t border-border/80 pt-4 first:border-t-0 first:pt-0"
                     >
-                      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-300">
-                        <audience.icon className="h-[17px] w-[17px]" aria-hidden="true" />
+                      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-300 ring-1 ring-emerald-300/10">
+                        <audience.icon className="h-[18px] w-[18px]" aria-hidden="true" />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-[14px] font-semibold leading-5 tracking-[-0.02em] text-foreground sm:text-[15px]">
+                        <h3 className="text-sm font-semibold leading-5 tracking-tight sm:text-base">
                           {audience.title}
                         </h3>
-                        <p className="mt-1.5 text-[12px] leading-[1.65] text-muted-foreground sm:text-[13px]">
+                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                           {audience.description}
                         </p>
                       </div>
@@ -165,10 +181,10 @@ export function Refined() {
           ))}
         </div>
 
-        <div className="mt-6 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+        <p className="mx-auto mt-6 flex max-w-6xl items-center gap-3 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" aria-hidden="true" />
-          <span>Built for golf. Open to everyone who moves it forward.</span>
-        </div>
+          Built for golf. Open to everyone who moves the game forward.
+        </p>
       </div>
     </section>
   );
