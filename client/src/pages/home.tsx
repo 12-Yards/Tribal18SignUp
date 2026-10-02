@@ -84,7 +84,7 @@ function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <Button size="sm" asChild data-testid="button-create-account">
-            <Link href="/create-account">Sign Up</Link>
+            <Link href="/create-account">Go Live Now</Link>
           </Button>
         </div>
       </div>
@@ -163,7 +163,7 @@ function HeroSection() {
               </Button>
               <Button size="lg" asChild className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-sign-up">
                 <Link href="/create-account">
-                  Sign Up
+                  Go Live Now
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
@@ -674,7 +674,7 @@ function CTASection() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/create-account">
               <Button size="lg" className="gap-2 bg-white text-emerald-700 hover:bg-white/90" data-testid="button-view-platform-home">
-                Get Started
+                Go Live Now
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
@@ -809,10 +809,7 @@ function PricingSection() {
             Choose your Plan
           </h2>
           <p className="text-muted-foreground text-lg" data-testid="text-pricing-description">
-            Transparent monthly or annual subscriptions. Start growing your community today.
-          </p>
-          <p className="text-emerald-500 dark:text-emerald-400 font-medium mt-3" data-testid="text-pricing-free-trial">
-            Free for first 30 days, no card details needed to go live.
+            Choose the plan that fits your golf community.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -831,6 +828,11 @@ function PricingSection() {
                   </div>
                 ))}
               </div>
+              <Link href="/create-account" className="mt-auto">
+                <Button size="lg" className="w-full whitespace-normal leading-tight" data-testid="button-pricing-go-live-starter">
+                  Go Live Now - free forever
+                </Button>
+              </Link>
             </CardContent>
           </Card>
           <Card className="hover-elevate h-full border-emerald-300 dark:border-emerald-700 relative" data-testid="card-pricing-professional">
@@ -842,6 +844,10 @@ function PricingSection() {
                 <h3 className="font-semibold text-lg mb-2" data-testid="heading-plan-professional">Professional</h3>
                 <div className="text-4xl font-bold mb-1" data-testid="text-price-professional">£49<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
                 <div className="text-sm text-muted-foreground">Billed monthly</div>
+                <div className="mt-3 rounded-lg bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                  Free for the first 30 days
+                  <span className="mt-1 block text-xs font-normal">No card details needed to go live</span>
+                </div>
               </div>
               <div className="space-y-3 mb-6 flex-1">
                 {["Up to 500 members", "Custom URL", "Advanced competitions", "Reciprocal play", "Search and connect with other golfers", "Priority support"].map((feature, i) => (
@@ -851,6 +857,11 @@ function PricingSection() {
                   </div>
                 ))}
               </div>
+              <Link href="/create-account" className="mt-auto">
+                <Button size="lg" className="w-full whitespace-normal leading-tight" data-testid="button-pricing-go-live-professional">
+                  Go Live Now - free for 30 days
+                </Button>
+              </Link>
             </CardContent>
           </Card>
           <Card className="hover-elevate h-full" data-testid="card-pricing-enterprise">
@@ -859,6 +870,10 @@ function PricingSection() {
                 <h3 className="font-semibold text-lg mb-2" data-testid="heading-plan-enterprise">Enterprise</h3>
                 <div className="text-4xl font-bold mb-1" data-testid="text-price-enterprise">£150<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
                 <div className="text-sm text-muted-foreground">Billed annually</div>
+                <div className="mt-3 rounded-lg bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                  Free for the first 30 days
+                  <span className="mt-1 block text-xs font-normal">No card details needed to go live</span>
+                </div>
               </div>
               <div className="space-y-3 mb-6 flex-1">
                 {["Unlimited members", "Custom URL", "White-label branding", "API access", "Dedicated support", "Custom integrations"].map((feature, i) => (
@@ -868,13 +883,13 @@ function PricingSection() {
                   </div>
                 ))}
               </div>
+              <Link href="/create-account" className="mt-auto">
+                <Button size="lg" className="w-full whitespace-normal leading-tight" data-testid="button-pricing-go-live-enterprise">
+                  Go Live Now - free for 30 days
+                </Button>
+              </Link>
             </CardContent>
           </Card>
-        </div>
-        <div className="flex justify-center mt-10">
-          <Link href="/create-account">
-            <Button size="lg" data-testid="button-pricing-go-live">Go Live Now - pay nothing for 30 days</Button>
-          </Link>
         </div>
       </div>
     </section>
@@ -909,7 +924,7 @@ function FAQSection() {
     },
     {
       question: "What do the plans cost?",
-      answer: "See the pricing section for the current plans and included features. You can start with the free plan or choose a paid plan as your needs grow.",
+      answer: "Starter is free forever. Professional and Enterprise plans are paid plans with the first 30 days free. See the pricing cards for billing details and included features.",
     },
     {
       question: "Can I connect other tools or use the API?",
