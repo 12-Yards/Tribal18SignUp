@@ -166,7 +166,7 @@ function FeaturesSection() {
               The Tribal18 platform
             </p>
             <h2 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-features">
-            Everything your community needs.
+              Everything your community needs.
               <span className="mt-1 block text-emerald-400">In one place.</span>
             </h2>
           </div>
@@ -254,6 +254,7 @@ function FeaturesSection() {
               One branded platform
             </span>
           </div>
+        </div>
       </div>
     </section>
   );
