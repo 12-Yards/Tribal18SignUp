@@ -7,12 +7,12 @@ import heroBackgroundPath from "@assets/image_1784735263353.png";
 import { Link } from "wouter";
 import { useSEO } from "@/lib/seo";
 import { 
-  Users, 
+  Users,
   Calendar, 
-  MessageCircle, 
-  Globe, 
   FileText, 
-  TrendingUp,
+  Award,
+  CreditCard,
+  Smartphone,
   CheckCircle,
   ArrowRight,
   ChevronLeft,
@@ -216,103 +216,81 @@ function HeroSection() {
 function FeaturesSection() {
   const features = [
     {
-      icon: MessageCircle,
-      title: "Member Communication & Social Networking",
-      description: "Enable members to connect, message, comment, post, and compete inside a private community network.",
-      colorClass: "bg-sky-500/20 text-sky-400",
-      slug: "member-communication"
-    },
-    {
       icon: Users,
-      title: "Groups & Communities",
-      description: "Create regional groups, interest-based groups, trip groups, and societies so members can easily organise away days, trips, and regular meetups.",
-      colorClass: "bg-sky-500/20 text-sky-400",
-      slug: "groups-communities"
-    },
-    {
-      icon: Calendar,
-      title: "Events & Competition Management",
-      description: "Create and manage meet-ups, leagues, knockout tournaments, team competitions, and practice sessions with ease.",
-      colorClass: "bg-sky-500/20 text-sky-400",
-      slug: "events-competitions"
-    },
-    {
-      icon: Globe,
-      title: "Tee Time Offers & Reciprocal Play Requests",
-      description: "Allow members to offer availability or request reciprocal access at other clubs and regions. Discover new venues and meet new members effortlessly.",
-      colorClass: "bg-sky-500/20 text-sky-400",
-      slug: "reciprocal-play"
+      title: "Community",
+      description: "Private groups · Discussions · Chat",
+      colorClass: "bg-emerald-500/10 text-emerald-400",
     },
     {
       icon: FileText,
-      title: "Content Publishing & Insights",
-      description: "Share news, articles, coaching tips, and community updates. Track engagement and allow members to publish articles or opinion pieces.",
-      colorClass: "bg-sky-500/20 text-sky-400",
-      slug: "content-publishing"
+      title: "Content",
+      description: "News · Articles · Video · Social",
+      colorClass: "bg-sky-500/10 text-sky-400",
     },
     {
-      icon: TrendingUp,
-      title: "Analytics & Reporting",
-      description: "Monitor member activity, event participation, and community growth with detailed analytics and insights.",
-      colorClass: "bg-sky-500/20 text-sky-400",
-      slug: "analytics-reporting"
-    }
+      icon: Calendar,
+      title: "Engagement",
+      description: "Polls · Quizzes · Competitions · Events",
+      colorClass: "bg-violet-500/10 text-violet-400",
+    },
+    {
+      icon: Award,
+      title: "Rewards",
+      description: "Points · Leaderboards · Rewards · Marketplace",
+      colorClass: "bg-amber-500/10 text-amber-400",
+    },
+    {
+      icon: CreditCard,
+      title: "Membership",
+      description: "Subscriptions · Payments · Memberships",
+      colorClass: "bg-orange-500/10 text-orange-400",
+    },
+    {
+      icon: Smartphone,
+      title: "Your Brand",
+      description: "Web · Mobile App · Your URL",
+      colorClass: "bg-cyan-500/10 text-cyan-400",
+    },
   ];
 
   return (
-    <section id="features" className="pt-10 lg:pt-14 pb-20 lg:pb-28 bg-muted/30" data-testid="section-features">
+    <section id="features" className="relative overflow-hidden bg-muted/20 py-20 lg:py-28" data-testid="section-features">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
       <div className="container mx-auto px-4">
-        <div className="relative max-w-4xl mx-auto mb-16">
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-sky-500/10 to-emerald-500/10 rounded-2xl blur-3xl"></div>
-          <Card className="relative border-0 bg-gradient-to-br from-card/80 to-card shadow-lg">
-            <CardContent className="p-8 md:p-12 text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 text-sm font-medium mb-6">
-                <Palette className="w-4 h-4" />
-                Fully Branded &amp; Customisable
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text" data-testid="heading-features">
-                Own the Experience. Build the Community.
-              </h2>
-              <h3 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-6">
-                One platform. Every tool your community needs.
-              </h3>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed" data-testid="text-features-description">
-                Fully branded, fully customisable and managed by your own administrators, Tribal18 provides all the tools to grow and run your community from a single platform.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>Easy Setup</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>No Technical Skills Required</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>Go Live For Free</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-features">
+            Everything your community needs.
+            <span className="mt-1 block text-emerald-400">In one place.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-lg font-semibold leading-relaxed md:text-xl" data-testid="text-features-lead">
+            Your community shouldn&apos;t be spread across five different platforms.
+          </p>
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg" data-testid="text-features-description">
+            Tribal18 brings your community, content, events, engagement, rewards and membership into one branded platform—giving your members one place to connect and giving you one place to manage it.
+          </p>
         </div>
-        <div className="flex items-center justify-center gap-3 mb-10">
-          <div className="h-px flex-1 max-w-24 bg-gradient-to-r from-transparent to-border"></div>
-          <h2 className="text-3xl md:text-4xl font-bold text-center" data-testid="heading-features-label">Features</h2>
-          <div className="h-px flex-1 max-w-24 bg-gradient-to-l from-transparent to-border"></div>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div className="mx-auto mt-12 max-w-6xl rounded-3xl border border-border/60 bg-card/50 p-3 shadow-xl shadow-black/5 sm:p-5 md:mt-16 md:p-7">
+          <div className="mb-5 flex items-center justify-center">
+            <span className="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-emerald-400">
+              ONE BRANDED PLATFORM
+            </span>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 md:gap-4">
           {features.map((feature, i) => (
-            <Card key={i} className="bg-sky-500/10 border-sky-500/25 h-full" data-testid={`card-feature-${i}`}>
-              <CardContent className="p-6 h-full flex flex-col">
-                <div className={`w-14 h-14 rounded-xl mb-5 flex items-center justify-center ${feature.colorClass} shadow-sm`}>
-                  <feature.icon className="w-7 h-7" />
+            <Card key={feature.title} className="h-full border-border/60 bg-background/75 transition-colors hover:border-emerald-500/40 hover:bg-background" data-testid={`card-feature-${i}`}>
+              <CardContent className="flex h-full min-h-32 items-start gap-4 p-5 sm:p-6">
+                <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${feature.colorClass}`}>
+                  <feature.icon className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <h3 className="font-bold text-lg mb-3" data-testid={`heading-feature-${i}`}>{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed flex-1" data-testid={`text-feature-${i}`}>{feature.description}</p>
+                <div className="min-w-0">
+                  <h3 className="text-sm font-bold uppercase tracking-[0.12em]" data-testid={`heading-feature-${i}`}>{feature.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground" data-testid={`text-feature-${i}`}>{feature.description}</p>
+                </div>
               </CardContent>
             </Card>
           ))}
+          </div>
         </div>
       </div>
     </section>
