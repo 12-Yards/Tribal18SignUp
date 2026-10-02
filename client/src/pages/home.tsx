@@ -123,13 +123,13 @@ function FeaturesSection() {
     {
       icon: FileText,
       title: "Content",
-      description: "News · Articles · Video · Social",
+      description: "News · Articles · Video · Social · Podcasts",
       colorClass: "bg-sky-500/10 text-sky-400",
     },
     {
       icon: Calendar,
       title: "Engagement",
-      description: "Polls · Quizzes · Competitions · Events",
+      description: "Polls · Quizzes · Competitions · Events · Petitions · Surveys · Auctions",
       colorClass: "bg-violet-500/10 text-violet-400",
     },
     {
