@@ -10,7 +10,8 @@ import {
   ArrowLeft,
   ArrowRight,
   Settings,
-  Heart
+  Heart,
+  Menu
 } from "lucide-react";
 
 const benefitsData = {
@@ -156,17 +157,38 @@ function Header() {
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/#features" data-testid="link-nav-features">
-            <span className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer">Features</span>
-          </Link>
-          <Link href="/#benefits" data-testid="link-nav-benefits">
-            <span className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer">Benefits</span>
+          <Link href="/" data-testid="link-nav-home">
+            <span className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer">Home</span>
           </Link>
           <Link href="/#pricing" data-testid="link-nav-pricing">
             <span className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer">Pricing</span>
           </Link>
+          <Link href="/faqs" data-testid="link-nav-faqs">
+            <span className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer">FAQ's</span>
+          </Link>
         </nav>
         <div className="flex items-center gap-3">
+          <details className="group relative md:hidden" data-testid="nav-benefit-mobile">
+            <summary className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md text-muted-foreground transition hover:bg-muted hover:text-foreground [&::-webkit-details-marker]:hidden">
+              <Menu className="h-5 w-5" aria-hidden="true" />
+              <span className="sr-only">Open navigation menu</span>
+            </summary>
+            <nav
+              className="absolute right-0 top-full z-50 mt-2 flex min-w-40 flex-col rounded-lg border border-border bg-background p-2 text-foreground shadow-xl"
+              aria-label="Main navigation"
+              data-testid="nav-benefit-mobile-menu"
+            >
+              <Link href="/" className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted" data-testid="link-nav-home-mobile">
+                Home
+              </Link>
+              <Link href="/#pricing" className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted" data-testid="link-nav-pricing-mobile">
+                Pricing
+              </Link>
+              <Link href="/faqs" className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted" data-testid="link-nav-faqs-mobile">
+                FAQ's
+              </Link>
+            </nav>
+          </details>
           <Button variant="ghost" size="sm" data-testid="button-login">Log In</Button>
           <Button size="sm" data-testid="button-get-started">Get Started</Button>
         </div>
