@@ -227,3 +227,9 @@
 .glow-border {
   border-color: hsl(var(--accent) / 0.3);
 }
+
+@layer components {
+  .section-eyebrow {
+    @apply text-sm font-bold uppercase tracking-[0.16em] text-emerald-300;
+  }
+}

@@ -6,15 +6,18 @@ id = "qtoqwEgGkEyqx7FXV-AKa"
 uri = "file://orbit8-source-changes.zip"
 type = "unspecified"
 title = "Orbit8 Source Changes (Latest)"
+logical_id = "a8ab6a39-3731-4b00-bd83-6377eaca53b6"
 
 [[outputs]]
 id = "FgAvunrEfyxOcTMcjut4Z"
 uri = "file://orbit8-logo-favicon.zip"
 type = "unspecified"
 title = "Orbit8 Logo & Favicon"
+logical_id = "5f26aed7-fe3f-4f1a-a7ea-9436f650000f"
 
 [[outputs]]
 id = "zr-mQlrvcvsra-3ubzTvi"
 uri = "file://orbit8-recent-changes.zip"
 type = "unspecified"
 title = "Orbit8 Changes (Last 60 Minutes)"
+logical_id = "5b9ccc7e-c8be-4519-a63d-48d97164e986"

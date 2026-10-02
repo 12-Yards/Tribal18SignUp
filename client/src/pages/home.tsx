@@ -1,14 +1,6 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import logoPath from "@assets/tribal8icon_1783436350353.png";
 import heroBackgroundPath from "@assets/image_1784735263353.png";
 import { Link } from "wouter";
 import { useSEO } from "@/lib/seo";
@@ -32,33 +24,7 @@ import {
   Briefcase
 } from "lucide-react";
 import { HomeProofSection } from "@/components/home-proof-section";
-
-function Header() {
-  return (
-    <header className="absolute inset-x-0 top-0 z-50 w-full border-b border-white/15 bg-black/20 backdrop-blur-sm">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 gap-4">
-        <div className="flex items-center gap-2" data-testid="header-logo">
-          <img 
-            src={logoPath} 
-            alt="Tribal18 Logo" 
-            className="h-10 w-10 object-contain"
-            data-testid="img-logo"
-          />
-          <span className="text-xl font-bold text-white" data-testid="text-brand-name">Tribal18</span>
-        </div>
-        <nav className="hidden md:flex items-center gap-6" data-testid="nav-main">
-          <a href="/#features" className="text-sm font-medium text-white/80 hover:text-white px-2 py-1 rounded-md" data-testid="link-features">Features</a>
-          <a href="#pricing" className="text-sm font-medium text-white/80 hover:text-white px-2 py-1 rounded-md" data-testid="link-pricing">Pricing</a>
-        </nav>
-        <div className="flex items-center gap-3">
-          <Button size="sm" asChild data-testid="button-create-account">
-            <Link href="/create-account">Go Live Now</Link>
-          </Button>
-        </div>
-      </div>
-    </header>
-  );
-}
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 function HeroSection() {
   return (
@@ -79,7 +45,7 @@ function HeroSection() {
       <div className="container mx-auto flex w-full items-center px-6">
         <div className="max-w-3xl space-y-5 sm:space-y-7 md:space-y-9">
           <div className="space-y-5 sm:space-y-7 md:space-y-9">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-300" data-testid="text-hero-eyebrow">
+            <p className="section-eyebrow" data-testid="text-hero-eyebrow">
               For golf clubs, societies and events
             </p>
             <h1 id="heading-hero" className="text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl" data-testid="heading-hero">
@@ -159,7 +125,7 @@ function FeaturesSection() {
       <div className="container mx-auto px-4">
         <div className="mx-auto grid max-w-6xl gap-6 md:gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">
+            <p className="section-eyebrow mb-4">
               The Tribal18 platform
             </p>
             <h2 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-features">
@@ -328,42 +294,113 @@ function OwnershipSection() {
 }
 
 function AudiencesSection() {
-  const audiences = [
-    { icon: Users, title: "Golf clubs & societies", description: "Bring members together for club updates, events and competitions." },
-    { icon: Trophy, title: "Golfers & fan communities", description: "Build stronger connections around clubs, players and the game." },
-    { icon: Heart, title: "Charity golf & causes", description: "Bring golf communities together to support charitable causes." },
-    { icon: CalendarDays, title: "Golf events & competitions", description: "Create shared experiences that keep players involved." },
-    { icon: Briefcase, title: "Golf brands & partners", description: "Connect golf communities with relevant partners and opportunities." },
-    { icon: Building2, title: "Golf associations", description: "Keep members and groups connected across the golf community." },
+  const audienceGroups = [
+    {
+      number: "01",
+      label: "People & places",
+      items: [
+        { icon: Building2, title: "Golf clubs & societies", description: "Bring members together for club updates, events and competitions." },
+        { icon: Users, title: "Golfers & fan communities", description: "Build stronger connections around clubs, players and the game." },
+      ],
+    },
+    {
+      number: "02",
+      label: "Events & causes",
+      items: [
+        { icon: CalendarDays, title: "Golf events & competitions", description: "Create shared experiences that keep players involved." },
+        { icon: Heart, title: "Charity golf & causes", description: "Bring golf communities together to support charitable causes." },
+      ],
+    },
+    {
+      number: "03",
+      label: "Businesses & organisations",
+      items: [
+        { icon: Briefcase, title: "Golf brands & partners", description: "Connect golf communities with relevant partners and opportunities." },
+        { icon: Trophy, title: "Golf associations", description: "Keep members and groups connected across the golf community." },
+      ],
+    },
   ];
 
   return (
-    <section className="py-20 lg:py-28" data-testid="section-audiences" aria-labelledby="heading-audiences">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Built around the golf community</p>
-          <h2 id="heading-audiences" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-audiences">
-            One platform. Every part of golf.
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            From clubs and societies to charitable causes and golf events, give members a place to connect and get involved.
-          </p>
+    <section
+      className="relative isolate overflow-hidden border-y border-border/50 bg-muted/15 py-20 lg:py-28"
+      data-testid="section-audiences"
+      aria-labelledby="heading-audiences"
+    >
+      <div
+        className="pointer-events-none absolute -right-24 -top-36 h-[28rem] w-[28rem] rounded-full border border-emerald-500/10 sm:-right-16"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -right-8 -top-20 h-[21rem] w-[21rem] rounded-full border border-emerald-500/10"
+        aria-hidden="true"
+      />
+      <div className="container relative mx-auto px-4">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
+          <div className="max-w-3xl">
+            <p className="section-eyebrow">Built around the golf community</p>
+            <h2
+              id="heading-audiences"
+              className="mt-5 max-w-[13ch] text-3xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
+              data-testid="heading-audiences"
+            >
+              One platform.
+              <span className="mt-1 block text-emerald-300">Every part of golf.</span>
+            </h2>
+          </div>
+          <div className="max-w-xl border-l border-border/80 pb-1 pl-6 sm:pl-8 lg:mb-2">
+            <p className="text-lg font-semibold leading-relaxed md:text-xl">
+              For any business or community connected to golf, Tribal18 brings people together in
+              one branded home.
+            </p>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">
+              From clubs and societies to event organisers, golf brands, associations, golfers and
+              charitable causes within the game.
+            </p>
+          </div>
         </div>
-        <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {audiences.map((audience, index) => (
-            <Card key={audience.title} className="h-full border-border/60 bg-card/60" data-testid={`card-audience-${index}`}>
-              <CardContent className="flex h-full items-start gap-4 p-5 sm:p-6">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
-                  <audience.icon className="h-5 w-5" aria-hidden="true" />
+
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 lg:mt-14 lg:grid-cols-3">
+          {audienceGroups.map((group) => (
+            <Card
+              key={group.number}
+              className="h-full rounded-2xl border-border/70 bg-card/70 shadow-lg shadow-black/10 transition-transform duration-300 hover:-translate-y-1"
+              data-testid={`card-audience-group-${group.number}`}
+            >
+              <CardContent className="flex h-full flex-col p-5 sm:p-6">
+                <div className="flex items-center justify-between gap-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.17em] text-emerald-300">
+                    {group.label}
+                  </p>
+                  <span className="font-mono text-xs tracking-[0.14em] text-muted-foreground/60">
+                    {group.number}
+                  </span>
                 </div>
-                <div>
-                  <h3 className="font-semibold">{audience.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{audience.description}</p>
+                <div className="mt-4 divide-y divide-border/80">
+                  {group.items.map((audience) => (
+                    <div key={audience.title} className="flex gap-3.5 py-4 first:pt-0 last:pb-0">
+                      <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-300">
+                        <audience.icon className="h-[18px] w-[18px]" aria-hidden="true" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-sm font-semibold leading-5 tracking-tight sm:text-base">
+                          {audience.title}
+                        </h3>
+                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                          {audience.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
+        <p className="mx-auto mt-6 flex max-w-6xl items-center gap-3 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" aria-hidden="true" />
+          Built for golf. Open to everyone who moves the game forward.
+        </p>
       </div>
     </section>
   );
@@ -381,7 +418,7 @@ function HowItWorksSection() {
     <section className="border-y border-border/50 bg-muted/20 py-20 lg:py-28" data-testid="section-how-it-works" aria-labelledby="heading-how-it-works">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">A clear path from idea to launch</p>
+          <p className="section-eyebrow">A clear path from idea to launch</p>
           <h2 id="heading-how-it-works" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-how-it-works">
             How it works.
           </h2>
@@ -544,154 +581,11 @@ function PricingSection() {
   );
 }
 
-function FAQSection() {
-  const faqs = [
-    {
-      question: "What is Tribal18?",
-      answer: "Tribal18 is a community platform that brings your members, content, events, engagement and membership tools together in one branded place.",
-    },
-    {
-      question: "Do I need a technical team to get started?",
-      answer: "No technical team is required. The process is designed to take you through creating, configuring and launching your community.",
-    },
-    {
-      question: "Does every plan include a custom URL, and where is Tribal18 available?",
-      answer: "Yes. Every plan includes a custom URL, and Tribal18 is available on Android, iOS and web.",
-    },
-    {
-      question: "What can members do in my community?",
-      answer: "Members can connect with your community, access content, take part in events and activities, and engage with the features you make available.",
-    },
-    {
-      question: "Can I monetise my community?",
-      answer: "Tribal18 includes tools for memberships and payments, as well as marketplace and partner opportunities. The right setup depends on your community.",
-    },
-    {
-      question: "Is Tribal18 only for golf communities?",
-      answer: "Tribal18 is golf-focused, built for clubs, societies and the wider golf community. Its community and event tools can also help golf organisations support charitable causes.",
-    },
-    {
-      question: "What do the plans cost?",
-      answer: "Starter is free forever. Professional is £49 per month, billed monthly after the first 30 days free. Enterprise is £150 per month equivalent (£1,800 per year, billed annually) after the first 30 days free. No card details are needed to go live.",
-    },
-    {
-      question: "Can I connect other tools or use the API?",
-      answer: "Integration and API options are available through the Tribal18 team. Contact us to discuss what your community needs.",
-    },
-  ];
-
-  return (
-    <section className="border-y border-border/50 bg-muted/20 py-20 lg:py-28" data-testid="section-faq" aria-labelledby="heading-faq">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl">
-          <div className="text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-500">Good questions</p>
-            <h2 id="heading-faq" className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl" data-testid="heading-faq">
-              Frequently asked questions.
-            </h2>
-          </div>
-          <Accordion type="single" collapsible className="mt-10 rounded-2xl border border-border/60 bg-background px-5 sm:px-7" data-testid="accordion-faq">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={faq.question} value={`faq-${index}`} data-testid={`faq-item-${index}`}>
-                <AccordionTrigger className="text-left text-sm font-semibold hover:no-underline sm:text-base">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-          <p className="mt-6 text-center text-sm text-muted-foreground">
-            Have another question?{" "}
-            <Link href="/contact" className="font-semibold text-emerald-500 underline-offset-4 hover:underline">Talk to our team</Link>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Footer() {
-  const [showApiPopup, setShowApiPopup] = useState(false);
-
-  return (
-    <>
-      <footer className="border-t bg-muted/30 py-12" data-testid="section-footer">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-4" data-testid="footer-logo">
-                <img src={logoPath} alt="Tribal18 Logo" className="h-10 w-10 object-contain" />
-                <span className="text-xl font-bold">Tribal18</span>
-              </div>
-              <p className="text-sm text-muted-foreground max-w-md leading-relaxed" data-testid="text-footer-description">
-                Tribal18 is a golf-focused community platform helping clubs and societies connect members, manage events and competitions, enable reciprocal play, and bring golf communities together to support charitable causes.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4" data-testid="heading-footer-product">Product</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#features" className="text-sm text-muted-foreground hover-elevate px-1 py-0.5 rounded inline-block" data-testid="link-footer-features">Features</a>
-                </li>
-                <li>
-                  <a href="#pricing" className="text-sm text-muted-foreground hover-elevate px-1 py-0.5 rounded inline-block" data-testid="link-footer-pricing">Pricing</a>
-                </li>
-                <li>
-                  <button onClick={() => setShowApiPopup(true)} className="text-sm text-muted-foreground hover-elevate px-1 py-0.5 rounded inline-block text-left" data-testid="link-footer-integrations">Integrations</button>
-                </li>
-                <li>
-                  <button onClick={() => setShowApiPopup(true)} className="text-sm text-muted-foreground hover-elevate px-1 py-0.5 rounded inline-block text-left" data-testid="link-footer-api">API</button>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4" data-testid="heading-footer-company">Company</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/contact" className="text-sm text-muted-foreground hover-elevate px-1 py-0.5 rounded inline-block" data-testid="link-footer-contact">Contact Us</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground" data-testid="text-copyright">
-              © {new Date().getFullYear()} Tribal18. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <Link href="/privacy" className="text-sm text-muted-foreground hover-elevate px-1 py-0.5 rounded" data-testid="link-privacy">Privacy Policy</Link>
-              <Link href="/terms" className="text-sm text-muted-foreground hover-elevate px-1 py-0.5 rounded" data-testid="link-terms">Terms & Conditions</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      {showApiPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={() => setShowApiPopup(false)} data-testid="popup-api-overlay">
-          <div className="bg-card border rounded-xl shadow-xl max-w-md w-full mx-4 p-6" onClick={(e) => e.stopPropagation()} data-testid="popup-api">
-            <h3 className="text-lg font-bold mb-3" data-testid="heading-api-popup">Integrations & API</h3>
-            <p className="text-muted-foreground mb-4" data-testid="text-api-popup">
-              Contact our team for access to our integration tools and API.
-            </p>
-            <div className="flex gap-3">
-              <Link href="/contact">
-                <Button data-testid="button-api-contact">Contact Us</Button>
-              </Link>
-              <Button variant="outline" onClick={() => setShowApiPopup(false)} data-testid="button-api-close">Close</Button>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
-
 export default function Home() {
   useSEO({ path: "/" });
   return (
     <div className="min-h-screen" data-testid="page-home">
-      <Header />
+      <SiteHeader />
       <main>
         <HeroSection />
         <FeaturesSection />
@@ -701,9 +595,8 @@ export default function Home() {
         <CTASection />
         <HowItWorksSection />
         <PricingSection />
-        <FAQSection />
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

@@ -21,6 +21,11 @@ const routeMeta: Record<string, RouteMeta> = {
     description:
       "Get in touch with the Tribal18 team to learn how our community management platform can help your golf club, society or community.",
   },
+  "/faqs": {
+    title: "Frequently Asked Questions | Tribal18",
+    description:
+      "Find answers about Tribal18's golf community platform, including setup, membership, pricing, mobile apps, events and integrations.",
+  },
   "/login": {
     title: "Organisers Login | Tribal18",
     description:
