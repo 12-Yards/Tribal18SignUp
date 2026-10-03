@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import heroBackgroundPath from "@assets/image_1784735263353.png";
+import tribal18LogoPath from "@assets/tribal8icon_1783436350353.png";
 import { Link } from "wouter";
 import { useSEO } from "@/lib/seo";
 import { 
@@ -301,8 +302,8 @@ function OwnershipSection() {
             data-testid="list-ownership-benefits"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2">
-              <div className="hidden min-h-[76px] items-end border-b border-emerald-100/[0.09] bg-muted/70 px-4 pb-4 pt-5 sm:flex sm:px-6">
-                <span className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
+              <div className="hidden min-h-[76px] items-end border-b border-emerald-100/[0.1] bg-[#1b2b22] px-4 pb-4 pt-5 sm:flex sm:px-6">
+                <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#b2c0b7]">
                   Traditional social platforms
                 </span>
               </div>
@@ -317,19 +318,19 @@ function OwnershipSection() {
                   className="col-span-1 grid grid-cols-1 overflow-hidden rounded-xl border border-emerald-100/[0.11] sm:contents"
                   data-testid={`row-ownership-comparison-${index}`}
                 >
-                  <div className="flex items-start gap-3 border-b border-emerald-100/[0.08] bg-muted/30 px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:px-6 sm:py-6">
-                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.12] bg-muted/70 sm:h-8 sm:w-8">
+                  <div className={`flex items-start gap-3 border-b border-emerald-100/[0.1] px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:px-6 sm:py-6 ${index % 2 === 0 ? "bg-[#17251d]" : "bg-[#1a2a21]"}`}>
+                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.18] bg-emerald-300/[0.07] sm:h-8 sm:w-8">
                       <Minus
-                        className="h-4 w-4 text-muted-foreground"
+                        className="h-4 w-4 text-[#a3b7aa]"
                         strokeWidth={1.7}
                         aria-hidden="true"
                       />
                     </span>
                     <span className="min-w-0">
-                      <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-muted-foreground sm:hidden">
+                      <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#b2c0b7] sm:hidden">
                         Traditional social platforms
                       </span>
-                      <span className="block text-[15px] leading-[1.55] text-muted-foreground">
+                      <span className="block text-[15px] leading-[1.55] text-[#c1ccc4]">
                         {row.social}
                       </span>
                     </span>
@@ -585,6 +586,18 @@ function CTASection() {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto">
+          <div className="mb-6 flex items-center justify-center gap-3" data-testid="brand-cta">
+            <img
+              src={tribal18LogoPath}
+              alt=""
+              aria-hidden="true"
+              className="h-12 w-12 object-contain drop-shadow-md"
+              data-testid="img-cta-logo"
+            />
+            <span className="text-xl font-bold tracking-tight text-white sm:text-2xl">
+              Tribal18
+            </span>
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white" data-testid="heading-cta">
             Give your golf community a place to come together.
           </h2>

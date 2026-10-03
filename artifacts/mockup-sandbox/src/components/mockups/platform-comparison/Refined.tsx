@@ -81,8 +81,8 @@ export function Refined() {
               data-testid="list-ownership-benefits"
             >
             <div className="grid grid-cols-1 sm:grid-cols-2">
-                <div className="hidden min-h-[76px] items-end border-b border-emerald-100/[0.09] bg-[#101d17] px-4 pb-4 pt-5 sm:flex sm:px-6">
-                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#9baaa1]">
+                <div className="hidden min-h-[76px] items-end border-b border-emerald-100/[0.1] bg-[#1b2b22] px-4 pb-4 pt-5 sm:flex sm:px-6">
+                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#b2c0b7]">
                     Traditional social platforms
                   </span>
                 </div>
@@ -99,19 +99,19 @@ export function Refined() {
                     className="col-span-1 grid grid-cols-1 overflow-hidden rounded-xl border border-emerald-100/[0.11] sm:contents"
                     data-testid={`row-ownership-comparison-${index}`}
                   >
-                    <div className="flex items-start gap-3 border-b border-emerald-100/[0.08] bg-[#101d17] px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:border-b sm:px-6 sm:py-6">
-                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.12] bg-[#17251e] sm:h-8 sm:w-8">
+                    <div className={`flex items-start gap-3 border-b border-emerald-100/[0.1] px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:border-b sm:px-6 sm:py-6 ${index % 2 === 0 ? "bg-[#17251d]" : "bg-[#1a2a21]"}`}>
+                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.18] bg-emerald-300/[0.07] sm:h-8 sm:w-8">
                         <Minus
-                          className="h-4 w-4 text-[#87978e]"
+                          className="h-4 w-4 text-[#a3b7aa]"
                           strokeWidth={1.7}
                           aria-hidden="true"
                         />
                       </span>
                       <span className="min-w-0">
-                        <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#9baaa1] sm:hidden">
+                        <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#b2c0b7] sm:hidden">
                           Traditional social platforms
                         </span>
-                        <span className="block text-[15px] leading-[1.55] text-[#b2beb7] sm:text-[15px] sm:leading-[1.55]">
+                        <span className="block text-[15px] leading-[1.55] text-[#c1ccc4] sm:text-[15px] sm:leading-[1.55]">
                           {row.social}
                         </span>
                       </span>
