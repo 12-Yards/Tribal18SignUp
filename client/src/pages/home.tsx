@@ -35,6 +35,7 @@ import {
   Briefcase
 } from "lucide-react";
 import { HomeProofSection } from "@/components/home-proof-section";
+import { PlatformShowcaseSection } from "@/components/platform-showcase-section";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 function HeroSection() {
@@ -743,6 +744,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <FeaturesSection />
+        <PlatformShowcaseSection />
         <HomeProofSection />
         <OwnershipSection />
         <AudiencesSection />
