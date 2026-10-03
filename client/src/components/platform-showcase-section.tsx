@@ -179,9 +179,6 @@ export function PlatformShowcaseSection() {
                   style={{ left: activeView.screenLeft }}
                 />
               )}
-              <span className="absolute right-3 top-3 rounded-full border border-white/10 bg-black/70 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white/90 backdrop-blur">
-                {activeView.screenLeft ? "App screen" : "App overview"}
-              </span>
             </div>
           </div>
         </div>
