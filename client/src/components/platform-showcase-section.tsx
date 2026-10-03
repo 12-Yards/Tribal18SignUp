@@ -9,14 +9,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import appScreensPath from "@assets/image_1784735462257.png";
-import webEngagementPath from "@assets/0_s1_1791044137064.png";
 
 type PlatformView = {
   id: string;
   label: string;
   title: string;
   description: string;
-  platform: "mobile" | "web";
   icon: LucideIcon;
   screenLeft?: string;
 };
@@ -28,7 +26,6 @@ const platformViews: PlatformView[] = [
     title: "Help golfers find their next game.",
     description:
       "Bring tee-time discovery and golf opportunities into the same community experience.",
-    platform: "mobile",
     icon: Map,
     screenLeft: "50.1%",
   },
@@ -38,7 +35,6 @@ const platformViews: PlatformView[] = [
     title: "Keep the conversation together.",
     description:
       "Give members one place for community updates, stories and conversations around the game.",
-    platform: "mobile",
     icon: MessageCircle,
     screenLeft: "1.2%",
   },
@@ -48,7 +44,6 @@ const platformViews: PlatformView[] = [
     title: "Make every event easier to join.",
     description:
       "Share competition details and event updates where members already connect.",
-    platform: "mobile",
     icon: CalendarDays,
     screenLeft: "25.5%",
   },
@@ -57,8 +52,7 @@ const platformViews: PlatformView[] = [
     label: "Engagement",
     title: "Give members more ways to take part.",
     description:
-      "Use polls, quizzes and other interactive features to invite member input. The web example shows a community poll page.",
-    platform: "web",
+      "Use polls, quizzes and other interactive features to invite member input.",
     icon: Activity,
   },
   {
@@ -67,7 +61,6 @@ const platformViews: PlatformView[] = [
     title: "Recognise members who get involved.",
     description:
       "Give members ways to earn points and rewards as they take part in their community.",
-    platform: "mobile",
     icon: Award,
   },
   {
@@ -76,7 +69,6 @@ const platformViews: PlatformView[] = [
     title: "Turn points into rewards.",
     description:
       "Make it easy for members to redeem points for rewards and community experiences.",
-    platform: "mobile",
     icon: Gift,
   },
 ];
@@ -102,7 +94,7 @@ export function PlatformShowcaseSection() {
             See your community in action.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Explore real screens from the mobile app and a branded community website.
+            Explore the real Tribal18 mobile app, organised around the features members use.
           </p>
         </header>
 
@@ -110,7 +102,7 @@ export function PlatformShowcaseSection() {
           <div
             className="flex gap-2 overflow-x-auto pb-2"
             role="group"
-            aria-label="Explore platform features"
+            aria-label="Explore mobile app features"
           >
             {platformViews.map((view, index) => {
               const Icon = view.icon;
@@ -144,7 +136,7 @@ export function PlatformShowcaseSection() {
                   <ActiveIcon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-200">
-                  {activeView.platform === "mobile" ? "Mobile app" : "Web platform"}
+                  Mobile app
                 </span>
               </div>
               <h3
@@ -157,50 +149,29 @@ export function PlatformShowcaseSection() {
                 {activeView.description}
               </p>
               <p className="mt-6 border-t border-border/70 pt-4 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-                {activeView.platform === "mobile"
-                  ? "Android and iOS"
-                  : "A branded community website"}
+                Android and iOS
               </p>
             </div>
 
             <div
-              className={`relative overflow-hidden rounded-2xl border border-border/70 ${
-                activeView.platform === "mobile"
-                  ? "aspect-[3/2] bg-[#08130e]"
-                  : "aspect-[1.13/1] bg-[#f7f7fb]"
-              }`}
+              className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-border/70 bg-[#08130e]"
               data-testid={`panel-platform-view-${activeView.id}`}
             >
-              {activeView.platform === "mobile" ? (
-                <>
-                  <img
-                    src={appScreensPath}
-                    alt="Real Tribal18 mobile app screens showing the home feed, event details, golf play and communities."
-                    className="h-full w-full object-contain"
-                    loading="lazy"
-                  />
-                  {activeView.screenLeft && (
-                    <span
-                      aria-hidden="true"
-                      className="pointer-events-none absolute bottom-[12%] top-[5%] w-[23.2%] rounded-[2rem] border-2 border-emerald-300/90 shadow-[0_0_0_2px_rgba(7,19,15,0.8),0_0_22px_rgba(110,231,183,0.32)] transition-all duration-300"
-                      style={{ left: activeView.screenLeft }}
-                    />
-                  )}
-                </>
-              ) : (
-                <img
-                  src={webEngagementPath}
-                  alt="York Vibe community website showing its polls page and member voting options as an example of engagement."
-                  className="h-full w-full object-contain"
-                  loading="lazy"
+              <img
+                src={appScreensPath}
+                alt="Four real Tribal18 mobile app screens: home feed, event details, golf play and communities."
+                className="h-full w-full object-contain"
+                loading="lazy"
+              />
+              {activeView.screenLeft && (
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute bottom-[12%] top-[5%] w-[23.2%] rounded-[2rem] border-2 border-emerald-300/90 shadow-[0_0_0_2px_rgba(7,19,15,0.8),0_0_22px_rgba(110,231,183,0.32)] transition-all duration-300"
+                  style={{ left: activeView.screenLeft }}
                 />
               )}
               <span className="absolute right-3 top-3 rounded-full border border-white/10 bg-black/70 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white/90 backdrop-blur">
-                {activeView.platform === "mobile"
-                  ? activeView.screenLeft
-                    ? "App screen"
-                    : "App overview"
-                  : "Website screen"}
+                {activeView.screenLeft ? "App screen" : "App overview"}
               </span>
             </div>
           </div>
