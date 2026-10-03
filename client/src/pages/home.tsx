@@ -2,7 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import heroBackgroundPath from "@assets/image_1784735263353.png";
-import tribal18LogoPath from "@assets/tribal8icon_1783436350353.png";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Link } from "wouter";
 import { useSEO } from "@/lib/seo";
 import { 
@@ -65,12 +72,27 @@ function HeroSection() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
-                <Link href="/contact">
-                  View Demo
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button size="lg" variant="outline" className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
+                    View Demo
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="border-emerald-200/20 bg-[#0b1711] text-foreground shadow-2xl sm:max-w-md">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-200/20 bg-emerald-300/10 text-emerald-200">
+                    <Smartphone className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <DialogHeader className="gap-2 text-left">
+                    <DialogTitle className="text-xl font-bold leading-tight sm:text-2xl">
+                      Tribal18 platform demo coming soon
+                    </DialogTitle>
+                    <DialogDescription>
+                      An interactive look at the platform is on its way.
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
@@ -297,65 +319,46 @@ function OwnershipSection() {
             </div>
           </div>
 
-          <div
-            className="relative overflow-hidden rounded-[1.35rem] border border-emerald-100/[0.12] bg-card/90 shadow-[0_28px_90px_rgba(0,0,0,0.28)]"
-            data-testid="list-ownership-benefits"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2">
-              <div className="hidden min-h-[76px] items-end border-b border-emerald-100/[0.1] bg-[#1b2b22] px-4 pb-4 pt-5 sm:flex sm:px-6">
-                <span className="text-sm font-bold uppercase tracking-[0.16em] text-[#b2c0b7]">
-                  Traditional social platforms
-                </span>
-              </div>
-              <div className="relative hidden min-h-[76px] items-end border-b border-l-[3px] border-emerald-300 bg-emerald-900/60 px-4 pb-4 pt-5 sm:flex sm:px-6">
-                <span className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-200">
-                  Your Tribal18 community
-                </span>
-              </div>
-              {comparisonRows.map((row, index) => (
-                <div
-                  key={row.social}
-                  className="col-span-1 grid grid-cols-1 overflow-hidden rounded-xl border border-emerald-100/[0.11] sm:contents"
-                  data-testid={`row-ownership-comparison-${index}`}
-                >
-                  <div className={`flex items-start gap-3 border-b border-emerald-100/[0.1] px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:px-6 sm:py-6 ${index % 2 === 0 ? "bg-[#17251d]" : "bg-[#1a2a21]"}`}>
-                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.18] bg-emerald-300/[0.07] sm:h-8 sm:w-8">
-                      <Minus
-                        className="h-4 w-4 text-[#a3b7aa]"
-                        strokeWidth={1.7}
-                        aria-hidden="true"
-                      />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#b2c0b7] sm:hidden">
-                        Traditional social platforms
-                      </span>
-                      <span className="block text-[15px] leading-[1.55] text-[#c1ccc4]">
-                        {row.social}
-                      </span>
-                    </span>
-                  </div>
-                  <div className="relative flex items-start gap-3 border-l-[3px] border-emerald-300 bg-emerald-900/50 px-4 py-4 sm:min-h-[116px] sm:gap-3.5 sm:border-b sm:px-6 sm:py-6">
-                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-300 text-emerald-950 sm:h-8 sm:w-8">
-                      <Check
-                        className="h-4 w-4"
-                        strokeWidth={2.4}
-                        aria-hidden="true"
-                      />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-emerald-200 sm:hidden">
-                        Your Tribal18 community
-                      </span>
-                      <span className="block text-base font-semibold leading-[1.5] text-foreground">
-                        {row.tribal}
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              ))}
+          <div className="space-y-3 sm:space-y-4" data-testid="list-ownership-benefits">
+            <div className="hidden grid-cols-2 gap-3 px-1 text-[11px] font-bold uppercase tracking-[0.16em] sm:grid">
+              <span className="text-[#b2c0b7]">Traditional social platforms</span>
+              <span className="text-[#a9d9bb]">Your Tribal18 community</span>
             </div>
-            <div className="flex items-center justify-between gap-4 bg-emerald-950/40 px-4 py-4 sm:px-6">
+            {comparisonRows.map((row, index) => (
+              <div
+                key={row.social}
+                className="grid overflow-hidden rounded-[1.15rem] border border-emerald-100/[0.1] bg-[#112017] shadow-[0_12px_34px_rgba(0,0,0,0.16)] sm:grid-cols-2"
+                data-testid={`row-ownership-comparison-${index}`}
+              >
+                <div className={`flex items-start gap-3.5 border-b border-emerald-100/[0.08] px-4 py-4 sm:min-h-[110px] sm:border-b-0 sm:px-5 sm:py-5 ${index % 2 === 0 ? "bg-[#14221a]" : "bg-[#17271f]"}`}>
+                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.2] bg-emerald-300/[0.06] text-[#a8beb0]">
+                    <Minus className="h-4 w-4" strokeWidth={1.7} aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#b2c0b7] sm:hidden">
+                      Traditional social platforms
+                    </span>
+                    <span className="block text-[15px] leading-[1.55] text-[#d1dad3]">
+                      {row.social}
+                    </span>
+                  </span>
+                </div>
+                <div className="flex items-start gap-3.5 bg-[#193a2a] px-4 py-4 sm:min-h-[110px] sm:border-l sm:border-emerald-200/15 sm:px-5 sm:py-5">
+                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#8ed2a7] text-[#12301f]">
+                    <Check className="h-4 w-4" strokeWidth={2.4} aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#b7e3c4] sm:hidden">
+                      Your Tribal18 community
+                    </span>
+                    <span className="block text-[15px] font-semibold leading-[1.5] text-[#f0f6f1]">
+                      {row.tribal}
+                    </span>
+                  </span>
+                </div>
+              </div>
+            ))}
+            <div className="flex items-center justify-between gap-4 rounded-xl border border-emerald-100/[0.1] bg-emerald-950/25 px-4 py-4 sm:px-5">
               <span className="text-[11px] font-medium leading-relaxed text-foreground/80 sm:text-xs">
                 One branded home for members, events and content.
               </span>
@@ -586,18 +589,6 @@ function CTASection() {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
       <div className="container mx-auto px-4 relative">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="mb-6 flex items-center justify-center gap-3" data-testid="brand-cta">
-            <img
-              src={tribal18LogoPath}
-              alt=""
-              aria-hidden="true"
-              className="h-12 w-12 object-contain drop-shadow-md"
-              data-testid="img-cta-logo"
-            />
-            <span className="text-xl font-bold tracking-tight text-white sm:text-2xl">
-              Tribal18
-            </span>
-          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white" data-testid="heading-cta">
             Give your golf community a place to come together.
           </h2>
