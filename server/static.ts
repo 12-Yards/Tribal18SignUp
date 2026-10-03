@@ -1,7 +1,7 @@
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
-import { injectRouteMeta } from "./seo";
+import { injectRouteMeta, isKnownRoute } from "./seo";
 
 export function serveStatic(app: Express) {
   const distPath = path.resolve(__dirname, "public");
@@ -21,10 +21,10 @@ export function serveStatic(app: Express) {
   // fall through to index.html if the file doesn't exist,
   // injecting per-route SEO meta tags for crawlers
   app.use("/{*path}", (req, res) => {
-    const path = req.originalUrl.split("?")[0];
+    const requestPath = new URL(req.originalUrl, "http://localhost").pathname;
     res
-      .status(200)
+      .status(isKnownRoute(requestPath) ? 200 : 404)
       .set({ "Content-Type": "text/html" })
-      .send(injectRouteMeta(indexHtml, path));
+      .send(injectRouteMeta(indexHtml, requestPath));
   });
 }

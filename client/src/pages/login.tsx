@@ -9,7 +9,7 @@ import logoPath from "@assets/tribal8icon_1783436350353.png";
 import { useSEO } from "@/lib/seo";
 
 export default function LoginPage() {
-  useSEO({ title: "Organisers Login | Tribal18", description: "Log in to your Tribal18 organiser account to manage your community platform.", path: "/login" });
+  useSEO({ title: "Organisers Login | Tribal18", description: "Log in to your Tribal18 organiser account to manage your community platform.", path: "/login", noindex: true });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

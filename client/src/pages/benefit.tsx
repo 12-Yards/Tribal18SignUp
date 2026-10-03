@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { useSEO } from "@/lib/seo";
+import { benefitSeoMeta } from "@shared/benefit-seo";
 import { Button } from "@/components/ui/button";
 import logoPath from "@assets/tribal8icon_1783436350353.png";
 import { Link, useParams } from "wouter";
@@ -218,37 +220,19 @@ function Footer() {
 export default function BenefitPage() {
   const { slug } = useParams<{ slug: string }>();
   const benefit = slug ? benefitsData[slug as keyof typeof benefitsData] : null;
+  const seoMeta = slug
+    ? benefitSeoMeta[slug as keyof typeof benefitSeoMeta]
+    : undefined;
+
+  useSEO(
+    benefit && seoMeta && slug
+      ? { ...seoMeta, path: `/benefits/${slug}` }
+      : { title: "Benefit Not Found | Tribal18", noindex: true },
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    const defaultTitle = "Community Management Software for Clubs & Members | Tribal18";
-    const defaultDescription = "Tribal18 is an all-in-one community management platform for clubs and communities. Manage members, events, competitions, content, and reciprocal play from one powerful system.";
-    
-    const updateMetaTag = (selector: string, attribute: string, value: string) => {
-      const tag = document.querySelector(selector);
-      if (tag) tag.setAttribute(attribute, value);
-    };
-    
-    if (benefit) {
-      const benefitTitle = `${benefit.title} | Tribal18`;
-      const benefitDescription = benefit.heroDescription;
-      
-      document.title = benefitTitle;
-      updateMetaTag('meta[name="description"]', 'content', benefitDescription);
-      updateMetaTag('meta[property="og:title"]', 'content', benefitTitle);
-      updateMetaTag('meta[property="og:description"]', 'content', benefitDescription);
-    } else {
-      document.title = "Benefit Not Found | Tribal18";
-    }
-    
-    return () => {
-      document.title = defaultTitle;
-      updateMetaTag('meta[name="description"]', 'content', defaultDescription);
-      updateMetaTag('meta[property="og:title"]', 'content', defaultTitle);
-      updateMetaTag('meta[property="og:description"]', 'content', defaultDescription);
-    };
-  }, [benefit]);
+  }, [slug]);
 
   if (!benefit) {
     return (

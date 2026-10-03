@@ -26,7 +26,7 @@ import {
 type OnboardingStep = "register" | "identity" | "terms";
 
 export default function CreateAccountPage() {
-  useSEO({ title: "Create Your Account | Tribal18", description: "Create your Tribal18 community platform in minutes. Free for the first 30 days, no card details needed to go live.", path: "/create-account" });
+  useSEO({ title: "Create Your Account | Tribal18", description: "Create your Tribal18 community platform in minutes. Free for the first 30 days, no card details needed to go live.", path: "/create-account", noindex: true });
   const { toast } = useToast();
   const [step, setStep] = useState<OnboardingStep>("register");
   const [orgName, setOrgName] = useState("");

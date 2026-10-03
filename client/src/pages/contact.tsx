@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -56,7 +56,7 @@ export default function ContactPage() {
       <div className="flex-1 flex items-center justify-center p-4">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold" data-testid="heading-contact">Contact Us</CardTitle>
+            <h1 className="text-2xl font-bold" data-testid="heading-contact">Contact Us</h1>
             <CardDescription>Get in touch with our team</CardDescription>
           </CardHeader>
           <CardContent>

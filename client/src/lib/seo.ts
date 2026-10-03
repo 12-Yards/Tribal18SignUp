@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
 const SITE_URL = "https://tribal18.com";
-const DEFAULT_TITLE = "Community Management Software for Clubs & Members | Tribal18";
+const DEFAULT_TITLE = "Golf Club & Community Management Software | Tribal18";
 const DEFAULT_DESCRIPTION =
-  "Tribal18 is an all-in-one community management platform for clubs and communities. Manage members, events, competitions, content, and reciprocal play from one powerful system.";
+  "Tribal18 helps golf clubs, societies, event organisers and golf communities manage members, events, content and reciprocal play in one branded platform.";
 
 function setMeta(attr: "name" | "property", key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
@@ -25,6 +25,12 @@ function setCanonical(url: string) {
   el.setAttribute("href", url);
 }
 
+function removeCanonical() {
+  document.head
+    .querySelector<HTMLLinkElement>('link[rel="canonical"]')
+    ?.remove();
+}
+
 interface SEOOptions {
   title?: string;
   description?: string;
@@ -41,7 +47,8 @@ export function useSEO({ title, description, path, noindex }: SEOOptions = {}) {
     document.title = fullTitle;
     setMeta("name", "description", desc);
     setMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow");
-    if (!noindex) setCanonical(url);
+    if (noindex) removeCanonical();
+    else setCanonical(url);
     setMeta("property", "og:title", fullTitle);
     setMeta("property", "og:description", desc);
     setMeta("property", "og:url", url);

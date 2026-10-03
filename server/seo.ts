@@ -1,9 +1,11 @@
+import { benefitSeoMeta } from "../shared/benefit-seo";
+
 const SITE_URL = "https://tribal18.com";
 
 const DEFAULT_TITLE =
-  "Community Management Software for Clubs & Members | Tribal18";
+  "Golf Club & Community Management Software | Tribal18";
 const DEFAULT_DESCRIPTION =
-  "Tribal18 is an all-in-one community management platform for clubs and communities. Manage members, events, competitions, content, and reciprocal play from one powerful system.";
+  "Tribal18 helps golf clubs, societies, event organisers and golf communities manage members, events, content and reciprocal play in one branded platform.";
 
 interface RouteMeta {
   title: string;
@@ -30,11 +32,13 @@ const routeMeta: Record<string, RouteMeta> = {
     title: "Organisers Login | Tribal18",
     description:
       "Log in to your Tribal18 organiser account to manage your community platform.",
+    noindex: true,
   },
   "/create-account": {
     title: "Create Your Account | Tribal18",
     description:
       "Create your Tribal18 community platform in minutes. Free for the first 30 days, no card details needed to go live.",
+    noindex: true,
   },
   "/privacy": {
     title: "Privacy Policy | Tribal18",
@@ -54,6 +58,36 @@ const routeMeta: Record<string, RouteMeta> = {
   },
 };
 
+const NOT_FOUND_META: RouteMeta = {
+  title: "Page Not Found | Tribal18",
+  description: "The page you requested could not be found.",
+  noindex: true,
+};
+
+function normalizePath(path: string) {
+  return path.replace(/\/+$/, "") || "/";
+}
+
+function getRouteMeta(path: string): RouteMeta | undefined {
+  const normalized = normalizePath(path);
+  const staticMeta = routeMeta[normalized];
+  if (staticMeta) return staticMeta;
+
+  const benefitPrefix = "/benefits/";
+  if (!normalized.startsWith(benefitPrefix)) return undefined;
+
+  const slug = normalized.slice(benefitPrefix.length);
+  if (!Object.prototype.hasOwnProperty.call(benefitSeoMeta, slug)) {
+    return undefined;
+  }
+
+  return benefitSeoMeta[slug as keyof typeof benefitSeoMeta];
+}
+
+export function isKnownRoute(path: string): boolean {
+  return getRouteMeta(path) !== undefined;
+}
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
@@ -63,9 +97,10 @@ function escapeHtml(value: string) {
 }
 
 export function injectRouteMeta(html: string, path: string): string {
-  const normalized = path.replace(/\/+$/, "") || "/";
-  const meta = routeMeta[normalized];
-  if (!meta) return html;
+  const normalized = normalizePath(path);
+  const route = getRouteMeta(normalized);
+  const meta = route ?? NOT_FOUND_META;
+  const noindex = !route || meta.noindex === true;
 
   const title = escapeHtml(meta.title);
   const description = escapeHtml(meta.description || DEFAULT_DESCRIPTION);
@@ -100,16 +135,19 @@ export function injectRouteMeta(html: string, path: string): string {
     .replace(
       /<meta name="twitter:url" content="[^"]*" \/>/,
       `<meta name="twitter:url" content="${url}" />`,
-    )
-    .replace(
-      /<link rel="canonical" href="[^"]*" \/>/,
-      `<link rel="canonical" href="${url}" />`,
     );
 
-  if (meta.noindex) {
+  out = out.replace(
+    /<meta name="robots" content="[^"]*" \/>/,
+    `<meta name="robots" content="${noindex ? "noindex, nofollow" : "index, follow"}" />`,
+  );
+
+  if (noindex) {
+    out = out.replace(/<link rel="canonical" href="[^"]*" \/>/, "");
+  } else {
     out = out.replace(
-      /<meta name="robots" content="[^"]*" \/>/,
-      `<meta name="robots" content="noindex, nofollow" />`,
+      /<link rel="canonical" href="[^"]*" \/>/,
+      `<link rel="canonical" href="${url}" />`,
     );
   }
 
