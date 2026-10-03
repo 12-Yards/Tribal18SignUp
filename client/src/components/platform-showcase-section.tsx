@@ -4,6 +4,7 @@ import {
   Award,
   CalendarDays,
   Gift,
+  Heart,
   Map,
   MessageCircle,
   type LucideIcon,
@@ -70,6 +71,14 @@ const platformViews: PlatformView[] = [
     description:
       "Make it easy for members to redeem points for rewards and community experiences.",
     icon: Gift,
+  },
+  {
+    id: "charity",
+    label: "Charity",
+    title: "Support causes through golf.",
+    description:
+      "Help golf communities raise funds and support charitable causes together.",
+    icon: Heart,
   },
 ];
 
