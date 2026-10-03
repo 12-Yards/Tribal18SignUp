@@ -1,14 +1,15 @@
 import { useState } from "react";
 import {
+  Activity,
+  Award,
   CalendarDays,
-  Globe,
+  Gift,
   Map,
   MessageCircle,
-  Users,
   type LucideIcon,
 } from "lucide-react";
 import appScreensPath from "@assets/image_1784735462257.png";
-import webPollsPath from "@assets/0_s1_1791044137064.png";
+import webEngagementPath from "@assets/0_s1_1791044137064.png";
 
 type PlatformView = {
   id: string;
@@ -22,11 +23,21 @@ type PlatformView = {
 
 const platformViews: PlatformView[] = [
   {
+    id: "golf",
+    label: "Golf",
+    title: "Help golfers find their next game.",
+    description:
+      "Bring tee-time discovery and golf opportunities into the same community experience.",
+    platform: "mobile",
+    icon: Map,
+    screenLeft: "50.1%",
+  },
+  {
     id: "community",
     label: "Community",
     title: "Keep the conversation together.",
     description:
-      "Give members one place for community updates, stories and the conversations around the game.",
+      "Give members one place for community updates, stories and conversations around the game.",
     platform: "mobile",
     icon: MessageCircle,
     screenLeft: "1.2%",
@@ -42,33 +53,31 @@ const platformViews: PlatformView[] = [
     screenLeft: "25.5%",
   },
   {
-    id: "golf-play",
-    label: "Golf play",
-    title: "Help golfers find their next game.",
+    id: "engagement",
+    label: "Engagement",
+    title: "Give members more ways to take part.",
     description:
-      "Bring tee-time discovery and golf opportunities into the same community experience.",
-    platform: "mobile",
-    icon: Map,
-    screenLeft: "50.1%",
-  },
-  {
-    id: "communities",
-    label: "Communities",
-    title: "Connect people across groups.",
-    description:
-      "Help members discover clubs, societies and communities connected to the game.",
-    platform: "mobile",
-    icon: Users,
-    screenLeft: "74.8%",
-  },
-  {
-    id: "web-polls",
-    label: "Web polls",
-    title: "Give members a voice on the web.",
-    description:
-      "Run polls through a branded community website. This real York Vibe screen shows members voting online.",
+      "Use polls, quizzes and other interactive features to invite member input. The web example shows a community poll page.",
     platform: "web",
-    icon: Globe,
+    icon: Activity,
+  },
+  {
+    id: "earn",
+    label: "Earn",
+    title: "Recognise members who get involved.",
+    description:
+      "Give members ways to earn points and rewards as they take part in their community.",
+    platform: "mobile",
+    icon: Award,
+  },
+  {
+    id: "redeem",
+    label: "Redeem",
+    title: "Turn points into rewards.",
+    description:
+      "Make it easy for members to redeem points for rewards and community experiences.",
+    platform: "mobile",
+    icon: Gift,
   },
 ];
 
@@ -166,26 +175,32 @@ export function PlatformShowcaseSection() {
                 <>
                   <img
                     src={appScreensPath}
-                    alt={`Real Tribal18 mobile app screens for community, events, golf play and groups; ${activeView.label} is highlighted.`}
+                    alt="Real Tribal18 mobile app screens showing the home feed, event details, golf play and communities."
                     className="h-full w-full object-contain"
                     loading="lazy"
                   />
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute bottom-[12%] top-[5%] w-[23.2%] rounded-[2rem] border-2 border-emerald-300/90 shadow-[0_0_0_2px_rgba(7,19,15,0.8),0_0_22px_rgba(110,231,183,0.32)] transition-all duration-300"
-                    style={{ left: activeView.screenLeft }}
-                  />
+                  {activeView.screenLeft && (
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute bottom-[12%] top-[5%] w-[23.2%] rounded-[2rem] border-2 border-emerald-300/90 shadow-[0_0_0_2px_rgba(7,19,15,0.8),0_0_22px_rgba(110,231,183,0.32)] transition-all duration-300"
+                      style={{ left: activeView.screenLeft }}
+                    />
+                  )}
                 </>
               ) : (
                 <img
-                  src={webPollsPath}
-                  alt="Actual York Vibe community website showing its polls page and member voting options."
+                  src={webEngagementPath}
+                  alt="York Vibe community website showing its polls page and member voting options as an example of engagement."
                   className="h-full w-full object-contain"
                   loading="lazy"
                 />
               )}
               <span className="absolute right-3 top-3 rounded-full border border-white/10 bg-black/70 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white/90 backdrop-blur">
-                {activeView.platform === "mobile" ? "App screen" : "Website screen"}
+                {activeView.platform === "mobile"
+                  ? activeView.screenLeft
+                    ? "App screen"
+                    : "App overview"
+                  : "Website screen"}
               </span>
             </div>
           </div>
