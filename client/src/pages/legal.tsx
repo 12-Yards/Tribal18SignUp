@@ -37,6 +37,7 @@ export function PrivacyPage() {
     title: "Privacy Policy | Tribal18",
     description: "Read the Tribal18 Privacy Policy to learn how we collect, use and protect your personal information.",
     path: "/privacy",
+    image: "/og/privacy.jpg",
   });
   return (
     <LegalLayout title="Privacy Policy" updated="July 2026" testId="page-privacy">
@@ -102,6 +103,7 @@ export function TermsPage() {
     title: "Terms & Conditions | Tribal18",
     description: "Read the Tribal18 Terms & Conditions covering accounts, acceptable use, subscriptions and more.",
     path: "/terms",
+    image: "/og/terms.jpg",
   });
   return (
     <LegalLayout title="Terms & Conditions" updated="July 2026" testId="page-terms">

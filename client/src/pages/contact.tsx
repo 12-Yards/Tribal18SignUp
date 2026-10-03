@@ -10,7 +10,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useSEO } from "@/lib/seo";
 
 export default function ContactPage() {
-  useSEO({ title: "Contact Us | Tribal18", description: "Get in touch with the Tribal18 team to learn how our community management platform can help your golf club, society or community.", path: "/contact" });
+  useSEO({ title: "Contact Us | Tribal18", description: "Get in touch with the Tribal18 team to learn how our community management platform can help your golf club, society or community.", path: "/contact", image: "/og/contact.jpg" });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [organisation, setOrganisation] = useState("");
