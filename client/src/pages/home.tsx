@@ -64,7 +64,7 @@ function HeroSection() {
               Bring your <span className="text-emerald-300">golf community</span> together.
             </h1>
             <p className="max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-              A branded home for members, content and events, with a custom URL and access on web, Android and iOS.
+              Golf club and society management software for members, content and events, with your own brand, custom URL, and access on web, Android and iOS.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button size="lg" asChild className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-go-live-hero">
@@ -428,8 +428,8 @@ function AudiencesSection() {
               className="mt-5 max-w-[13ch] text-3xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
               data-testid="heading-audiences"
             >
-              One platform.
-              <span className="mt-1 block text-emerald-300">Every part of golf.</span>
+              A golf society app.
+              <span className="mt-1 block text-emerald-300">For every part of the game.</span>
             </h2>
           </div>
           <div className="max-w-xl border-l border-border/80 pb-1 pl-6 sm:pl-8 lg:mb-2">
@@ -621,7 +621,7 @@ function PricingSection() {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="heading-pricing">
-            Choose your Plan
+            Choose your plan
           </h2>
           <p className="text-muted-foreground text-lg" data-testid="text-pricing-description">
             Choose the plan that fits your golf community.

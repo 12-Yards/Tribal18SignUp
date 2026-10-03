@@ -19,125 +19,125 @@ import {
 const benefitsData = {
   "member-engagement": {
     icon: Users,
-    title: "Increase Member Engagement",
+    title: "Increase member engagement",
     subtitle: "Build a thriving, active community",
     heroDescription: "Keep your community active and connected with social features designed specifically for members. Create meaningful interactions that bring members together.",
     colorClass: "bg-gradient-to-br from-emerald-500 to-emerald-600 text-white",
     details: [
       {
-        heading: "Social Networking for Members",
+        heading: "Social networking for members",
         description: "Give your members a dedicated space to connect, share experiences, and build relationships. Our social features include member profiles, activity feeds, direct messaging, and group discussions - all tailored for your community."
       },
       {
-        heading: "Event Participation",
+        heading: "Event participation",
         description: "Drive higher attendance at club events with easy registration, automated reminders, and social sharing. Members can see who's attending, invite friends, and share their experiences afterward."
       },
       {
-        heading: "Content Sharing",
+        heading: "Content sharing",
         description: "Enable members to share photos, videos, and stories from their rounds. Celebrate achievements, memorable moments, and create a living history of your community's best experiences."
       },
       {
-        heading: "Gamification & Achievements",
+        heading: "Gamification & achievements",
         description: "Motivate participation with badges, leaderboards, and recognition for active members. Track milestones and celebrate achievements to keep members engaged and coming back."
       }
     ]
   },
   "simplify-management": {
     icon: Settings,
-    title: "Simplify Management",
+    title: "Simplify management",
     subtitle: "Powerful tools that save you time",
     heroDescription: "Streamline administrative tasks with powerful tools that save time and reduce complexity. Manage your entire community from one intuitive dashboard.",
     colorClass: "bg-gradient-to-br from-sky-500 to-sky-600 text-white",
     details: [
       {
-        heading: "Centralized Dashboard",
+        heading: "Centralized dashboard",
         description: "Access everything you need from a single, intuitive dashboard. View member activity, manage events, publish content, and monitor community health all in one place."
       },
       {
-        heading: "Automated Communications",
+        heading: "Automated communications",
         description: "Set up automated emails and notifications for event reminders, membership renewals, and important announcements. Save hours of manual communication work every week."
       },
       {
-        heading: "Member Management",
+        heading: "Member management",
         description: "Easily manage member profiles, track participation, handle renewals, and maintain accurate records. Import existing member data and keep everything organized."
       },
       {
-        heading: "Reporting & Analytics",
+        heading: "Reporting & analytics",
         description: "Get insights into member engagement, event attendance, and community growth. Make data-driven decisions with comprehensive reports and visualizations."
       }
     ]
   },
   "inter-club-play": {
     icon: Globe,
-    title: "Grow Inter-Club Play",
+    title: "Grow inter-club play",
     subtitle: "Expand your network",
     heroDescription: "Expand your network with reciprocal play arrangements and inter-club competitions. Connect your members with communities across the region and beyond.",
     colorClass: "bg-gradient-to-br from-emerald-500 to-emerald-600 text-white",
     details: [
       {
-        heading: "Reciprocal Play Arrangements",
+        heading: "Reciprocal play arrangements",
         description: "Easily set up and manage reciprocal play agreements with other clubs. Your members gain access to new venues while you welcome visiting members to yours."
       },
       {
-        heading: "Inter-Club Competitions",
+        heading: "Inter-club competitions",
         description: "Organize tournaments and competitions between clubs. Manage team selections, handicaps, scoring, and results all within the platform."
       },
       {
-        heading: "Tee Time Sharing",
+        heading: "Tee time sharing",
         description: "Share available tee times with partner clubs and communities. Fill unused slots while giving your members more playing opportunities."
       },
       {
-        heading: "Network Discovery",
+        heading: "Network discovery",
         description: "Discover and connect with communities in your region. Build relationships that benefit your members and grow the wider community."
       }
     ]
   },
   "revenue-streams": {
     icon: TrendingUp,
-    title: "Create Revenue Streams",
+    title: "Create revenue streams",
     subtitle: "Unlock new financial opportunities",
     heroDescription: "Unlock new opportunities for sponsorships, events, and premium member experiences. Turn your engaged community into sustainable revenue.",
     colorClass: "bg-gradient-to-br from-sky-500 to-sky-600 text-white",
     details: [
       {
-        heading: "Sponsorship Opportunities",
+        heading: "Sponsorship opportunities",
         description: "Attract sponsors with detailed engagement metrics and targeted visibility. Offer sponsors banner placement, event naming rights, and direct access to your engaged member base."
       },
       {
-        heading: "Premium Events",
+        heading: "Premium events",
         description: "Host paid events, tournaments, and experiences. Handle registrations, payments, and communications all in one place with built-in payment processing."
       },
       {
-        heading: "Membership Tiers",
+        heading: "Membership tiers",
         description: "Create premium membership levels with exclusive benefits. Offer enhanced features, priority booking, and special access to drive upgrade revenue."
       },
       {
-        heading: "Partner Promotions",
+        heading: "Partner promotions",
         description: "Partner with brands, shops, and local businesses. Share exclusive offers with your members while earning referral revenue."
       }
     ]
   },
   "improve-retention": {
     icon: Heart,
-    title: "Improve Retention",
+    title: "Improve retention",
     subtitle: "Keep members coming back",
     heroDescription: "Build lasting connections that keep members coming back season after season. Create a community experience that members don't want to leave.",
     colorClass: "bg-gradient-to-br from-emerald-500 to-emerald-600 text-white",
     details: [
       {
-        heading: "Community Belonging",
+        heading: "Community belonging",
         description: "Foster a sense of belonging that goes beyond activities. Members who feel connected to their community are far more likely to renew and stay active."
       },
       {
-        heading: "Personalized Experience",
+        heading: "Personalized experience",
         description: "Deliver personalized content, event recommendations, and communications based on member preferences and activity. Make every member feel valued."
       },
       {
-        heading: "Year-Round Engagement",
+        heading: "Year-round engagement",
         description: "Keep members engaged even during the off-season with social features, planning tools, and community content. Maintain connections when they can't be on the course."
       },
       {
-        heading: "Feedback & Improvement",
+        heading: "Feedback & improvement",
         description: "Gather member feedback through surveys and polls. Show members their input matters by acting on suggestions and communicating improvements."
       }
     ]
@@ -289,7 +289,7 @@ export default function BenefitPage() {
                 </p>
                 
                 <div className="pt-4">
-                  <h3 className="font-bold text-xl mb-4">Key Benefits</h3>
+                  <h3 className="font-bold text-xl mb-4">Key benefits</h3>
                   <div className="space-y-3">
                     {benefit.details.map((detail, i) => (
                       <div key={i} className="flex items-start gap-3" data-testid={`benefit-bullet-${i}`}>
@@ -350,7 +350,7 @@ export default function BenefitPage() {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')] opacity-50"></div>
           <div className="container mx-auto px-4 relative">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to Get Started?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to get started?</h2>
               <p className="text-white/90 text-lg mb-8">
                 Join thousands of communities already using Tribal18 to engage their members.
               </p>

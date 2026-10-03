@@ -3,6 +3,8 @@ import fs from "fs";
 import path from "path";
 import { getSitemapXml, injectRouteMeta, isKnownRoute } from "./seo";
 
+const HTML_CACHE_CONTROL = "no-cache, no-store, must-revalidate";
+
 function isReplitAppHost(hostHeader: string | undefined) {
   const host = (hostHeader || "")
     .split(",")[0]
@@ -48,10 +50,23 @@ export function serveStatic(app: Express) {
   });
 
   app.get("/sitemap.xml", (_req, res) => {
-    res.status(200).type("application/xml").send(getSitemapXml());
+    res
+      .status(200)
+      .type("application/xml")
+      .set("Cache-Control", HTML_CACHE_CONTROL)
+      .send(getSitemapXml());
   });
 
-  app.use(express.static(distPath, { index: false }));
+  app.use(
+    express.static(distPath, {
+      index: false,
+      setHeaders(res, filePath) {
+        if (path.extname(filePath).toLowerCase() === ".html") {
+          res.setHeader("Cache-Control", HTML_CACHE_CONTROL);
+        }
+      },
+    }),
+  );
 
   // Serve server-rendered public content and per-route SEO metadata.
   app.use("/{*path}", (req, res) => {
@@ -77,7 +92,10 @@ export function serveStatic(app: Express) {
 
     res
       .status(knownRoute ? 200 : 404)
-      .set({ "Content-Type": "text/html; charset=utf-8" })
+      .set({
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": HTML_CACHE_CONTROL,
+      })
       .send(injectRouteMeta(renderedHtml, requestPath, { stagingHost }));
   });
 }

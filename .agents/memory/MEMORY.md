@@ -1,2 +1,3 @@
 - [SEO meta injection](seo-meta-injection.md) — new public pages need meta in both client useSEO and server/seo.ts routeMeta + sitemap.xml; crawlers rely on server injection.
 - [Golf community positioning](golf-community-positioning.md) — Serve any golf-connected business or community, keep charity golf-specific, and use the preferred callout style.
+- [Live SEO release safety](live-seo-release-safety.md) — keep staging noindex host-gated and check tribal18.com directly after every publish.
