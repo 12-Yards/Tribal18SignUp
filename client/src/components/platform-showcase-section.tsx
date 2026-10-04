@@ -11,6 +11,13 @@ import {
 } from "lucide-react";
 import appScreensPath from "@assets/image_1784735462257.png";
 import { PlatformNamesText } from "@/components/platform-names-text";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 type PlatformView = {
   id: string;
@@ -83,6 +90,13 @@ export function PlatformShowcaseSection() {
   const [activeView, setActiveView] = useState(platformViews[0]);
   const ActiveIcon = activeView.icon;
 
+  const selectView = (viewId: string) => {
+    const selectedView = platformViews.find((view) => view.id === viewId);
+    if (selectedView) {
+      setActiveView(selectedView);
+    }
+  };
+
   return (
     <section
       id="platform-preview"
@@ -105,34 +119,54 @@ export function PlatformShowcaseSection() {
         </header>
 
         <div className="mx-auto mt-10 max-w-6xl rounded-[1.5rem] border border-emerald-100/[0.1] bg-gradient-to-br from-card via-card to-emerald-950/25 p-4 shadow-[0_24px_70px_rgba(0,0,0,0.2)] sm:p-6 lg:mt-12 lg:p-8">
-          <div
-            className="flex gap-2 overflow-x-auto pb-2"
-            role="group"
-            aria-label="Explore mobile app features"
-          >
-            {platformViews.map((view, index) => {
-              const Icon = view.icon;
-              const isActive = activeView.id === view.id;
-
-              return (
-                <button
-                  key={view.id}
-                  type="button"
-                  aria-pressed={isActive}
-                  onClick={() => setActiveView(view)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                    isActive
-                      ? "border-border/70 bg-emerald-300/15 text-emerald-100"
-                      : "border-border/70 bg-background/30 text-muted-foreground hover:border-border hover:text-foreground"
-                  }`}
-                  data-testid={`button-platform-view-${view.id}`}
+          <div>
+            <div className="lg:hidden">
+              <Select value={activeView.id} onValueChange={selectView}>
+                <SelectTrigger
+                  aria-label="Choose a feature to preview"
+                  className="h-12 rounded-xl border-emerald-100/15 bg-background/60 text-foreground"
                 >
-                  <Icon className="h-4 w-4" aria-hidden="true" />
-                  <span>{view.label}</span>
-                  <span className="sr-only">, view {index + 1} of {platformViews.length}</span>
-                </button>
-              );
-            })}
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="border-emerald-100/15 bg-[#0b1712] text-foreground">
+                  {platformViews.map((view) => (
+                    <SelectItem key={view.id} value={view.id}>
+                      {view.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div
+              className="hidden gap-2 overflow-x-auto pb-2 lg:flex"
+              role="group"
+              aria-label="Explore mobile app features"
+            >
+              {platformViews.map((view, index) => {
+                const Icon = view.icon;
+                const isActive = activeView.id === view.id;
+
+                return (
+                  <button
+                    key={view.id}
+                    type="button"
+                    aria-pressed={isActive}
+                    onClick={() => selectView(view.id)}
+                    className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                      isActive
+                        ? "border-border/70 bg-emerald-300/15 text-emerald-100"
+                        : "border-border/70 bg-background/30 text-muted-foreground hover:border-border hover:text-foreground"
+                    }`}
+                    data-testid={`button-platform-view-${view.id}`}
+                  >
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                    <span>{view.label}</span>
+                    <span className="sr-only">, view {index + 1} of {platformViews.length}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           <div className="mt-6 grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-10">

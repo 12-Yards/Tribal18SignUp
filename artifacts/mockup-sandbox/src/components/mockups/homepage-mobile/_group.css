@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --background: 160 15% 6%;
+  --foreground: 0 0% 100%;
+  --border: 160 10% 15%;
+  --card: 160 15% 8%;
+  --card-foreground: 0 0% 100%;
+  --card-border: 160 10% 15%;
+  --popover: 160 15% 8%;
+  --popover-foreground: 0 0% 100%;
+  --popover-border: 160 10% 15%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 160 15% 6%;
+  --secondary: 160 10% 12%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 160 10% 12%;
+  --muted-foreground: 160 10% 68%;
+  --accent: 135 48% 55%;
+  --accent-foreground: 160 15% 6%;
+  --input: 160 10% 20%;
+  --ring: 135 48% 55%;
+  --font-sans: "Montserrat", sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 160 15% 6%;
+  --foreground: 0 0% 100%;
+  --border: 160 10% 15%;
+  --card: 160 15% 8%;
+  --card-foreground: 0 0% 100%;
+  --card-border: 160 10% 15%;
+  --popover: 160 15% 8%;
+  --popover-foreground: 0 0% 100%;
+  --popover-border: 160 10% 15%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 160 15% 6%;
+  --secondary: 160 10% 12%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 160 10% 12%;
+  --muted-foreground: 160 10% 68%;
+  --accent: 135 48% 55%;
+  --accent-foreground: 160 15% 6%;
+  --input: 160 10% 20%;
+  --ring: 135 48% 55%;
+  --font-sans: "Montserrat", sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.5rem;
+}

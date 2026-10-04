@@ -517,7 +517,7 @@ function HowItWorksSection() {
 
   return (
     <section
-      className="relative isolate overflow-hidden border-y border-border/50 bg-[radial-gradient(ellipse_at_50%_0%,rgba(43,89,63,0.22),transparent_62%)] py-16 sm:py-20 lg:py-28"
+      className="relative isolate overflow-hidden border-y border-border/50 bg-[radial-gradient(ellipse_at_50%_0%,rgba(43,89,63,0.22),transparent_62%)] py-12 sm:py-20 lg:py-28"
       data-testid="section-how-it-works"
       aria-labelledby="heading-how-it-works"
     >
@@ -536,18 +536,53 @@ function HowItWorksSection() {
           </p>
           <h2
             id="heading-how-it-works"
-            className="mt-4 text-[2.65rem] font-semibold leading-[1.04] tracking-[-0.045em] sm:text-5xl lg:text-[3.45rem]"
+            className="mt-4 text-[2.35rem] font-semibold leading-[1.04] tracking-[-0.045em] sm:text-5xl lg:text-[3.45rem]"
             data-testid="heading-how-it-works"
           >
             How it works.
           </h2>
-          <p className="mx-auto mt-5 max-w-[38rem] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+          <p className="mx-auto mt-4 max-w-[38rem] text-[0.94rem] leading-6 text-muted-foreground sm:mt-5 sm:text-lg sm:leading-8">
             Get full admin access in minutes and be ready to launch in a few hours. You&apos;re in
             control of everything, with live chat and email support whenever you need it.
           </p>
         </header>
 
-        <div className="mx-auto mt-11 grid max-w-6xl gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
+        <ol className="mx-auto mt-8 max-w-2xl sm:hidden" aria-label="Four steps to launch">
+          {steps.map((step, index) => (
+            <li
+              key={step.title}
+              className="relative flex gap-3.5 pb-5 last:pb-0"
+              data-testid={`mobile-step-how-it-works-${index}`}
+            >
+              <div className="relative flex w-10 shrink-0 justify-center">
+                <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-200/15 bg-emerald-300/[0.12] text-emerald-200">
+                  <step.icon className="h-[1.05rem] w-[1.05rem]" aria-hidden="true" />
+                </span>
+                {index < steps.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-1/2 top-10 bottom-[-1.25rem] w-px -translate-x-1/2 bg-emerald-200/20"
+                  />
+                )}
+              </div>
+              <div
+                className={`min-w-0 flex-1 ${index < steps.length - 1 ? "border-b border-border/70 pb-5" : "pb-1"}`}
+              >
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="text-base font-semibold tracking-tight">{step.title}</h3>
+                  <span className="shrink-0 font-mono text-[0.65rem] font-semibold tracking-[0.14em] text-emerald-200/70">
+                    STEP {step.number}
+                  </span>
+                </div>
+                <p className="mt-1.5 text-[0.82rem] leading-[1.55] text-muted-foreground">
+                  {step.description}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mx-auto mt-11 hidden max-w-6xl gap-3 sm:grid sm:mt-14 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           {steps.map((step, index) => (
             <div key={step.title} className="relative" data-testid={`step-how-it-works-${index}`}>
               <Card className="group relative h-full overflow-hidden rounded-[1.15rem] border border-emerald-100/[0.11] bg-gradient-to-br from-card via-card to-emerald-950/30 text-foreground shadow-[0_16px_40px_rgba(0,0,0,0.12)] transition-transform duration-300 hover:-translate-y-1">
@@ -587,7 +622,7 @@ function HowItWorksSection() {
             </div>
           ))}
         </div>
-        <div className="mt-9 flex justify-center sm:mt-11">
+        <div className="mt-8 flex justify-center sm:mt-11">
           <Button
             size="lg"
             asChild
