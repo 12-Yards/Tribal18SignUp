@@ -6,7 +6,6 @@ import logoPath from "@assets/tribal8icon_1783436350353.png";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -90,12 +89,9 @@ function HeroSection() {
                       className="h-28 w-28 object-contain"
                     />
                     <DialogHeader className="space-y-2 text-center sm:text-center">
-                      <DialogTitle className="text-2xl font-bold leading-tight text-white">
-                        View Demo
+                      <DialogTitle className="text-xl font-bold leading-snug text-white sm:text-2xl">
+                        The demo platform will be available from 11th October 2026.
                       </DialogTitle>
-                      <DialogDescription className="text-base font-medium text-white/70">
-                        Coming Soon
-                      </DialogDescription>
                     </DialogHeader>
                   </div>
                 </DialogContent>
