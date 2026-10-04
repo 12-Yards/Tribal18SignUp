@@ -6,5 +6,7 @@ description: Tribal18 serves golf-connected businesses and communities; charitab
 - The user prefers the callout treatment from “For golf clubs, societies and events” for homepage section callouts such as “The Tribal18 platform” and “Built around the golf community.”
 - Tribal18 is available on Android, iOS and web; every plan includes a custom URL.
 - Bold visible mentions of web, iOS, and Android.
-**Why:** The user clarified audience scope and callout styling while reviewing the homepage and requested platform names be emphasized consistently.
-**How to apply:** Keep golf as the primary context, show that the platform serves more than clubs, frame charitable causes as a golf-community use case, apply the same callout treatment across homepage sections, and state platform availability and custom URLs across all plans with web, iOS, and Android in bold.
+- In the platform showcase, use the tinted tab fill to indicate the active feature; do not outline the selected phone screen in green.
+- In the platform showcase, make the small label above the heading match the selected tab name.
+**Why:** The user clarified audience scope and callout styling, requested platform names be emphasized, pointed out the green phone-screen outline, and requested the selected tab name in the showcase label.
+**How to apply:** Keep golf as the primary context, show that the platform serves more than clubs, frame charitable causes as a golf-community use case, apply the same callout treatment across homepage sections, state platform availability and custom URLs across all plans with web, iOS, and Android in bold, show the selected showcase feature with tinted tab fill only, and use the current tab name in its label.

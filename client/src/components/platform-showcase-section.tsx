@@ -18,7 +18,6 @@ type PlatformView = {
   title: string;
   description: string;
   icon: LucideIcon;
-  screenLeft?: string;
 };
 
 const platformViews: PlatformView[] = [
@@ -29,7 +28,6 @@ const platformViews: PlatformView[] = [
     description:
       "Bring tee-time discovery and golf opportunities into the same community experience.",
     icon: Map,
-    screenLeft: "50.1%",
   },
   {
     id: "community",
@@ -38,7 +36,6 @@ const platformViews: PlatformView[] = [
     description:
       "Give members one place for community updates, stories and conversations around the game.",
     icon: MessageCircle,
-    screenLeft: "1.2%",
   },
   {
     id: "events",
@@ -47,7 +44,6 @@ const platformViews: PlatformView[] = [
     description:
       "Share competition details and event updates where members already connect.",
     icon: CalendarDays,
-    screenLeft: "25.5%",
   },
   {
     id: "engagement",
@@ -146,7 +142,7 @@ export function PlatformShowcaseSection() {
                   <ActiveIcon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-200">
-                  Mobile app
+                  {activeView.label}
                 </span>
               </div>
               <h3
@@ -158,8 +154,8 @@ export function PlatformShowcaseSection() {
               <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">
                 <PlatformNamesText text={activeView.description} />
               </p>
-              <p className="mt-6 border-t border-border/70 pt-4 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-                <PlatformNamesText text="Android and iOS" />
+              <p className="mt-6 border-t border-border/70 pt-4 text-xs font-medium text-muted-foreground">
+                <PlatformNamesText text="Web, Android and iOS" />
               </p>
             </div>
 
@@ -173,13 +169,6 @@ export function PlatformShowcaseSection() {
                 className="h-full w-full object-contain"
                 loading="lazy"
               />
-              {activeView.screenLeft && (
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute bottom-[12%] top-[5%] w-[23.2%] rounded-[2rem] border-2 border-emerald-300/90 shadow-[0_0_0_2px_rgba(7,19,15,0.8),0_0_22px_rgba(110,231,183,0.32)] transition-all duration-300"
-                  style={{ left: activeView.screenLeft }}
-                />
-              )}
             </div>
           </div>
         </div>
