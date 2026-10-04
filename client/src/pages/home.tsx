@@ -36,6 +36,7 @@ import {
 } from "lucide-react";
 import { HomeProofSection } from "@/components/home-proof-section";
 import { PlatformShowcaseSection } from "@/components/platform-showcase-section";
+import { PlatformNamesText } from "@/components/platform-names-text";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 function HeroSection() {
@@ -64,7 +65,7 @@ function HeroSection() {
               Bring your <span className="text-emerald-300">golf community</span> together.
             </h1>
             <p className="max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-              Golf club and society management software for members, content and events, with your own brand, custom URL, and access on web, Android and iOS.
+              <PlatformNamesText text="Golf club and society management software for members, content and events, with your own brand, custom URL, and access on web, Android and iOS." />
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button size="lg" asChild className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-go-live-hero">
@@ -216,7 +217,7 @@ function FeaturesSection() {
                         {feature.title}
                       </h3>
                       <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground" data-testid={`text-feature-${featureIndex}`}>
-                        {feature.description}
+                        <PlatformNamesText text={feature.description} />
                       </p>
                     </div>
                   </div>
@@ -237,7 +238,7 @@ function FeaturesSection() {
                 {platformFeature.title}
               </h3>
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground" data-testid="text-feature-5">
-                {platformFeature.description}
+                <PlatformNamesText text={platformFeature.description} />
               </p>
             </div>
             <span className="shrink-0 text-xs font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">
@@ -353,7 +354,7 @@ function OwnershipSection() {
                       Your Tribal18 community
                     </span>
                     <span className="block text-[15px] font-semibold leading-[1.5] text-[#f0f6f1]">
-                      {row.tribal}
+                      <PlatformNamesText text={row.tribal} />
                     </span>
                   </span>
                 </div>

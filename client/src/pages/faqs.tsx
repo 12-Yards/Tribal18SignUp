@@ -7,6 +7,7 @@ import {
 import { Link } from "wouter";
 import { useSEO } from "@/lib/seo";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { PlatformNamesText } from "@/components/platform-names-text";
 import { faqData } from "@shared/faq-data";
 
 export default function FAQsPage() {
@@ -63,7 +64,7 @@ export default function FAQsPage() {
                     forceMount
                     className="text-sm leading-relaxed text-muted-foreground sm:text-base"
                   >
-                    {faq.answer}
+                    <PlatformNamesText text={faq.answer} />
                   </AccordionContent>
                 </AccordionItem>
               ))}

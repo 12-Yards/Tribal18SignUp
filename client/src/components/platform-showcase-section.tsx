@@ -10,6 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import appScreensPath from "@assets/image_1784735462257.png";
+import { PlatformNamesText } from "@/components/platform-names-text";
 
 type PlatformView = {
   id: string;
@@ -123,10 +124,10 @@ export function PlatformShowcaseSection() {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setActiveView(view)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                     isActive
-                      ? "border-emerald-300/40 bg-emerald-300/15 text-emerald-100"
-                      : "border-border/70 bg-background/30 text-muted-foreground hover:border-emerald-300/25 hover:text-foreground"
+                      ? "border-border/70 bg-emerald-300/15 text-emerald-100"
+                      : "border-border/70 bg-background/30 text-muted-foreground hover:border-border hover:text-foreground"
                   }`}
                   data-testid={`button-platform-view-${view.id}`}
                 >
@@ -155,10 +156,10 @@ export function PlatformShowcaseSection() {
                 {activeView.title}
               </h3>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">
-                {activeView.description}
+                <PlatformNamesText text={activeView.description} />
               </p>
               <p className="mt-6 border-t border-border/70 pt-4 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-                Android and iOS
+                <PlatformNamesText text="Android and iOS" />
               </p>
             </div>
 
