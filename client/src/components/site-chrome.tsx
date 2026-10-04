@@ -131,18 +131,9 @@ export function SiteFooter() {
                   <button
                     onClick={() => setShowApiPopup(true)}
                     className="inline-block rounded px-1 py-0.5 text-left text-sm text-muted-foreground hover-elevate"
-                    data-testid="link-footer-integrations"
+                    data-testid="link-footer-api-integrations"
                   >
-                    Integrations
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => setShowApiPopup(true)}
-                    className="inline-block rounded px-1 py-0.5 text-left text-sm text-muted-foreground hover-elevate"
-                    data-testid="link-footer-api"
-                  >
-                    API
+                    API &amp; Integrations
                   </button>
                 </li>
               </ul>

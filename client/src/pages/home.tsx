@@ -13,6 +13,7 @@ import {
 import { Link } from "wouter";
 import { useSEO } from "@/lib/seo";
 import { 
+  Apple,
   Check,
   Users,
   Calendar, 
@@ -20,6 +21,7 @@ import {
   Award,
   CreditCard,
   Smartphone,
+  Play,
   CheckCircle,
   ArrowDown,
   ArrowRight,
@@ -81,7 +83,10 @@ function HeroSection() {
                     <ArrowRight className="w-4 h-4" />
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-emerald-100/15 bg-[#08140f] p-8 text-center text-white shadow-2xl sm:p-10">
+                <DialogContent
+                  className="w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-emerald-100/15 bg-[#08140f] p-8 text-center text-white shadow-2xl sm:p-10"
+                  aria-describedby={undefined}
+                >
                   <div className="flex flex-col items-center gap-5">
                     <img
                       src={logoPath}
@@ -738,6 +743,52 @@ function PricingSection() {
   );
 }
 
+function AppDownloadSection() {
+  const stores = [
+    { name: "App Store", icon: Apple, testId: "badge-app-store" },
+    { name: "Google Play", icon: Play, testId: "badge-google-play" },
+  ];
+
+  return (
+    <section
+      className="border-t border-border/60 bg-muted/15 py-14 sm:py-16"
+      data-testid="section-app-download"
+      aria-labelledby="heading-app-download"
+    >
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2
+            id="heading-app-download"
+            className="text-3xl font-bold tracking-tight sm:text-4xl"
+          >
+            Get the Tribal18 app
+          </h2>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            {stores.map(({ name, icon: StoreIcon, testId }) => (
+              <div
+                key={name}
+                className="flex min-w-44 items-center gap-3 rounded-xl border border-border bg-card px-5 py-3.5 text-left"
+                data-testid={testId}
+                aria-label={`${name}, coming soon`}
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-foreground text-background">
+                  <StoreIcon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <span>
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                    Coming Soon
+                  </span>
+                  <span className="block text-sm font-semibold">{name}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   useSEO({ path: "/" });
   return (
@@ -753,6 +804,7 @@ export default function Home() {
         <CTASection />
         <HowItWorksSection />
         <PricingSection />
+        <AppDownloadSection />
       </main>
       <SiteFooter />
     </div>
