@@ -510,7 +510,7 @@ function AudiencesSection() {
 function HowItWorksSection() {
   const steps = [
     { icon: Layers, number: "01", title: "Create", description: "Pick a plan and name your community. You'll have full admin access in minutes." },
-    { icon: Settings, number: "02", title: "Configure", description: "Add your logo, colours and content, and switch on the features you need. Most communities are ready in a few hours." },
+    { icon: Settings, number: "02", title: "Configure", description: "Customise, add your content, and switch on the features you need, be fully live in a few hours." },
     { icon: Rocket, number: "03", title: "Launch", description: "Invite your members and go live whenever you're ready." },
     { icon: TrendingUp, number: "04", title: "Grow", description: "Run events and competitions, share news, and connect with other clubs for reciprocal play." },
   ];
