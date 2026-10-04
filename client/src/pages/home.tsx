@@ -5,7 +5,6 @@ import heroBackgroundPath from "@assets/image_1784735263353.png";
 import logoPath from "@assets/tribal8icon_1783436350353.png";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -83,61 +82,21 @@ function HeroSection() {
                     <ArrowRight className="w-4 h-4" />
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="w-[calc(100%-2rem)] max-w-[30rem] overflow-hidden rounded-[1.5rem] border border-emerald-100/15 bg-[#08140f] p-0 text-white shadow-[0_30px_90px_rgba(0,0,0,0.65)] sm:rounded-[1.5rem]">
-                  <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                    <div className="absolute -right-24 -top-32 h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl" />
-                    <div className="absolute -bottom-32 -left-20 h-64 w-64 rounded-full bg-teal-500/10 blur-3xl" />
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-200/40 to-transparent" />
-                  </div>
-                  <div className="relative p-6 sm:p-8">
-                    <div className="flex items-center gap-3 pr-8">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white p-1.5 shadow-lg shadow-black/20">
-                        <img
-                          src={logoPath}
-                          alt=""
-                          aria-hidden="true"
-                          className="h-full w-full object-contain"
-                        />
-                      </span>
-                      <div>
-                        <p className="text-sm font-bold tracking-tight text-white">
-                          Tribal18
-                        </p>
-                        <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-200/75">
-                          Golf community platform
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-7 rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
-                      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-200/15 bg-emerald-300/10 text-emerald-200 shadow-inner shadow-emerald-200/5">
-                        <Smartphone className="h-5 w-5" aria-hidden="true" />
-                      </div>
-                      <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-200/15 bg-emerald-300/[0.08] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-100">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
-                        Platform demo
-                      </p>
-                      <DialogHeader className="gap-2 text-left">
-                        <DialogTitle className="text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
-                          Tribal18 platform demo coming soon
-                        </DialogTitle>
-                        <DialogDescription className="text-sm leading-relaxed text-white/65">
-                          An interactive look at the platform is on its way.
-                        </DialogDescription>
-                      </DialogHeader>
-                    </div>
-
-                    <div className="mt-5 flex justify-end">
-                      <DialogClose asChild>
-                        <Button
-                          type="button"
-                          size="sm"
-                          className="rounded-full bg-emerald-300 px-5 font-semibold text-[#08140f] hover:bg-emerald-200"
-                        >
-                          Close
-                        </Button>
-                      </DialogClose>
-                    </div>
+                <DialogContent className="w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-emerald-100/15 bg-[#08140f] p-8 text-center text-white shadow-2xl sm:p-10">
+                  <div className="flex flex-col items-center gap-5">
+                    <img
+                      src={logoPath}
+                      alt="Tribal18"
+                      className="h-28 w-28 object-contain"
+                    />
+                    <DialogHeader className="space-y-2 text-center sm:text-center">
+                      <DialogTitle className="text-2xl font-bold leading-tight text-white">
+                        View Demo
+                      </DialogTitle>
+                      <DialogDescription className="text-base font-medium text-white/70">
+                        Coming Soon
+                      </DialogDescription>
+                    </DialogHeader>
                   </div>
                 </DialogContent>
               </Dialog>
