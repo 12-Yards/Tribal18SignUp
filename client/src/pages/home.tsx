@@ -509,10 +509,10 @@ function AudiencesSection() {
 }
 function HowItWorksSection() {
   const steps = [
-    { icon: Layers, number: "01", title: "Create", description: "Set up the foundations of your community." },
-    { icon: Settings, number: "02", title: "Configure", description: "Shape the experience around your brand and needs." },
-    { icon: Rocket, number: "03", title: "Launch", description: "Open your community and welcome your members." },
-    { icon: TrendingUp, number: "04", title: "Grow", description: "Keep people involved with content, events and more." },
+    { icon: Layers, number: "01", title: "Create", description: "Pick a plan and name your community. You'll have full admin access in minutes." },
+    { icon: Settings, number: "02", title: "Configure", description: "Add your logo, colours and content, and switch on the features you need. Most communities are ready in a few hours." },
+    { icon: Rocket, number: "03", title: "Launch", description: "Invite your members and go live whenever you're ready." },
+    { icon: TrendingUp, number: "04", title: "Grow", description: "Run events and competitions, share news, and connect with other clubs for reciprocal play." },
   ];
 
   return (
@@ -542,7 +542,8 @@ function HowItWorksSection() {
             How it works.
           </h2>
           <p className="mx-auto mt-5 max-w-[38rem] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-            Create, configure, launch and grow your community—with no technical team required.
+            Get full admin access in minutes and be ready to launch in a few hours. You&apos;re in
+            control of everything, with live chat and email support whenever you need it.
           </p>
         </header>
 
@@ -585,6 +586,19 @@ function HowItWorksSection() {
               )}
             </div>
           ))}
+        </div>
+        <div className="mt-9 flex justify-center sm:mt-11">
+          <Button
+            size="lg"
+            asChild
+            className="gap-2 bg-white text-emerald-700 hover:bg-white/90"
+            data-testid="button-start-community-how-it-works"
+          >
+            <Link href="/create-account">
+              Start your community
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
