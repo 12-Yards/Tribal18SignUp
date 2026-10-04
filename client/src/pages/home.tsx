@@ -752,20 +752,12 @@ function AppDownloadSection() {
   return (
     <section
       id="app-download"
-      className="relative isolate overflow-hidden border-y border-emerald-100/15 bg-gradient-to-br from-emerald-950 via-emerald-800 to-teal-700 py-16 sm:py-20"
+      className="relative isolate overflow-hidden bg-gradient-to-br from-emerald-600 to-sky-600 py-16 sm:py-20"
       data-testid="section-app-download"
       aria-labelledby="heading-app-download"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-32 -top-48 h-[34rem] w-[34rem] rounded-full border border-white/10"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-16 -top-32 h-[26rem] w-[26rem] rounded-full border border-white/10"
-      />
       <div className="container relative mx-auto px-4 sm:px-6">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 rounded-[2rem] border border-white/15 bg-slate-950/20 p-6 shadow-2xl shadow-emerald-950/30 backdrop-blur-sm sm:p-9 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:p-12">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 rounded-[2rem] border border-white/20 bg-emerald-950/20 p-6 shadow-2xl shadow-emerald-950/25 backdrop-blur-sm sm:p-9 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:p-12">
           <div className="text-center lg:text-left">
             <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-emerald-50">
               <Smartphone className="h-4 w-4" aria-hidden="true" />
@@ -803,7 +795,7 @@ function AppDownloadSection() {
               aria-hidden="true"
               className="pointer-events-none absolute -inset-5 rounded-[2rem] bg-cyan-300/15 blur-3xl"
             />
-            <div className="relative rounded-[1.75rem] border border-white/20 bg-slate-950/60 p-5 shadow-2xl">
+            <div className="relative rounded-[1.75rem] border border-white/20 bg-emerald-950/65 p-5 shadow-2xl">
               <div className="mb-5 flex items-center gap-3">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-300/15 text-emerald-100">
                   <Smartphone className="h-5 w-5" aria-hidden="true" />
