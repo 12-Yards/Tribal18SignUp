@@ -67,7 +67,7 @@ function HeroSection() {
               Bring your <span className="text-emerald-300">golf community</span> together.
             </h1>
             <p className="max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-              <PlatformNamesText text="Golf club and society management software for members, content and events, with your own brand, custom URL, and access on web, Android and iOS." />
+              <PlatformNamesText text="Golf club and society management software for members, content and events, with your own brand, custom URL, and access on web, Android and iPhone." />
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button size="lg" asChild className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-go-live-hero">
@@ -144,7 +144,7 @@ function FeaturesSection() {
     {
       icon: Smartphone,
       title: "Your Platform",
-      description: "Android · iOS · Web · Custom URL · Your Branding",
+      description: "Android · iPhone · Web · Custom URL · Your Branding",
       colorClass: "bg-cyan-500/10 text-cyan-400",
     },
   ];
@@ -273,7 +273,7 @@ function OwnershipSection() {
     },
     {
       social: "Members return to public feeds to find community updates",
-      tribal: "Connect on web, Android and iOS in one branded golf community",
+      tribal: "Connect on web, Android and iPhone in one branded golf community",
     },
   ];
 
@@ -751,37 +751,92 @@ function AppDownloadSection() {
 
   return (
     <section
-      className="border-t border-border/60 bg-muted/15 py-14 sm:py-16"
+      id="app-download"
+      className="relative isolate overflow-hidden border-y border-emerald-100/15 bg-gradient-to-br from-emerald-950 via-emerald-800 to-teal-700 py-16 sm:py-20"
       data-testid="section-app-download"
       aria-labelledby="heading-app-download"
     >
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2
-            id="heading-app-download"
-            className="text-3xl font-bold tracking-tight sm:text-4xl"
-          >
-            Get the Tribal18 app
-          </h2>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            {stores.map(({ name, icon: StoreIcon, testId }) => (
-              <div
-                key={name}
-                className="flex min-w-44 items-center gap-3 rounded-xl border border-border bg-card px-5 py-3.5 text-left"
-                data-testid={testId}
-                aria-label={`${name}, coming soon`}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 -top-48 h-[34rem] w-[34rem] rounded-full border border-white/10"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 -top-32 h-[26rem] w-[26rem] rounded-full border border-white/10"
+      />
+      <div className="container relative mx-auto px-4 sm:px-6">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 rounded-[2rem] border border-white/15 bg-slate-950/20 p-6 shadow-2xl shadow-emerald-950/30 backdrop-blur-sm sm:p-9 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:p-12">
+          <div className="text-center lg:text-left">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-emerald-50">
+              <Smartphone className="h-4 w-4" aria-hidden="true" />
+              Tribal18 mobile
+            </p>
+            <h2
+              id="heading-app-download"
+              className="mt-5 text-4xl font-bold leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              Your golf community,
+              <span className="mt-2 block text-emerald-100">in your pocket.</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg lg:mx-0">
+              Keep club updates, events and member conversations close on your{" "}
+              <strong className="text-white">iPhone</strong> or{" "}
+              <strong className="text-white">Android</strong> device.
+            </p>
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <Button
+                size="lg"
+                asChild
+                className="gap-2 bg-white font-semibold text-emerald-950 hover:bg-emerald-50"
+                data-testid="button-start-community-app-cta"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-foreground text-background">
-                  <StoreIcon className="h-5 w-5" aria-hidden="true" />
+                <Link href="/create-account">
+                  Start your community
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-sm">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-5 rounded-[2rem] bg-cyan-300/15 blur-3xl"
+            />
+            <div className="relative rounded-[1.75rem] border border-white/20 bg-slate-950/60 p-5 shadow-2xl">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-300/15 text-emerald-100">
+                  <Smartphone className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <span>
-                  <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                    Coming Soon
-                  </span>
-                  <span className="block text-sm font-semibold">{name}</span>
-                </span>
+                <div>
+                  <p className="text-sm font-semibold text-white">Get the Tribal18 app</p>
+                  <p className="mt-0.5 text-xs text-white/60">
+                    Coming soon on both stores
+                  </p>
+                </div>
               </div>
-            ))}
+              <div className="space-y-3">
+                {stores.map(({ name, icon: StoreIcon, testId }) => (
+                  <div
+                    key={name}
+                    className="flex min-h-[4.5rem] items-center gap-3 rounded-xl border border-white/15 bg-white/[0.06] px-4 py-3 text-left"
+                    data-testid={testId}
+                  >
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-slate-950">
+                      <StoreIcon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span>
+                      <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-100/70">
+                        Coming Soon
+                      </span>
+                      <span className="block text-base font-semibold text-white">
+                        {name}
+                      </span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

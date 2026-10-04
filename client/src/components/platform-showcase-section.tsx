@@ -155,7 +155,7 @@ export function PlatformShowcaseSection() {
                 <PlatformNamesText text={activeView.description} />
               </p>
               <p className="mt-6 border-t border-border/70 pt-4 text-xs font-medium text-muted-foreground">
-                <PlatformNamesText text="Web, Android and iOS" />
+                <PlatformNamesText text="Web, Android and iPhone" />
               </p>
             </div>
 
