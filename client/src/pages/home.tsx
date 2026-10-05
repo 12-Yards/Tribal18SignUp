@@ -937,8 +937,8 @@ export default function Home() {
         <CTASection />
         <HowItWorksSection />
         <PricingSection />
-        <AppDownloadSection />
         <LaunchPartnersSection />
+        <AppDownloadSection />
       </main>
       <SiteFooter />
     </div>
