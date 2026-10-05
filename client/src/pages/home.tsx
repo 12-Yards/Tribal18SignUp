@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -859,6 +860,15 @@ function AppDownloadSection() {
 
 export default function Home() {
   useSEO({ path: "/" });
+  useEffect(() => {
+    const targetId = window.location.hash.slice(1);
+    if (!targetId) return;
+
+    window.requestAnimationFrame(() => {
+      document.getElementById(targetId)?.scrollIntoView({ block: "start" });
+    });
+  }, []);
+
   return (
     <div className="min-h-screen" data-testid="page-home">
       <SiteHeader />
