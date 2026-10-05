@@ -867,10 +867,9 @@ function LaunchPartnersSection() {
     >
       <div className="container mx-auto px-4">
         <header className="mx-auto max-w-3xl text-center">
-          <p className="section-eyebrow">Partnering in golf</p>
           <h2
             id="heading-launch-partners"
-            className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl"
+            className="text-3xl font-bold leading-tight tracking-tight md:text-4xl"
           >
             Launch Partners
           </h2>
