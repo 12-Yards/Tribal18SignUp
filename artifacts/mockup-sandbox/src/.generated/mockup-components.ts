@@ -7,8 +7,8 @@ export const modules: ModuleMap = {
   "./components/mockups/homepage-mobile/HowItWorksRefined.tsx": () => import("../components/mockups/homepage-mobile/HowItWorksRefined.tsx"),
   "./components/mockups/homepage-mobile/PlatformShowcaseCurrent.tsx": () => import("../components/mockups/homepage-mobile/PlatformShowcaseCurrent.tsx"),
   "./components/mockups/homepage-mobile/PlatformShowcaseRefined.tsx": () => import("../components/mockups/homepage-mobile/PlatformShowcaseRefined.tsx"),
-  "./components/mockups/platform-comparison/Current.tsx": () => import("../components/mockups/platform-comparison/Current.tsx"),
-  "./components/mockups/platform-comparison/Refined.tsx": () => import("../components/mockups/platform-comparison/Refined.tsx"),
   "./components/mockups/how-it-works/Current.tsx": () => import("../components/mockups/how-it-works/Current.tsx"),
-  "./components/mockups/how-it-works/Refined.tsx": () => import("../components/mockups/how-it-works/Refined.tsx")
+  "./components/mockups/how-it-works/Refined.tsx": () => import("../components/mockups/how-it-works/Refined.tsx"),
+  "./components/mockups/platform-comparison/Current.tsx": () => import("../components/mockups/platform-comparison/Current.tsx"),
+  "./components/mockups/platform-comparison/Refined.tsx": () => import("../components/mockups/platform-comparison/Refined.tsx")
 };

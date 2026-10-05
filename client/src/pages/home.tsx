@@ -329,8 +329,8 @@ function OwnershipSection() {
 
           <div className="space-y-3 sm:space-y-4" data-testid="list-ownership-benefits">
             <div className="hidden grid-cols-2 gap-3 px-1 text-[11px] font-bold uppercase tracking-[0.16em] sm:grid">
-              <span className="text-[#b2c0b7]">Traditional social platforms</span>
               <span className="text-[#a9d9bb]">Your Tribal18 community</span>
+              <span className="text-[#b2c0b7]">Traditional social platforms</span>
             </div>
             {comparisonRows.map((row, index) => (
               <div
@@ -338,20 +338,7 @@ function OwnershipSection() {
                 className="grid overflow-hidden rounded-[1.15rem] border border-emerald-100/[0.1] bg-[#112017] shadow-[0_12px_34px_rgba(0,0,0,0.16)] sm:grid-cols-2"
                 data-testid={`row-ownership-comparison-${index}`}
               >
-                <div className={`flex items-start gap-3.5 border-b border-emerald-100/[0.08] px-4 py-4 sm:min-h-[110px] sm:border-b-0 sm:px-5 sm:py-5 ${index % 2 === 0 ? "bg-[#14221a]" : "bg-[#17271f]"}`}>
-                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.2] bg-emerald-300/[0.06] text-[#a8beb0]">
-                    <Minus className="h-4 w-4" strokeWidth={1.7} aria-hidden="true" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#b2c0b7] sm:hidden">
-                      Traditional social platforms
-                    </span>
-                    <span className="block text-[15px] leading-[1.55] text-[#d1dad3]">
-                      {row.social}
-                    </span>
-                  </span>
-                </div>
-                <div className="flex items-start gap-3.5 bg-[#193a2a] px-4 py-4 sm:min-h-[110px] sm:border-l sm:border-emerald-200/15 sm:px-5 sm:py-5">
+                <div className="flex items-start gap-3.5 border-b border-emerald-100/[0.08] bg-[#193a2a] px-4 py-4 sm:min-h-[110px] sm:border-b-0 sm:px-5 sm:py-5">
                   <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#8ed2a7] text-[#12301f]">
                     <Check className="h-4 w-4" strokeWidth={2.4} aria-hidden="true" />
                   </span>
@@ -361,6 +348,19 @@ function OwnershipSection() {
                     </span>
                     <span className="block text-[15px] font-semibold leading-[1.5] text-[#f0f6f1]">
                       <PlatformNamesText text={row.tribal} />
+                    </span>
+                  </span>
+                </div>
+                <div className={`flex items-start gap-3.5 px-4 py-4 sm:min-h-[110px] sm:border-l sm:border-emerald-200/15 sm:px-5 sm:py-5 ${index % 2 === 0 ? "bg-[#14221a]" : "bg-[#17271f]"}`}>
+                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-emerald-100/[0.2] bg-emerald-300/[0.06] text-[#a8beb0]">
+                    <Minus className="h-4 w-4" strokeWidth={1.7} aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.13em] text-[#b2c0b7] sm:hidden">
+                      Traditional social platforms
+                    </span>
+                    <span className="block text-[15px] leading-[1.55] text-[#d1dad3]">
+                      {row.social}
                     </span>
                   </span>
                 </div>
