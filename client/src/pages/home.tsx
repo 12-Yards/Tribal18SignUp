@@ -689,7 +689,6 @@ function PricingSection() {
               <div className="text-center mb-6">
                 <h3 className="font-semibold text-lg mb-2" data-testid="heading-plan-starter">Starter</h3>
                 <div className="text-4xl font-bold mb-1" data-testid="text-price-starter">Free</div>
-                <div className="text-sm text-muted-foreground">Forever</div>
               </div>
               <div className="space-y-3 mb-6 flex-1">
                 {["Up to 50 members", "Custom URL", "Basic event management", "Community feed", "Content publishing", "Reviews", "Podcasts", "Email support"].map((feature, i) => (
@@ -704,13 +703,12 @@ function PricingSection() {
                   size="lg"
                   className="h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
                   data-testid="button-pricing-go-live-starter"
-                  aria-label="Go Live Now. Free forever."
+                  aria-label="Go Live Now. Free."
                 >
                   <span className="flex flex-col items-center gap-1 text-center">
                     <span className="text-sm font-semibold">Go Live Now</span>
                     <span className="inline-flex items-baseline gap-1.5 text-sm leading-tight">
                       <span className="font-extrabold text-emerald-700">Free</span>
-                      <span className="font-medium text-primary-foreground/75">forever</span>
                     </span>
                   </span>
                 </Button>
