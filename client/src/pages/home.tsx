@@ -598,17 +598,16 @@ function HowItWorksSection() {
           ))}
         </div>
         <div className="mt-8 flex justify-center sm:mt-11">
-          <Button
-            size="lg"
-            asChild
-            className="gap-2 bg-white text-emerald-700 hover:bg-white/90"
-            data-testid="button-start-community-how-it-works"
-          >
-            <Link href="/create-account">
+          <ComingSoonDialog>
+            <Button
+              size="lg"
+              className="gap-2 bg-white text-emerald-700 hover:bg-white/90"
+              data-testid="button-start-community-how-it-works"
+            >
               Start your community
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </Button>
+            </Button>
+          </ComingSoonDialog>
         </div>
       </div>
     </section>
@@ -798,17 +797,16 @@ function AppDownloadSection() {
               <strong className="text-white">Android</strong> device.
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <Button
-                size="lg"
-                asChild
-                className="gap-2 bg-white font-semibold text-emerald-950 hover:bg-emerald-50"
-                data-testid="button-start-community-app-cta"
-              >
-                <Link href="/create-account">
+              <ComingSoonDialog>
+                <Button
+                  size="lg"
+                  className="gap-2 bg-white font-semibold text-emerald-950 hover:bg-emerald-50"
+                  data-testid="button-start-community-app-cta"
+                >
                   Start your community
                   <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
+                </Button>
+              </ComingSoonDialog>
             </div>
           </div>
 
