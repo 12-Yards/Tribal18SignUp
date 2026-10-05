@@ -12,7 +12,7 @@ export const faqData = [
   {
     question: "Does every plan include a custom URL, and where is Tribal18 available?",
     answer:
-      "Yes. Every plan includes a custom URL, and Tribal18 is available on Android, iOS and web.",
+      "Yes. Every plan includes a custom URL, and Tribal18 is available on Android, iPhone and web.",
   },
   {
     question: "What can members do in my community?",

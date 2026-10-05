@@ -65,6 +65,18 @@ export default function FAQsPage() {
                     className="text-sm leading-relaxed text-muted-foreground sm:text-base"
                   >
                     <PlatformNamesText text={faq.answer} />
+                    {faq.question === "What do the plans cost?" && (
+                      <>
+                        {" "}
+                        <a
+                          href="/#pricing"
+                          className="font-semibold text-emerald-500 underline decoration-emerald-500/50 underline-offset-4 transition-colors hover:text-emerald-400"
+                          data-testid="link-faq-pricing"
+                        >
+                          View pricing plans
+                        </a>
+                      </>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
               ))}
