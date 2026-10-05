@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { jsPDF } from "jspdf";
 import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
+import { ComingSoonDialog } from "@/components/coming-soon-dialog";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -70,57 +71,8 @@ export default function CreateAccountPage() {
     });
   };
 
-  const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-
   const isValidDomain = (val: string) =>
     /^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+$/.test(val);
-
-  const [checkingEmail, setCheckingEmail] = useState(false);
-
-  const handleRegisterSubmit = async () => {
-    const errors: string[] = [];
-
-    if (!orgName.trim()) errors.push("Community name is required");
-    if (!userName.trim()) errors.push("Your name is required");
-    if (!email.trim()) {
-      errors.push("Email address is required");
-    } else if (!isValidEmail(email)) {
-      errors.push("Please enter a valid email address");
-    }
-    if (!password) {
-      errors.push("Password is required");
-    } else if (password.length < 6) {
-      errors.push("Password must be at least 6 characters");
-    }
-
-    if (errors.length > 0) {
-      showValidationErrors(errors);
-      return;
-    }
-
-    setCheckingEmail(true);
-    try {
-      const res = await fetch("/api/check-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim().toLowerCase() }),
-      });
-      const data = await res.json();
-      if (data.exists) {
-        showValidationErrors(["This email address is already in use. Please use a different email."]);
-        setCheckingEmail(false);
-        return;
-      }
-    } catch {
-      showValidationErrors(["Unable to verify email availability. Please try again."]);
-      setCheckingEmail(false);
-      return;
-    }
-    setCheckingEmail(false);
-
-    setValidationErrors([]);
-    setStep("identity");
-  };
 
   const [checkingDomain, setCheckingDomain] = useState(false);
 
@@ -776,16 +728,16 @@ export default function CreateAccountPage() {
                           </div>
                         </div>
                       )}
-                      <Button
-                        type="button"
-                        className="w-full h-11 gap-2"
-                        onClick={handleRegisterSubmit}
-                        disabled={checkingEmail}
-                        data-testid="button-create-account-submit"
-                      >
-                        {checkingEmail ? "Checking..." : "Create Account"}
-                        {!checkingEmail && <ArrowRight className="w-4 h-4" />}
-                      </Button>
+                      <ComingSoonDialog>
+                        <Button
+                          type="button"
+                          className="w-full h-11 gap-2"
+                          data-testid="button-create-account-submit"
+                        >
+                          Create Account
+                          <ArrowRight className="w-4 h-4" />
+                        </Button>
+                      </ComingSoonDialog>
                       <div className="text-center pt-2">
                         <Link href="/" className="text-sm text-muted-foreground hover:text-foreground" data-testid="link-back">
                           Back to Home

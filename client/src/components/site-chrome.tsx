@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ComingSoonDialog } from "@/components/coming-soon-dialog";
 import logoPath from "@assets/tribal8icon_1783436350353.png";
 import { Link } from "wouter";
 import { Menu } from "lucide-react";
@@ -64,9 +65,11 @@ export function SiteHeader() {
               </Link>
             </nav>
           </details>
-          <Button size="sm" asChild data-testid="button-create-account">
-            <Link href="/create-account">Go Live Now</Link>
-          </Button>
+          <ComingSoonDialog>
+            <Button size="sm" data-testid="button-create-account">
+              Go Live Now
+            </Button>
+          </ComingSoonDialog>
         </div>
       </div>
     </header>

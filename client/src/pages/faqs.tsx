@@ -64,10 +64,8 @@ export default function FAQsPage() {
                     forceMount
                     className="text-sm leading-relaxed text-muted-foreground sm:text-base"
                   >
-                    <PlatformNamesText text={faq.answer} />
-                    {faq.question === "What do the plans cost?" && (
+                    {faq.question === "What do the plans cost?" ? (
                       <>
-                        {" "}
                         To see the different plans,{" "}
                         <a
                           href="/#pricing"
@@ -77,6 +75,8 @@ export default function FAQsPage() {
                           view the pricing plans
                         </a>.
                       </>
+                    ) : (
+                      <PlatformNamesText text={faq.answer} />
                     )}
                   </AccordionContent>
                 </AccordionItem>

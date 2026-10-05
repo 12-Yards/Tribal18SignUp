@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSEO } from "@/lib/seo";
 import { benefitSeoMeta } from "@shared/benefit-seo";
 import { Button } from "@/components/ui/button";
+import { ComingSoonDialog } from "@/components/coming-soon-dialog";
 import logoPath from "@assets/tribal8icon_1783436350353.png";
 import { Link, useParams } from "wouter";
 import { 
@@ -355,12 +356,12 @@ export default function BenefitPage() {
                 Join thousands of communities already using Tribal18 to engage their members.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/create-account">
+                <ComingSoonDialog>
                   <Button size="lg" className="gap-2 bg-white text-emerald-700" data-testid="button-start-trial-cta">
                     Go Live Now
                     <ArrowRight className="w-4 h-4" />
                   </Button>
-                </Link>
+                </ComingSoonDialog>
                 <Link href="/contact">
                   <Button size="lg" variant="outline" className="border-white text-white" data-testid="button-contact-us-cta">
                     Contact Us

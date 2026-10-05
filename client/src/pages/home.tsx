@@ -1,15 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ComingSoonDialog } from "@/components/coming-soon-dialog";
 import heroBackgroundPath from "@assets/image_1784735263353.png";
-import logoPath from "@assets/tribal8icon_1783436350353.png";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Link } from "wouter";
 import { useSEO } from "@/lib/seo";
 import { 
@@ -70,37 +63,18 @@ function HeroSection() {
               <PlatformNamesText text="Golf club and society management software for members, content and events, with your own brand, custom URL, and access on web, Android and iPhone." />
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <Button size="lg" asChild className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-go-live-hero">
-                <Link href="/create-account">
+              <ComingSoonDialog>
+                <Button size="lg" className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-go-live-hero">
                   Go Live Now
                   <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button size="lg" variant="outline" className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
-                    View Demo
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </DialogTrigger>
-                <DialogContent
-                  className="w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-emerald-100/15 bg-[#08140f] p-8 text-center text-white shadow-2xl sm:p-10"
-                  aria-describedby={undefined}
-                >
-                  <div className="flex flex-col items-center gap-5">
-                    <img
-                      src={logoPath}
-                      alt="Tribal18"
-                      className="h-28 w-28 object-contain"
-                    />
-                    <DialogHeader className="space-y-2 text-center sm:text-center">
-                      <DialogTitle className="text-xl font-bold leading-snug text-white sm:text-2xl">
-                        The demo platform will be available from 11th October 2026.
-                      </DialogTitle>
-                    </DialogHeader>
-                  </div>
-                </DialogContent>
-              </Dialog>
+                </Button>
+              </ComingSoonDialog>
+              <ComingSoonDialog>
+                <Button size="lg" variant="outline" className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
+                  View Demo
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </ComingSoonDialog>
             </div>
           </div>
         </div>
@@ -653,12 +627,12 @@ function CTASection() {
             Bring members together around content, events and activities in one branded place.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/create-account">
+            <ComingSoonDialog>
               <Button size="lg" className="gap-2 bg-white text-emerald-700 hover:bg-white/90" data-testid="button-view-platform-home">
                 Go Live Now
                 <ArrowRight className="w-4 h-4" />
               </Button>
-            </Link>
+            </ComingSoonDialog>
             <Link href="/contact">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" data-testid="button-contact-us-home">
                 Talk to our team
@@ -698,10 +672,10 @@ function PricingSection() {
                   </div>
                 ))}
               </div>
-              <Link href="/create-account" className="mt-auto">
+              <ComingSoonDialog>
                 <Button
                   size="lg"
-                  className="h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
+                  className="mt-auto h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
                   data-testid="button-pricing-go-live-starter"
                   aria-label="Go Live Now. Free."
                 >
@@ -712,7 +686,7 @@ function PricingSection() {
                     </span>
                   </span>
                 </Button>
-              </Link>
+              </ComingSoonDialog>
             </CardContent>
           </Card>
           <Card className="hover-elevate h-full border-emerald-300 dark:border-emerald-700 relative" data-testid="card-pricing-professional">
@@ -733,10 +707,10 @@ function PricingSection() {
                   </div>
                 ))}
               </div>
-              <Link href="/create-account" className="mt-auto">
+              <ComingSoonDialog>
                 <Button
                   size="lg"
-                  className="h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
+                  className="mt-auto h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
                   data-testid="button-pricing-go-live-professional"
                   aria-label="Go Live Now. Free for 30 days."
                 >
@@ -748,7 +722,7 @@ function PricingSection() {
                     </span>
                   </span>
                 </Button>
-              </Link>
+              </ComingSoonDialog>
             </CardContent>
           </Card>
           <Card className="hover-elevate h-full" data-testid="card-pricing-enterprise">
@@ -766,10 +740,10 @@ function PricingSection() {
                   </div>
                 ))}
               </div>
-              <Link href="/create-account" className="mt-auto">
+              <ComingSoonDialog>
                 <Button
                   size="lg"
-                  className="h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
+                  className="mt-auto h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
                   data-testid="button-pricing-go-live-enterprise"
                   aria-label="Go Live Now. Free for 30 days."
                 >
@@ -781,7 +755,7 @@ function PricingSection() {
                     </span>
                   </span>
                 </Button>
-              </Link>
+              </ComingSoonDialog>
             </CardContent>
           </Card>
         </div>

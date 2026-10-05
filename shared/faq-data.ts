@@ -31,8 +31,7 @@ export const faqData = [
   },
   {
     question: "What do the plans cost?",
-    answer:
-      "Starter is free forever. Professional is £49 per month, billed monthly after the first 30 days free. Enterprise is £150 per month equivalent (£1,800 per year, billed annually) after the first 30 days free. No card details are needed to go live.",
+    answer: "To see the different plans, view the pricing plans.",
   },
   {
     question: "Can I connect other tools or use the API?",
