@@ -435,7 +435,7 @@ function AudiencesSection() {
               className="mt-5 max-w-[13ch] text-3xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
               data-testid="heading-audiences"
             >
-              A golf society app.
+              A golf society platform.
               <span className="mt-1 block text-emerald-300">For every part of the game.</span>
             </h2>
           </div>
