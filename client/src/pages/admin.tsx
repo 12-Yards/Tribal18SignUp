@@ -170,7 +170,7 @@ export default function AdminPage() {
                     </thead>
                     <tbody>
                       {(registrations as Registration[]).map((reg) => (
-                        <tr key={reg.id} className={`border-b last:border-0 ${!reg.isRead ? "bg-sky-50 dark:bg-sky-950/20" : ""}`}>
+                        <tr key={reg.id} className={`border-b last:border-0 ${!reg.isRead ? "bg-sky-50 text-slate-900 dark:bg-sky-950/40 dark:text-sky-100" : ""}`}>
                           <td className="py-3 pr-4">
                             <div className="flex items-center gap-2">
                               {!reg.isRead && <Circle className="w-2.5 h-2.5 fill-sky-500 text-sky-500 flex-shrink-0" data-testid={`icon-new-reg-${reg.id}`} />}
@@ -189,6 +189,7 @@ export default function AdminPage() {
                             <Button
                               variant="outline"
                               size="sm"
+                              className={!reg.isRead ? "text-slate-900 dark:text-sky-100" : undefined}
                               onClick={() => handleSelectReg(reg)}
                               data-testid={`button-view-reg-${reg.id}`}
                             >
@@ -330,7 +331,7 @@ export default function AdminPage() {
                     </thead>
                     <tbody>
                       {(contacts as ContactSubmission[]).map((contact) => (
-                        <tr key={contact.id} className={`border-b last:border-0 ${!contact.isRead ? "bg-sky-50 dark:bg-sky-950/20" : ""}`}>
+                        <tr key={contact.id} className={`border-b last:border-0 ${!contact.isRead ? "bg-sky-50 text-slate-900 dark:bg-sky-950/40 dark:text-sky-100" : ""}`}>
                           <td className="py-3 pr-4">
                             <div className="flex items-center gap-2">
                               {!contact.isRead && <Circle className="w-2.5 h-2.5 fill-sky-500 text-sky-500 flex-shrink-0" data-testid={`icon-new-contact-${contact.id}`} />}
@@ -347,6 +348,7 @@ export default function AdminPage() {
                             <Button
                               variant="outline"
                               size="sm"
+                              className={!contact.isRead ? "text-slate-900 dark:text-sky-100" : undefined}
                               onClick={() => handleSelectContact(contact)}
                               data-testid={`button-view-contact-${contact.id}`}
                             >
