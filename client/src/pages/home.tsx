@@ -861,7 +861,7 @@ function LaunchPartnersSection() {
   return (
     <section
       id="launch-partners"
-      className="border-t border-border/50 bg-muted/20 py-16 lg:py-20"
+      className="border-t border-border/50 bg-muted/20 py-10 lg:py-14"
       data-testid="section-launch-partners"
       aria-labelledby="heading-launch-partners"
     >
@@ -875,16 +875,16 @@ function LaunchPartnersSection() {
           </h2>
         </header>
 
-        <div className="mx-auto mt-10 max-w-xl">
+        <div className="mx-auto mt-6 grid max-w-4xl gap-4 md:grid-cols-2">
           <a
             href="https://www.top100golfcourses.com/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Top 100 Golf Courses — open website in a new tab"
-            className="group flex flex-col items-center gap-5 rounded-2xl border border-border/60 bg-gradient-to-br from-card to-emerald-950/25 p-7 text-center shadow-lg transition-colors hover:border-emerald-300/40 sm:flex-row sm:text-left"
+            className="group flex h-full items-center gap-4 rounded-2xl border border-border/60 bg-gradient-to-br from-card to-emerald-950/25 p-5 text-left shadow-lg transition-colors hover:border-emerald-300/40"
             data-testid="link-launch-partner-top100"
           >
-            <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-white p-3 shadow-inner">
+            <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white p-2 shadow-inner">
               <img
                 src="https://www.top100golfcourses.com/logo.svg"
                 alt="Top 100 Golf Courses logo"
@@ -892,7 +892,7 @@ function LaunchPartnersSection() {
                 height="44"
                 loading="lazy"
                 decoding="async"
-                className="h-14 w-auto object-contain"
+                className="h-12 w-auto object-contain"
                 data-testid="img-launch-partner-top100"
               />
             </span>
@@ -906,6 +906,22 @@ function LaunchPartnersSection() {
               </span>
             </span>
           </a>
+
+          <article
+            className="flex h-full items-center gap-4 rounded-2xl border border-dashed border-border/70 bg-gradient-to-br from-card/70 to-emerald-950/15 p-5"
+            data-testid="card-launch-partner-coming-soon"
+            aria-label="Launch partner coming soon"
+          >
+            <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-950/30 text-emerald-200">
+              <Building2 className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <span>
+              <span className="block text-lg font-semibold text-foreground">Coming Soon</span>
+              <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
+                A new launch partner will be announced here.
+              </span>
+            </span>
+          </article>
         </div>
       </div>
     </section>
