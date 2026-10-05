@@ -68,13 +68,14 @@ export default function FAQsPage() {
                     {faq.question === "What do the plans cost?" && (
                       <>
                         {" "}
+                        To see the different plans,{" "}
                         <a
                           href="/#pricing"
                           className="font-semibold text-emerald-500 underline decoration-emerald-500/50 underline-offset-4 transition-colors hover:text-emerald-400"
                           data-testid="link-faq-pricing"
                         >
-                          View pricing plans
-                        </a>
+                          view the pricing plans
+                        </a>.
                       </>
                     )}
                   </AccordionContent>
