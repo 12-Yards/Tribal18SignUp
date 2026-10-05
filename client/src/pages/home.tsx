@@ -19,6 +19,7 @@ import {
   CheckCircle,
   ArrowDown,
   ArrowRight,
+  ArrowUpRight,
   CalendarDays,
   Trophy,
   Settings,
@@ -856,6 +857,62 @@ function AppDownloadSection() {
   );
 }
 
+function LaunchPartnersSection() {
+  return (
+    <section
+      id="launch-partners"
+      className="border-t border-border/50 bg-muted/20 py-16 lg:py-20"
+      data-testid="section-launch-partners"
+      aria-labelledby="heading-launch-partners"
+    >
+      <div className="container mx-auto px-4">
+        <header className="mx-auto max-w-3xl text-center">
+          <p className="section-eyebrow">Partnering in golf</p>
+          <h2
+            id="heading-launch-partners"
+            className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl"
+          >
+            Launch Partners
+          </h2>
+        </header>
+
+        <div className="mx-auto mt-10 max-w-xl">
+          <a
+            href="https://www.top100golfcourses.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Top 100 Golf Courses — open website in a new tab"
+            className="group flex flex-col items-center gap-5 rounded-2xl border border-border/60 bg-gradient-to-br from-card to-emerald-950/25 p-7 text-center shadow-lg transition-colors hover:border-emerald-300/40 sm:flex-row sm:text-left"
+            data-testid="link-launch-partner-top100"
+          >
+            <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-white p-3 shadow-inner">
+              <img
+                src="https://www.top100golfcourses.com/logo.svg"
+                alt="Top 100 Golf Courses logo"
+                width="26"
+                height="44"
+                loading="lazy"
+                decoding="async"
+                className="h-14 w-auto object-contain"
+                data-testid="img-launch-partner-top100"
+              />
+            </span>
+            <span className="flex-1">
+              <span className="block text-lg font-semibold text-foreground">
+                Top 100 Golf Courses
+              </span>
+              <span className="mt-2 inline-flex items-center gap-1.5 text-sm text-emerald-300 group-hover:text-emerald-200">
+                top100golfcourses.com
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   useSEO({ path: "/" });
   useEffect(() => {
@@ -881,6 +938,7 @@ export default function Home() {
         <HowItWorksSection />
         <PricingSection />
         <AppDownloadSection />
+        <LaunchPartnersSection />
       </main>
       <SiteFooter />
     </div>
