@@ -249,7 +249,7 @@ function OwnershipSection() {
     },
     {
       social: "Members return to public feeds to find community updates",
-      tribal: "Connect on web, Android and iPhone in one branded golf community",
+      tribal: "Connect on Web, Android and iPhone in one branded golf community",
     },
   ];
 
