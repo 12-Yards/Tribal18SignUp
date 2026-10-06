@@ -949,8 +949,8 @@ export default function Home() {
         <HomeProofSection />
         <OwnershipSection />
         <AudiencesSection />
-        <CTASection />
         <HowItWorksSection />
+        <CTASection />
         <PricingSection />
         <LaunchPartnersSection />
         <AppDownloadSection />
