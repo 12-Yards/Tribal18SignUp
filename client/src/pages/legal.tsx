@@ -9,10 +9,10 @@ function LegalLayout({ title, updated, children, testId }: { title: string; upda
     <div className="min-h-screen bg-background flex flex-col" data-testid={testId}>
       <header className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Link href="/" className="flex items-center gap-2" data-testid="link-legal-home">
+          <a href="/#home-top" aria-label="Tribal18 home" className="flex items-center gap-2" data-testid="link-legal-home">
             <img src={logoPath} alt="Tribal18 Logo" className="h-10 w-10 object-contain" />
             <span className="text-xl font-bold">Tribal18</span>
-          </Link>
+          </a>
           <Button variant="ghost" className="gap-2" asChild data-testid="button-legal-back">
             <Link href="/">
               <ArrowLeft className="w-4 h-4" />

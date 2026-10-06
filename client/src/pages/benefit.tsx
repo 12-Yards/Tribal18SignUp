@@ -149,7 +149,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 gap-4">
-        <Link href="/" data-testid="link-header-logo">
+        <a href="/#home-top" aria-label="Tribal18 home" data-testid="link-header-logo">
           <div className="flex items-center gap-2 cursor-pointer">
             <img 
               src={logoPath} 
@@ -158,7 +158,7 @@ function Header() {
             />
             <span className="font-bold text-xl hidden sm:inline">Tribal18</span>
           </div>
-        </Link>
+        </a>
         <nav className="hidden md:flex items-center gap-6">
           <Link href="/" data-testid="link-nav-home">
             <span className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer">Home</span>
@@ -205,10 +205,14 @@ function Footer() {
     <footer className="border-t py-12 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
+          <a
+            href="/#home-top"
+            aria-label="Tribal18 home"
+            className="inline-flex items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+          >
             <img src={logoPath} alt="Tribal18" className="h-8 w-8 object-contain" />
             <span className="font-bold">Tribal18</span>
-          </div>
+          </a>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Tribal18. All rights reserved.
           </p>

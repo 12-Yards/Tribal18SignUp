@@ -451,10 +451,10 @@ export default function CreateAccountPage() {
     >
       <header className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Link href="/" className="flex items-center gap-2" data-testid="link-home">
+          <a href="/#home-top" aria-label="Tribal18 home" className="flex items-center gap-2" data-testid="link-home">
             <img src={logoPath} alt="Tribal18 Logo" className="h-10 w-10 object-contain" />
             <span className="text-xl font-bold text-foreground">Tribal18</span>
-          </Link>
+          </a>
         </div>
       </header>
 

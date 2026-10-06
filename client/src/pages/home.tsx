@@ -940,7 +940,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen" data-testid="page-home">
+    <div id="home-top" className="min-h-screen" data-testid="page-home">
       <SiteHeader />
       <main>
         <HeroSection />

@@ -9,7 +9,12 @@ export function SiteHeader() {
   return (
     <header className="absolute inset-x-0 top-0 z-50 w-full border-b border-white/15 bg-black/20 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between gap-4 px-4">
-        <div className="flex items-center gap-2" data-testid="header-logo">
+        <a
+          href="/#home-top"
+          aria-label="Tribal18 home"
+          className="flex items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+          data-testid="header-logo"
+        >
           <img
             src={logoPath}
             alt="Tribal18 Logo"
@@ -19,7 +24,7 @@ export function SiteHeader() {
           <span className="text-xl font-bold text-white" data-testid="text-brand-name">
             Tribal18
           </span>
-        </div>
+        </a>
         <nav className="hidden items-center gap-6 md:flex" data-testid="nav-main">
           <a
             href="/"
@@ -85,10 +90,15 @@ export function SiteFooter() {
         <div className="container mx-auto px-4">
           <div className="mb-8 grid gap-8 md:grid-cols-4">
             <div className="md:col-span-2">
-              <div className="mb-4 flex items-center gap-2" data-testid="footer-logo">
+              <a
+                href="/#home-top"
+                aria-label="Tribal18 home"
+                className="mb-4 inline-flex items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+                data-testid="footer-logo"
+              >
                 <img src={logoPath} alt="Tribal18 Logo" className="h-10 w-10 object-contain" />
                 <span className="text-xl font-bold">Tribal18</span>
-              </div>
+              </a>
               <p
                 className="max-w-md text-sm leading-relaxed text-muted-foreground"
                 data-testid="text-footer-description"
