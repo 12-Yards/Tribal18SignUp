@@ -105,7 +105,7 @@ export default function ContactPage() {
         </div>
       </header>
 
-      <div className="relative z-10 container mx-auto grid w-full max-w-7xl gap-12 px-5 pb-14 pt-10 sm:px-8 sm:pb-20 sm:pt-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16 lg:py-[5.5rem]">
+      <div className="relative z-10 container mx-auto grid w-full max-w-7xl gap-12 px-5 pb-14 pt-10 sm:px-8 sm:pb-20 sm:pt-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16 lg:py-6">
         <section
           className="relative flex flex-col justify-center lg:min-h-[620px]"
           aria-labelledby="heading-contact"
