@@ -62,7 +62,7 @@ function HeroSection() {
               Bring your <span className="text-emerald-300">golf community</span> together.
             </h1>
             <p className="max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-              <PlatformNamesText text="Golf club and society management software for members, content and events, with your own brand, custom URL, and access on web, Android and iPhone." />
+              <PlatformNamesText text="Golf club and society management software for members, content and events, with your own brand, custom URL, and access on Web, Android and iPhone." />
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <ComingSoonDialog>
