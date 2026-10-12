@@ -71,12 +71,17 @@ function HeroSection() {
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </ComingSoonDialog>
-              <ComingSoonDialog>
-                <Button size="lg" variant="outline" className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20" data-testid="button-request-demo">
+              <Button asChild size="lg" variant="outline" className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20">
+                <a
+                  href="https://golfjunkies.tribal18.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="button-request-demo"
+                >
                   View Demo
                   <ArrowRight className="w-4 h-4" />
-                </Button>
-              </ComingSoonDialog>
+                </a>
+              </Button>
             </div>
           </div>
         </div>
