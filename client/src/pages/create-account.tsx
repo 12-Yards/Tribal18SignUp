@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { jsPDF } from "jspdf";
 import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
-import { ComingSoonDialog } from "@/components/coming-soon-dialog";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -73,6 +72,27 @@ export default function CreateAccountPage() {
 
   const isValidDomain = (val: string) =>
     /^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+$/.test(val);
+
+  const handleRegisterNext = () => {
+    const errors: string[] = [];
+
+    if (!orgName.trim()) errors.push("Please enter your community name");
+    if (!userName.trim()) errors.push("Please enter your name");
+    if (!email.trim()) {
+      errors.push("Please enter your email address");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      errors.push("Please enter a valid email address");
+    }
+    if (!password) errors.push("Please create a password");
+
+    if (errors.length > 0) {
+      showValidationErrors(errors);
+      return;
+    }
+
+    setValidationErrors([]);
+    setStep("identity");
+  };
 
   const [checkingDomain, setCheckingDomain] = useState(false);
 
@@ -728,16 +748,15 @@ export default function CreateAccountPage() {
                           </div>
                         </div>
                       )}
-                      <ComingSoonDialog>
-                        <Button
-                          type="button"
-                          className="w-full h-11 gap-2"
-                          data-testid="button-create-account-submit"
-                        >
-                          Create Account
-                          <ArrowRight className="w-4 h-4" />
-                        </Button>
-                      </ComingSoonDialog>
+                      <Button
+                        type="button"
+                        className="w-full h-11 gap-2"
+                        onClick={handleRegisterNext}
+                        data-testid="button-create-account-submit"
+                      >
+                        Create Account
+                        <ArrowRight className="w-4 h-4" />
+                      </Button>
                       <div className="text-center pt-2">
                         <Link href="/" className="text-sm text-muted-foreground hover:text-foreground" data-testid="link-back">
                           Back to Home

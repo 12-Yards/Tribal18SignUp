@@ -9,7 +9,6 @@ import logoPath from "@assets/tribal8icon_1783436350353.png";
 import { apiRequest } from "@/lib/queryClient";
 import { useSEO } from "@/lib/seo";
 import { ArrowRight, Building2, CalendarDays, Check, Flag, Users } from "lucide-react";
-import { ComingSoonDialog } from "@/components/coming-soon-dialog";
 
 const communityTypes = [
   { label: "Golf clubs & societies", icon: Flag },
@@ -93,15 +92,16 @@ export default function ContactPage() {
               FAQ&apos;s
             </Link>
           </nav>
-          <ComingSoonDialog>
-            <Button
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-200/25 bg-emerald-300/[0.08] px-3.5 py-2 text-xs font-semibold text-emerald-100 transition-colors hover:bg-emerald-300/[0.15] sm:px-4 sm:text-sm"
-              data-testid="button-contact-go-live"
-            >
+          <Button
+            asChild
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-200/25 bg-emerald-300/[0.08] px-3.5 py-2 text-xs font-semibold text-emerald-100 transition-colors hover:bg-emerald-300/[0.15] sm:px-4 sm:text-sm"
+            data-testid="button-contact-go-live"
+          >
+            <Link href="/create-account">
               Go Live
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Button>
-          </ComingSoonDialog>
+            </Link>
+          </Button>
         </div>
       </header>
 

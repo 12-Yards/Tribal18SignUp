@@ -65,12 +65,12 @@ function HeroSection() {
               <PlatformNamesText text="Golf club and society management software for members, content and events, with your own brand, custom URL, and access on Web, Android and iPhone." />
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <ComingSoonDialog>
-                <Button size="lg" className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-go-live-hero">
+              <Button asChild size="lg" className="gap-2 bg-white text-slate-950 hover:bg-white/90" data-testid="button-go-live-hero">
+                <Link href="/create-account">
                   Go Live Now
                   <ArrowRight className="w-4 h-4" />
-                </Button>
-              </ComingSoonDialog>
+                </Link>
+              </Button>
               <Button asChild size="lg" variant="outline" className="gap-2 border-white/70 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20">
                 <a
                   href="https://golfjunkies.tribal18.com"
@@ -604,16 +604,17 @@ function HowItWorksSection() {
           ))}
         </div>
         <div className="mt-8 flex justify-center sm:mt-11">
-          <ComingSoonDialog>
-            <Button
-              size="lg"
-              className="gap-2 bg-white text-emerald-700 hover:bg-white/90"
-              data-testid="button-start-community-how-it-works"
-            >
+          <Button
+            asChild
+            size="lg"
+            className="gap-2 bg-white text-emerald-700 hover:bg-white/90"
+            data-testid="button-start-community-how-it-works"
+          >
+            <Link href="/create-account">
               Start your community
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Button>
-          </ComingSoonDialog>
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
@@ -633,12 +634,12 @@ function CTASection() {
             Bring members together around content, events and activities in one branded place.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <ComingSoonDialog>
-              <Button size="lg" className="gap-2 bg-white text-emerald-700 hover:bg-white/90" data-testid="button-view-platform-home">
+            <Button asChild size="lg" className="gap-2 bg-white text-emerald-700 hover:bg-white/90" data-testid="button-view-platform-home">
+              <Link href="/create-account">
                 Go Live Now
                 <ArrowRight className="w-4 h-4" />
-              </Button>
-            </ComingSoonDialog>
+              </Link>
+            </Button>
             <Link href="/contact">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" data-testid="button-contact-us-home">
                 Talk to our team
@@ -678,21 +679,22 @@ function PricingSection() {
                   </div>
                 ))}
               </div>
-              <ComingSoonDialog>
-                <Button
-                  size="lg"
-                  className="mt-auto h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
-                  data-testid="button-pricing-go-live-starter"
-                  aria-label="Go Live Now. Free."
-                >
+              <Button
+                asChild
+                size="lg"
+                className="mt-auto h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
+                data-testid="button-pricing-go-live-starter"
+                aria-label="Go Live Now. Free."
+              >
+                <Link href="/create-account">
                   <span className="flex flex-col items-center gap-1 text-center">
                     <span className="text-sm font-semibold">Go Live Now</span>
                     <span className="inline-flex items-baseline gap-1.5 text-sm leading-tight">
                       <span className="font-extrabold text-emerald-700">Free</span>
                     </span>
                   </span>
-                </Button>
-              </ComingSoonDialog>
+                </Link>
+              </Button>
             </CardContent>
           </Card>
           <Card className="hover-elevate h-full border-emerald-300 dark:border-emerald-700 relative" data-testid="card-pricing-professional">
@@ -713,13 +715,14 @@ function PricingSection() {
                   </div>
                 ))}
               </div>
-              <ComingSoonDialog>
-                <Button
-                  size="lg"
-                  className="mt-auto h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
-                  data-testid="button-pricing-go-live-professional"
-                  aria-label="Go Live Now. Free for 30 days."
-                >
+              <Button
+                asChild
+                size="lg"
+                className="mt-auto h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
+                data-testid="button-pricing-go-live-professional"
+                aria-label="Go Live Now. Free for 30 days."
+              >
+                <Link href="/create-account">
                   <span className="flex flex-col items-center gap-1 text-center">
                     <span className="text-sm font-semibold">Go Live Now</span>
                     <span className="inline-flex items-baseline gap-1.5 text-sm leading-tight">
@@ -727,8 +730,8 @@ function PricingSection() {
                       <span className="font-medium text-primary-foreground/75">for 30 days</span>
                     </span>
                   </span>
-                </Button>
-              </ComingSoonDialog>
+                </Link>
+              </Button>
             </CardContent>
           </Card>
           <Card className="hover-elevate h-full" data-testid="card-pricing-enterprise">
@@ -746,13 +749,14 @@ function PricingSection() {
                   </div>
                 ))}
               </div>
-              <ComingSoonDialog>
-                <Button
-                  size="lg"
-                  className="mt-auto h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
-                  data-testid="button-pricing-go-live-enterprise"
-                  aria-label="Go Live Now. Free for 30 days."
-                >
+              <Button
+                asChild
+                size="lg"
+                className="mt-auto h-auto min-h-14 w-full whitespace-normal px-3 py-2.5 leading-tight"
+                data-testid="button-pricing-go-live-enterprise"
+                aria-label="Go Live Now. Free for 30 days."
+              >
+                <Link href="/create-account">
                   <span className="flex flex-col items-center gap-1 text-center">
                     <span className="text-sm font-semibold">Go Live Now</span>
                     <span className="inline-flex items-baseline gap-1.5 text-sm leading-tight">
@@ -760,8 +764,8 @@ function PricingSection() {
                       <span className="font-medium text-primary-foreground/75">for 30 days</span>
                     </span>
                   </span>
-                </Button>
-              </ComingSoonDialog>
+                </Link>
+              </Button>
             </CardContent>
           </Card>
         </div>
@@ -803,16 +807,17 @@ function AppDownloadSection() {
               <strong className="text-white">Android</strong> device.
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <ComingSoonDialog>
-                <Button
-                  size="lg"
-                  className="gap-2 bg-white font-semibold text-emerald-950 hover:bg-emerald-50"
-                  data-testid="button-start-community-app-cta"
-                >
+              <Button
+                asChild
+                size="lg"
+                className="gap-2 bg-white font-semibold text-emerald-950 hover:bg-emerald-50"
+                data-testid="button-start-community-app-cta"
+              >
+                <Link href="/create-account">
                   Start your community
                   <ArrowRight className="h-4 w-4" />
-                </Button>
-              </ComingSoonDialog>
+                </Link>
+              </Button>
             </div>
           </div>
 
