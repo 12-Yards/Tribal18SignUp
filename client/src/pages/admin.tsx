@@ -180,7 +180,7 @@ export default function AdminPage() {
                           <td className="py-3 pr-4">{reg.userName}</td>
                           <td className="py-3 pr-4">{reg.email}</td>
                           <td className="py-3 pr-4">
-                            {reg.hasDomain === "yes" ? reg.domainName : reg.noDomainPrefix ? `${reg.noDomainPrefix}.tribal18.golf` : "-"}
+                            {reg.hasDomain === "yes" ? reg.domainName : reg.noDomainPrefix ? `${reg.noDomainPrefix}.tribal18.com` : "-"}
                           </td>
                           <td className="py-3 pr-4">
                             {reg.createdAt ? new Date(reg.createdAt).toLocaleDateString() : "-"}
@@ -254,7 +254,7 @@ export default function AdminPage() {
                   {selectedReg.hasDomain === "no" && selectedReg.noDomainPrefix && (
                     <div>
                       <Label className="text-muted-foreground text-xs">Subdomain</Label>
-                      <p className="font-medium">{selectedReg.noDomainPrefix}.tribal18.golf</p>
+                      <p className="font-medium">{selectedReg.noDomainPrefix}.tribal18.com</p>
                     </div>
                   )}
                   <div>

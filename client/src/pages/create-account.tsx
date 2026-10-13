@@ -231,7 +231,7 @@ export default function CreateAccountPage() {
     if (hasDomain && domainName) {
       return domainName;
     }
-    return `${noDomainPrefix}.tribal18.golf`;
+    return `${noDomainPrefix}.tribal18.com`;
   };
 
   const getAdminUrl = () => {
@@ -375,7 +375,7 @@ export default function CreateAccountPage() {
       doc.text("Visit: ", margin + 7, y + 15);
       doc.setTextColor(2, 132, 199);
       doc.setFont("helvetica", "bold");
-      doc.textWithLink("checkdomainstatus.tribal18.golf", margin + 18, y + 15, { url: "https://checkdomainstatus.tribal18.golf/" });
+      doc.textWithLink("checkdomainstatus.tribal18.com", margin + 18, y + 15, { url: "https://checkdomainstatus.tribal18.com/" });
     }
 
     doc.save(`${orgName.replace(/[^a-zA-Z0-9]/g, "_")}_Platform_Details.pdf`);
@@ -619,13 +619,13 @@ export default function CreateAccountPage() {
                             To check the status of your domain, visit:
                           </p>
                           <a
-                            href="https://checkdomainstatus.tribal18.golf/"
+                            href="https://checkdomainstatus.tribal18.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 mt-2 text-sm font-semibold text-sky-600 hover:underline"
                             data-testid="link-check-domain-status"
                           >
-                            checkdomainstatus.tribal18.golf
+                            checkdomainstatus.tribal18.com
                             <ExternalLink className="w-3.5 h-3.5" />
                           </a>
                         </div>
@@ -801,7 +801,7 @@ export default function CreateAccountPage() {
                       {hasDomain === false && (
                         <div className="space-y-4">
                           <p className="text-sm text-muted-foreground">
-                            You can use the Tribal18.golf domain (and change later).
+                            You can use the Tribal18.com domain (and change later).
                           </p>
                           <div className="bg-muted/50 rounded-md p-4 border border-border/50">
                             <p className="text-sm text-muted-foreground mb-2">
@@ -826,7 +826,7 @@ export default function CreateAccountPage() {
                                 </span>
                               )}
                               <span className="font-mono font-semibold" data-testid="text-no-domain-suffix">
-                                .tribal18.golf
+                                .tribal18.com
                               </span>
                             </div>
                           </div>
