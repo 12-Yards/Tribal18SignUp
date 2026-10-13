@@ -54,7 +54,7 @@ waitForPort = 5000
 
 [userenv.shared]
 ONBOARDING_API_KEY = "gj-onboard-test-key-2026"
-ONBOARDING_API_URL = "https://demoplatform.orbit8.io"
+ONBOARDING_API_URL = "https://golfjunkies.tribal18.com"
 DNS_ADMIN_EMAIL = "paul.morgan@12yards.app"
 
 [agent]

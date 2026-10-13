@@ -29,6 +29,7 @@ export default function CreateAccountPage() {
   useSEO({ title: "Create Your Account | Tribal18", description: "Create your Tribal18 community platform in minutes. Free for the first 30 days, no card details needed to go live.", path: "/create-account", noindex: true });
   const { toast } = useToast();
   const [step, setStep] = useState<OnboardingStep>("register");
+  const activeSectionRef = useRef<HTMLFormElement>(null);
   const [orgName, setOrgName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -247,6 +248,12 @@ export default function CreateAccountPage() {
     };
   }, []);
 
+  useEffect(() => {
+    if (step !== "register") {
+      activeSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [step]);
+
   const handleDownloadPDF = () => {
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
@@ -387,46 +394,16 @@ export default function CreateAccountPage() {
     { icon: Globe, text: "Reciprocal play network access" },
   ];
 
-  const stepTitles: Record<OnboardingStep, { title: string; subtitle: string }> = {
-    register: {
-      title: "Create your Community Platform",
-      subtitle: "Get started with your free account today",
-    },
-    identity: {
-      title: "Step 1 - Identity",
-      subtitle: `Confirm the details where users will access the ${orgName || "your"} platform.`,
-    },
-    terms: {
-      title: "Step 2 - Terms & Conditions",
-      subtitle: "Please review and accept the terms and conditions to complete your setup.",
-    },
+  const leftPanelContent = {
+    heading: "Launch Your Community",
+    description:
+      "Your community could be fully onboarded and live within 24 hours. No technical skills needed, just a simple process will open your platform to your full community.",
   };
-
-  const leftPanelContent: Record<OnboardingStep, { heading: string; description: string }> = {
-    register: {
-      heading: "Launch Your Community",
-      description:
-        "Your community could be fully onboarded and live within 24 hours. No technical skills needed, just a simple process will open your platform to your full community.",
-    },
-    identity: {
-      heading: "Set Up Your Platform",
-      description:
-        "Configure how your members will access your community. Choose your domain and make it yours.",
-    },
-    terms: {
-      heading: "One Last Step",
-      description:
-        "Review and accept our terms and conditions to get your community up and running.",
-    },
-  };
-
-  const currentStepInfo = stepTitles[step];
-  const currentLeftPanel = leftPanelContent[step];
 
   const allSteps: { key: OnboardingStep; label: number }[] = [
-    { key: "register", label: 0 },
-    { key: "identity", label: 1 },
-    { key: "terms", label: 2 },
+    { key: "register", label: 1 },
+    { key: "identity", label: 2 },
+    { key: "terms", label: 3 },
   ];
   const currentStepIndex = allSteps.findIndex((s) => s.key === step);
 
@@ -657,8 +634,8 @@ export default function CreateAccountPage() {
         <Card className="w-full max-w-4xl overflow-hidden bg-secondary border-border">
           <div className="grid md:grid-cols-2">
             <div className="bg-gradient-to-br from-emerald-600 to-sky-600 p-8 md:p-10 text-white flex flex-col justify-start">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">{currentLeftPanel.heading}</h2>
-              <p className="text-white/90 text-lg mb-8 leading-relaxed">{currentLeftPanel.description}</p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">{leftPanelContent.heading}</h2>
+              <p className="text-white/90 text-lg mb-8 leading-relaxed">{leftPanelContent.description}</p>
               <div className="space-y-4">
                 {benefits.map((benefit, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -673,23 +650,69 @@ export default function CreateAccountPage() {
 
             <CardContent className="p-8 md:p-10">
                 <>
-                  {step !== "register" && stepIndicator}
+                  {stepIndicator}
                   <div className="mb-6">
                     <h1 className="text-2xl font-bold mb-2" data-testid="heading-create-account">
-                      {currentStepInfo.title}
+                      Create your Community Platform
                     </h1>
                     <p className="text-muted-foreground" data-testid="text-create-account-subtext">
-                      {currentStepInfo.subtitle}
+                      Complete each section in order. The next section opens when you continue.
                     </p>
                   </div>
 
+                  {step !== "register" && (
+                    <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50/70 p-4 dark:border-emerald-900 dark:bg-emerald-900/10" data-testid="summary-registration">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="flex items-center gap-2 font-semibold">
+                            <CheckCircle className="h-4 w-4 flex-shrink-0 text-emerald-600" />
+                            1. Account details
+                          </p>
+                          <p className="mt-2 truncate text-sm text-muted-foreground">{orgName} · {userName}</p>
+                          <p className="truncate text-sm text-muted-foreground">{email}</p>
+                        </div>
+                        <Button type="button" variant="ghost" size="sm" onClick={() => { setValidationErrors([]); setStep("register"); }} data-testid="button-edit-registration">
+                          Edit
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+
+                  {step === "terms" && (
+                    <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50/70 p-4 dark:border-emerald-900 dark:bg-emerald-900/10" data-testid="summary-identity">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="flex items-center gap-2 font-semibold">
+                            <CheckCircle className="h-4 w-4 flex-shrink-0 text-emerald-600" />
+                            2. Platform address
+                          </p>
+                          <p className="mt-2 truncate text-sm text-muted-foreground">
+                            {hasDomain ? domainName : `${noDomainPrefix}.tribal18.com`}
+                          </p>
+                        </div>
+                        <Button type="button" variant="ghost" size="sm" onClick={() => { setValidationErrors([]); setStep("identity"); }} data-testid="button-edit-identity">
+                          Edit
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+
                   {step === "register" && (
-                    <div className="space-y-5">
+                    <form
+                      className="space-y-5"
+                      ref={activeSectionRef}
+                      onSubmit={(event) => {
+                        event.preventDefault();
+                        handleRegisterNext();
+                      }}
+                    >
+                      <h2 className="text-lg font-semibold">1. Account details</h2>
                       <div className="space-y-2">
                         <Label htmlFor="organisation">Community Name</Label>
                         <Input
                           id="organisation"
                           type="text"
+                          autoComplete="organization"
                           placeholder="Enter your community name"
                           className="h-11"
                           value={orgName}
@@ -702,6 +725,7 @@ export default function CreateAccountPage() {
                         <Input
                           id="name"
                           type="text"
+                          autoComplete="name"
                           placeholder="Enter your name"
                           className="h-11"
                           value={userName}
@@ -714,6 +738,7 @@ export default function CreateAccountPage() {
                         <Input
                           id="email"
                           type="email"
+                          autoComplete="email"
                           placeholder="Enter your email"
                           className="h-11"
                           value={email}
@@ -726,6 +751,7 @@ export default function CreateAccountPage() {
                         <Input
                           id="password"
                           type="password"
+                          autoComplete="new-password"
                           placeholder="Create a password"
                           className="h-11"
                           value={password}
@@ -749,9 +775,8 @@ export default function CreateAccountPage() {
                         </div>
                       )}
                       <Button
-                        type="button"
+                        type="submit"
                         className="w-full h-11 gap-2"
-                        onClick={handleRegisterNext}
                         data-testid="button-create-account-submit"
                       >
                         Create Account
@@ -762,11 +787,19 @@ export default function CreateAccountPage() {
                           Back to Home
                         </Link>
                       </div>
-                    </div>
+                    </form>
                   )}
 
                   {step === "identity" && (
-                    <div className="space-y-5">
+                    <form
+                      className="space-y-5"
+                      ref={activeSectionRef}
+                      onSubmit={(event) => {
+                        event.preventDefault();
+                        void handleIdentityNext();
+                      }}
+                    >
+                      <h2 className="text-lg font-semibold">2. Platform address</h2>
                       <div className="space-y-3">
                         <Label className="text-base font-medium">Do you already have your domain?</Label>
                         <div className="flex gap-3">
@@ -892,9 +925,8 @@ export default function CreateAccountPage() {
                           Back
                         </Button>
                         <Button
-                          type="button"
+                          type="submit"
                           className="flex-1 h-11 gap-2"
-                          onClick={handleIdentityNext}
                           disabled={checkingDomain || hasDomain === null || (hasDomain === true && !domainName.trim())}
                           data-testid="button-identity-next"
                         >
@@ -902,11 +934,19 @@ export default function CreateAccountPage() {
                           {!checkingDomain && <ArrowRight className="w-4 h-4" />}
                         </Button>
                       </div>
-                    </div>
+                    </form>
                   )}
 
                   {step === "terms" && (
-                    <div className="space-y-5">
+                    <form
+                      className="space-y-5"
+                      ref={activeSectionRef}
+                      onSubmit={(event) => {
+                        event.preventDefault();
+                        void handleCompleteSetup();
+                      }}
+                    >
+                      <h2 className="text-lg font-semibold">3. Terms & Conditions</h2>
                       <div className="border border-border rounded-md p-4 max-h-[340px] overflow-y-auto text-sm text-muted-foreground space-y-4" data-testid="terms-content">
                         <h3 className="font-bold text-foreground text-base">Tribal18 Platform Terms & Conditions</h3>
                         <p className="font-semibold text-foreground">1. Acceptance of Terms</p>
@@ -945,9 +985,8 @@ export default function CreateAccountPage() {
                           Back
                         </Button>
                         <Button
-                          type="button"
+                          type="submit"
                           className="flex-1 h-11 gap-2"
-                          onClick={handleCompleteSetup}
                           disabled={submitting}
                           data-testid="button-complete-setup"
                         >
@@ -955,7 +994,7 @@ export default function CreateAccountPage() {
                           {!submitting && <ArrowRight className="w-4 h-4" />}
                         </Button>
                       </div>
-                    </div>
+                    </form>
                   )}
                 </>
             </CardContent>
