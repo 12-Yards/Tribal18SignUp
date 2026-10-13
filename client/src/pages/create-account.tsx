@@ -394,12 +394,6 @@ export default function CreateAccountPage() {
     { icon: Globe, text: "Reciprocal play network access" },
   ];
 
-  const leftPanelContent = {
-    heading: "Launch Your Community",
-    description:
-      "Your community could be fully onboarded and live within 24 hours. No technical skills needed, just a simple process will open your platform to your full community.",
-  };
-
   const allSteps: { key: OnboardingStep; label: number }[] = [
     { key: "register", label: 1 },
     { key: "identity", label: 2 },
@@ -407,91 +401,58 @@ export default function CreateAccountPage() {
   ];
   const currentStepIndex = allSteps.findIndex((s) => s.key === step);
 
-  const stepIndicator = (
-    <div className="flex items-center gap-2 mb-6">
-      {allSteps.map((s, i) => (
-        <div key={s.key} className="flex items-center gap-2">
-          <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0 ${
-              currentStepIndex === i
-                ? "bg-emerald-600 text-white"
-                : currentStepIndex > i
-                  ? "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600"
-                  : "bg-muted text-muted-foreground"
-            }`}
-            data-testid={`step-indicator-${i}`}
-          >
-            {currentStepIndex > i ? (
-              <CheckCircle className="w-4 h-4" />
-            ) : (
-              s.label
-            )}
-          </div>
-          {i < allSteps.length - 1 && (
-            <div
-              className={`w-6 h-0.5 ${
-                currentStepIndex > i
-                  ? "bg-emerald-400"
-                  : "bg-muted"
-              }`}
-            />
-          )}
-        </div>
-      ))}
-    </div>
-  );
-
   return (
     <div
-      className="min-h-screen bg-background flex flex-col"
+      className="min-h-[100dvh] bg-[#f3f2e9] text-[#202d28] flex flex-col"
       data-testid="page-create-account"
     >
-      <header className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <a href="/#home-top" aria-label="Tribal18 home" className="flex items-center gap-2" data-testid="link-home">
+      <header className="w-full border-b border-[#d9ddd3] bg-[#f3f2e9]/95 backdrop-blur">
+        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-5 sm:px-8">
+          <a href="/#home-top" aria-label="Tribal18 home" className="flex items-center gap-3" data-testid="link-home">
             <img src={logoPath} alt="Tribal18 Logo" className="h-10 w-10 object-contain" />
-            <span className="text-xl font-bold text-foreground">Tribal18</span>
+            <span className="text-[19px] font-bold tracking-[-0.04em] text-[#20352d]">Tribal18</span>
           </a>
+          <span className="hidden text-[11px] font-semibold uppercase tracking-[0.2em] text-[#718077] sm:block">A home for your golf community</span>
         </div>
       </header>
 
-      <div className="flex-1 flex items-center justify-center p-4 md:p-8">
+      <div className="flex-1 flex items-center justify-center px-4 py-8 sm:px-8 sm:py-12">
         {(creatingPlatform || showComplete) ? (
-          <Card className="w-full max-w-2xl overflow-hidden bg-secondary border-border">
-            <CardContent className="p-8 md:p-10">
+          <Card className="w-full max-w-3xl overflow-hidden rounded-[28px] border border-[#d9ddd3] bg-[#fbfbf6] text-[#202d28] shadow-[0_24px_70px_-35px_rgba(29,51,41,0.28)]">
+            <CardContent className="p-6 sm:p-10 md:p-12">
               {creatingPlatform ? (
                 <div className="text-center py-12">
-                  <div className="w-20 h-20 mx-auto mb-6 relative">
-                    <Settings className="w-20 h-20 text-emerald-600 animate-spin" style={{ animationDuration: "3s" }} />
+                  <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-[#e6eddf]">
+                    <Settings className="w-10 h-10 text-[#477b57] animate-spin" style={{ animationDuration: "3s" }} />
                   </div>
-                  <h3 className="text-2xl font-bold text-emerald-600 mb-2" data-testid="text-creating-message">
+                  <h3 className="text-2xl font-bold tracking-[-0.04em] text-[#315c43] mb-2" data-testid="text-creating-message">
                     Creating your platform
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-[#65746b]">
                     Please wait while we set everything up for you...
                   </p>
                 </div>
               ) : (
                 <div>
                   <div className="text-center mb-8">
-                    <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-emerald-600" />
+                    <div className="w-16 h-16 bg-[#e6eddf] rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-8 h-8 text-[#477b57]" />
                     </div>
-                    <h3 className="text-2xl font-bold text-emerald-600" data-testid="text-setup-message">
+                    <h3 className="text-3xl font-bold tracking-[-0.05em] text-[#315c43]" data-testid="text-setup-message">
                       All ready!
                     </h3>
-                    <p className="text-muted-foreground mt-1">Your platform has been created successfully.</p>
+                    <p className="text-[#65746b] mt-1">Your platform has been created successfully.</p>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4 mb-6">
-                    <div className="bg-muted/50 rounded-lg p-4 border border-border/50">
-                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Admin URL</p>
+                    <div className="bg-[#f2f3ec] rounded-2xl p-4 border border-[#e1e4d9]">
+                      <p className="text-[10px] font-bold text-[#718077] uppercase tracking-[0.17em] mb-2">Admin URL</p>
                       <div className="flex items-center gap-2">
                         <a
                           href={`https://${getAdminUrl()}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-mono text-sm font-semibold text-emerald-600 hover:underline flex items-center gap-1 truncate"
+                          className="font-mono text-sm font-semibold text-[#477b57] hover:underline flex items-center gap-1 truncate"
                           data-testid="link-admin-url"
                         >
                           {getAdminUrl()}
@@ -506,14 +467,14 @@ export default function CreateAccountPage() {
                         </button>
                       </div>
                     </div>
-                    <div className="bg-muted/50 rounded-lg p-4 border border-border/50">
-                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Platform</p>
+                    <div className="bg-[#f2f3ec] rounded-2xl p-4 border border-[#e1e4d9]">
+                      <p className="text-[10px] font-bold text-[#718077] uppercase tracking-[0.17em] mb-2">Platform</p>
                       <div className="flex items-center gap-2">
                         <a
                           href={`https://${getPlatformUrl()}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-mono text-sm font-semibold text-sky-600 hover:underline flex items-center gap-1 truncate"
+                          className="font-mono text-sm font-semibold text-[#557c78] hover:underline flex items-center gap-1 truncate"
                           data-testid="link-platform-url"
                         >
                           {getPlatformUrl()}
@@ -528,39 +489,39 @@ export default function CreateAccountPage() {
                         </button>
                       </div>
                     </div>
-                    <div className="bg-muted/50 rounded-lg p-4 border border-border/50">
-                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Username</p>
+                    <div className="bg-[#f2f3ec] rounded-2xl p-4 border border-[#e1e4d9]">
+                      <p className="text-[10px] font-bold text-[#718077] uppercase tracking-[0.17em] mb-2">Username</p>
                       <p className="font-mono text-sm font-semibold" data-testid="text-username">{email}</p>
                     </div>
-                    <div className="bg-muted/50 rounded-lg p-4 border border-border/50">
-                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Password</p>
+                    <div className="bg-[#f2f3ec] rounded-2xl p-4 border border-[#e1e4d9]">
+                      <p className="text-[10px] font-bold text-[#718077] uppercase tracking-[0.17em] mb-2">Password</p>
                       <p className="font-mono text-sm font-semibold" data-testid="text-password">{password}</p>
                     </div>
                   </div>
 
                   {dnsRecords && dnsRecords.length > 0 && (
-                    <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-5 mb-6" data-testid="dns-records-section">
+                    <div className="bg-[#fbf4e6] border border-[#ead6a9] rounded-2xl p-5 mb-6" data-testid="dns-records-section">
                       <div className="flex items-start gap-3 mb-4">
-                        <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                        <AlertCircle className="w-5 h-5 text-[#a26c1c] flex-shrink-0 mt-0.5" />
                         <div>
-                          <p className="font-semibold text-amber-800 dark:text-amber-300">DNS Configuration Required</p>
-                          <p className="text-sm text-amber-700 dark:text-amber-400 mt-1">
+                          <p className="font-semibold text-[#674b1e]">DNS configuration required</p>
+                          <p className="text-sm text-[#806530] mt-1">
                             Add the following DNS records to your domain <span className="font-mono font-semibold">{domainName}</span> to point it to your platform:
                           </p>
                         </div>
                       </div>
-                      <div className="overflow-x-auto bg-white dark:bg-background rounded-md border border-amber-200 dark:border-amber-700">
+                      <div className="overflow-x-auto bg-[#fffdf8] rounded-xl border border-[#ead6a9]">
                         <table className="w-full text-sm border-collapse" data-testid="dns-records-table">
                           <thead>
                             <tr className="border-b border-amber-200 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30">
-                              <th className="text-left py-2.5 px-3 font-semibold text-amber-800 dark:text-amber-300">Type</th>
-                              <th className="text-left py-2.5 px-3 font-semibold text-amber-800 dark:text-amber-300">Name</th>
-                              <th className="text-left py-2.5 px-3 font-semibold text-amber-800 dark:text-amber-300">Value</th>
+                              <th className="text-left py-2.5 px-3 font-semibold text-[#674b1e]">Type</th>
+                              <th className="text-left py-2.5 px-3 font-semibold text-[#674b1e]">Name</th>
+                              <th className="text-left py-2.5 px-3 font-semibold text-[#674b1e]">Value</th>
                             </tr>
                           </thead>
                           <tbody>
                             {dnsRecords.map((record: any, i: number) => (
-                              <tr key={i} className="border-b last:border-b-0 border-amber-100 dark:border-amber-800/50" data-testid={`dns-record-${i}`}>
+                              <tr key={i} className="border-b last:border-b-0 border-[#f0e4c8]" data-testid={`dns-record-${i}`}>
                                 <td className="py-2.5 px-3 font-mono text-xs font-semibold">{record.type}</td>
                                 <td className="py-2.5 px-3 font-mono text-xs">{record.name || record.host || record.hostname || "-"}</td>
                                 <td className="py-2.5 px-3 font-mono text-xs break-all">
@@ -568,7 +529,7 @@ export default function CreateAccountPage() {
                                     <span>{record.value || record.data || record.target || record.content || "-"}</span>
                                     <button
                                       onClick={() => navigator.clipboard.writeText(record.value || record.data || record.target || record.content || "")}
-                                      className="text-amber-600 hover:text-amber-800 flex-shrink-0"
+                                      className="text-[#a26c1c] hover:text-[#674b1e] flex-shrink-0"
                                       data-testid={`button-copy-dns-${i}`}
                                     >
                                       <Copy className="w-3 h-3" />
@@ -580,26 +541,26 @@ export default function CreateAccountPage() {
                           </tbody>
                         </table>
                       </div>
-                      <p className="text-xs text-amber-600 dark:text-amber-500 mt-3">
+                      <p className="text-xs text-[#806530] mt-3">
                         DNS changes can take up to 24-48 hours to propagate. Your platform will be available once the records are active.
                       </p>
                     </div>
                   )}
 
                   {hasDomain && domainName && (
-                    <div className="bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800 rounded-lg p-5 mb-6" data-testid="domain-status-section">
+                    <div className="bg-[#edf4f0] border border-[#cbded1] rounded-2xl p-5 mb-6" data-testid="domain-status-section">
                       <div className="flex items-start gap-3">
-                        <Globe className="w-5 h-5 text-sky-600 flex-shrink-0 mt-0.5" />
+                        <Globe className="w-5 h-5 text-[#477b57] flex-shrink-0 mt-0.5" />
                         <div>
-                          <p className="font-semibold text-sky-800 dark:text-sky-300">Check Domain Status</p>
-                          <p className="text-sm text-sky-700 dark:text-sky-400 mt-1">
+                          <p className="font-semibold text-[#315c43]">Check domain status</p>
+                          <p className="text-sm text-[#557363] mt-1">
                             To check the status of your domain, visit:
                           </p>
                           <a
                             href="https://checkdomainstatus.tribal18.com/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 mt-2 text-sm font-semibold text-sky-600 hover:underline"
+                            className="inline-flex items-center gap-1.5 mt-2 text-sm font-semibold text-[#477b57] hover:underline"
                             data-testid="link-check-domain-status"
                           >
                             checkdomainstatus.tribal18.com
@@ -610,20 +571,18 @@ export default function CreateAccountPage() {
                     </div>
                   )}
 
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
                     <Button
                       variant="outline"
-                      className="gap-2"
+                      className="gap-2 rounded-xl border-[#d5ddd2] bg-white text-[#405148] hover:bg-[#f1f3ec]"
                       onClick={handleDownloadPDF}
                       data-testid="button-download-pdf"
                     >
                       <Download className="w-4 h-4" />
                       Download as PDF
                     </Button>
-                    <Link href="/">
-                      <Button variant="outline" data-testid="button-back-home">
-                        Back to Home
-                      </Button>
+                    <Link href="/" className="inline-flex min-h-10 items-center justify-center rounded-full border border-[#d5ddd2] bg-white px-4 text-sm font-medium text-[#405148] hover:bg-[#f1f3ec]" data-testid="button-back-home">
+                      Back to Home
                     </Link>
                   </div>
                 </div>
@@ -631,45 +590,39 @@ export default function CreateAccountPage() {
             </CardContent>
           </Card>
         ) : (
-        <Card className="w-full max-w-4xl overflow-hidden bg-secondary border-border">
-          <div className="grid md:grid-cols-2">
-            <div className="bg-gradient-to-br from-emerald-600 to-sky-600 p-8 md:p-10 text-white flex flex-col justify-start">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">{leftPanelContent.heading}</h2>
-              <p className="text-white/90 text-lg mb-8 leading-relaxed">{leftPanelContent.description}</p>
-              <div className="space-y-4">
-                {benefits.map((benefit, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <benefit.icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-white/90">{benefit.text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <CardContent className="p-8 md:p-10">
+        <Card className="w-full max-w-[760px] overflow-hidden rounded-[30px] border border-[#d9ddd3] bg-[#fbfbf6] text-[#202d28] shadow-[0_28px_90px_-48px_rgba(29,51,41,0.36)]">
+            <CardContent className="p-6 sm:p-9 md:p-12">
                 <>
-                  {stepIndicator}
-                  <div className="mb-6">
-                    <h1 className="text-2xl font-bold mb-2" data-testid="heading-create-account">
-                      Create your Community Platform
+                  <div className="mb-9">
+                    <div className="mb-7 flex items-center justify-between">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#718077]">Set up your community</p>
+                      <p className="text-xs font-semibold text-[#718077]">0{currentStepIndex + 1} <span className="px-1 text-[#b5bdb4]">/</span> 03</p>
+                    </div>
+                    <div className="mb-8 flex items-center gap-2" role="list" aria-label="Signup progress">
+                      {allSteps.map((s, i) => (
+                        <div key={s.key} className="flex flex-1 items-center gap-2" role="listitem" aria-current={currentStepIndex === i ? "step" : undefined}>
+                          <div className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${currentStepIndex >= i ? "bg-[#91a957]" : "bg-[#e1e4d9]"}`} />
+                        </div>
+                      ))}
+                    </div>
+                    <h1 className="text-[2rem] font-semibold leading-[1.04] tracking-[-0.06em] sm:text-[2.5rem]" data-testid="heading-create-account">
+                      Let’s get your club<br className="hidden sm:block" /> on the map.
                     </h1>
-                    <p className="text-muted-foreground" data-testid="text-create-account-subtext">
-                      Complete each section in order. The next section opens when you continue.
+                    <p className="mt-3 max-w-md text-sm leading-6 text-[#68776d]" data-testid="text-create-account-subtext">
+                      A few details now. A more connected community, just ahead.
                     </p>
                   </div>
 
                   {step !== "register" && (
-                    <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50/70 p-4 dark:border-emerald-900 dark:bg-emerald-900/10" data-testid="summary-registration">
+                    <div className="mb-4 rounded-2xl border border-[#dce4d4] bg-[#f1f4eb] p-4" data-testid="summary-registration">
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
                           <p className="flex items-center gap-2 font-semibold">
-                            <CheckCircle className="h-4 w-4 flex-shrink-0 text-emerald-600" />
+                            <CheckCircle className="h-4 w-4 flex-shrink-0 text-[#54784d]" />
                             1. Account details
                           </p>
-                          <p className="mt-2 truncate text-sm text-muted-foreground">{orgName} · {userName}</p>
-                          <p className="truncate text-sm text-muted-foreground">{email}</p>
+                          <p className="mt-2 truncate text-sm text-[#68776d]">{orgName} · {userName}</p>
+                          <p className="truncate text-sm text-[#68776d]">{email}</p>
                         </div>
                         <Button type="button" variant="ghost" size="sm" onClick={() => { setValidationErrors([]); setStep("register"); }} data-testid="button-edit-registration">
                           Edit
@@ -679,14 +632,14 @@ export default function CreateAccountPage() {
                   )}
 
                   {step === "terms" && (
-                    <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50/70 p-4 dark:border-emerald-900 dark:bg-emerald-900/10" data-testid="summary-identity">
+                    <div className="mb-4 rounded-2xl border border-[#dce4d4] bg-[#f1f4eb] p-4" data-testid="summary-identity">
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
                           <p className="flex items-center gap-2 font-semibold">
-                            <CheckCircle className="h-4 w-4 flex-shrink-0 text-emerald-600" />
+                            <CheckCircle className="h-4 w-4 flex-shrink-0 text-[#54784d]" />
                             2. Platform address
                           </p>
-                          <p className="mt-2 truncate text-sm text-muted-foreground">
+                          <p className="mt-2 truncate text-sm text-[#68776d]">
                             {hasDomain ? domainName : `${noDomainPrefix}.tribal18.com`}
                           </p>
                         </div>
@@ -706,66 +659,66 @@ export default function CreateAccountPage() {
                         handleRegisterNext();
                       }}
                     >
-                      <h2 className="text-lg font-semibold">1. Account details</h2>
+                      <h2 className="text-xs font-bold uppercase tracking-[0.17em] text-[#4e6d53]">01 <span className="mx-2 text-[#bdc4b8]">/</span> Account details</h2>
                       <div className="space-y-2">
-                        <Label htmlFor="organisation">Community Name</Label>
+                        <Label className="text-[13px] font-semibold text-[#35463b]" htmlFor="organisation">Community name</Label>
                         <Input
                           id="organisation"
                           type="text"
                           autoComplete="organization"
                           placeholder="Enter your community name"
-                          className="h-11"
+                          className="h-12 rounded-xl border-[#d9ddd3] bg-white px-4 text-sm text-[#25372e] placeholder:text-[#a1aaa0] focus-visible:ring-[#91a957]/40"
                           value={orgName}
                           onChange={(e) => { setOrgName(e.target.value); setValidationErrors([]); }}
                           data-testid="input-organisation"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="name">Your Name</Label>
+                        <Label className="text-[13px] font-semibold text-[#35463b]" htmlFor="name">Your name</Label>
                         <Input
                           id="name"
                           type="text"
                           autoComplete="name"
                           placeholder="Enter your name"
-                          className="h-11"
+                          className="h-12 rounded-xl border-[#d9ddd3] bg-white px-4 text-sm text-[#25372e] placeholder:text-[#a1aaa0] focus-visible:ring-[#91a957]/40"
                           value={userName}
                           onChange={(e) => { setUserName(e.target.value); setValidationErrors([]); }}
                           data-testid="input-name"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address</Label>
+                        <Label className="text-[13px] font-semibold text-[#35463b]" htmlFor="email">Email address</Label>
                         <Input
                           id="email"
                           type="email"
                           autoComplete="email"
                           placeholder="Enter your email"
-                          className="h-11"
+                          className="h-12 rounded-xl border-[#d9ddd3] bg-white px-4 text-sm text-[#25372e] placeholder:text-[#a1aaa0] focus-visible:ring-[#91a957]/40"
                           value={email}
                           onChange={(e) => { setEmail(e.target.value); setValidationErrors([]); }}
                           data-testid="input-email"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="password">Password</Label>
+                        <Label className="text-[13px] font-semibold text-[#35463b]" htmlFor="password">Password</Label>
                         <Input
                           id="password"
                           type="password"
                           autoComplete="new-password"
                           placeholder="Create a password"
-                          className="h-11"
+                          className="h-12 rounded-xl border-[#d9ddd3] bg-white px-4 text-sm text-[#25372e] placeholder:text-[#a1aaa0] focus-visible:ring-[#91a957]/40"
                           value={password}
                           onChange={(e) => { setPassword(e.target.value); setValidationErrors([]); }}
                           data-testid="input-password"
                         />
                       </div>
                       {validationErrors.length > 0 && step === "register" && (
-                        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4" data-testid="validation-errors">
+                        <div className="bg-[#fff0eb] border border-[#f2c7b7] rounded-2xl p-4" role="alert" data-testid="validation-errors">
                           <div className="flex items-start gap-3">
-                            <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                            <AlertCircle className="w-5 h-5 text-[#b65036] flex-shrink-0 mt-0.5" />
                             <div>
-                              <p className="text-sm font-medium text-red-800 dark:text-red-300 mb-1">Please fix the following:</p>
-                              <ul className="list-disc pl-4 space-y-0.5 text-sm text-red-700 dark:text-red-400">
+                              <p className="text-sm font-semibold text-[#813b2a] mb-1">Please fix the following:</p>
+                              <ul className="list-disc pl-4 space-y-0.5 text-sm text-[#9e4a33]">
                                 {validationErrors.map((err, i) => (
                                   <li key={i}>{err}</li>
                                 ))}
@@ -776,14 +729,14 @@ export default function CreateAccountPage() {
                       )}
                       <Button
                         type="submit"
-                        className="w-full h-11 gap-2"
+                        className="w-full h-12 gap-2 rounded-xl border-0 bg-[#244336] text-[#f8f6ee] hover:bg-[#315744] font-semibold shadow-none"
                         data-testid="button-create-account-submit"
                       >
                         Create Account
                         <ArrowRight className="w-4 h-4" />
                       </Button>
                       <div className="text-center pt-2">
-                        <Link href="/" className="text-sm text-muted-foreground hover:text-foreground" data-testid="link-back">
+                        <Link href="/" className="text-sm text-[#77847a] hover:text-[#244336]" data-testid="link-back">
                           Back to Home
                         </Link>
                       </div>
@@ -799,14 +752,14 @@ export default function CreateAccountPage() {
                         void handleIdentityNext();
                       }}
                     >
-                      <h2 className="text-lg font-semibold">2. Platform address</h2>
+                      <h2 className="text-xs font-bold uppercase tracking-[0.17em] text-[#4e6d53]">02 <span className="mx-2 text-[#bdc4b8]">/</span> Platform address</h2>
                       <div className="space-y-3">
-                        <Label className="text-base font-medium">Do you already have your domain?</Label>
+                        <Label className="text-[13px] font-semibold text-[#35463b]">Do you already have a domain?</Label>
                         <div className="flex gap-3">
                           <Button
                             type="button"
                             variant={hasDomain === true ? "default" : "outline"}
-                            className="flex-1 h-11 toggle-elevate"
+                            className={`flex-1 h-12 rounded-xl toggle-elevate ${hasDomain === true ? "border-[#244336] bg-[#244336] text-white" : "border-[#d9ddd3] bg-white text-[#425449] hover:bg-[#f0f2eb]"}`}
                             onClick={() => {
                               setHasDomain(true);
                             }}
@@ -817,7 +770,7 @@ export default function CreateAccountPage() {
                           <Button
                             type="button"
                             variant={hasDomain === false ? "default" : "outline"}
-                            className="flex-1 h-11 toggle-elevate"
+                            className={`flex-1 h-12 rounded-xl toggle-elevate ${hasDomain === false ? "border-[#244336] bg-[#244336] text-white" : "border-[#d9ddd3] bg-white text-[#425449] hover:bg-[#f0f2eb]"}`}
                             onClick={() => {
                               setHasDomain(false);
                               if (!noDomainPrefix) {
@@ -833,11 +786,11 @@ export default function CreateAccountPage() {
 
                       {hasDomain === false && (
                         <div className="space-y-4">
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-sm text-[#68776d]">
                             You can use the Tribal18.com domain (and change later).
                           </p>
-                          <div className="bg-muted/50 rounded-md p-4 border border-border/50">
-                            <p className="text-sm text-muted-foreground mb-2">
+                          <div className="rounded-2xl border border-[#dce4d4] bg-[#f1f4eb] p-5">
+                            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#718077] mb-3">
                               Your website will show as:
                             </p>
                             <div className="flex items-center gap-1">
@@ -854,23 +807,24 @@ export default function CreateAccountPage() {
                                   data-testid="input-no-domain-prefix"
                                 />
                               ) : (
-                                <span className="font-mono font-semibold text-emerald-600" data-testid="text-no-domain-prefix">
+                                <span className="font-mono font-semibold text-[#315c43]" data-testid="text-no-domain-prefix">
                                   {noDomainPrefix}
                                 </span>
                               )}
-                              <span className="font-mono font-semibold" data-testid="text-no-domain-suffix">
+                              <span className="font-mono font-semibold text-[#758278]" data-testid="text-no-domain-suffix">
                                 .tribal18.com
                               </span>
                             </div>
                           </div>
                           <div className="flex items-center gap-2">
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-[#68776d]">
                               Do you want to change the prefix?
                             </p>
                             <Button
                               type="button"
                               variant="outline"
                               size="sm"
+                              className="rounded-lg border-[#cad4c8] bg-transparent text-[#315c43] hover:bg-white"
                               onClick={() => setEditingNoDomainPrefix(true)}
                               data-testid="button-change-no-domain-prefix"
                             >
@@ -883,12 +837,12 @@ export default function CreateAccountPage() {
                       {hasDomain === true && (
                         <div className="space-y-4">
                           <div className="space-y-2">
-                            <Label htmlFor="domain">Enter your domain name</Label>
+                            <Label className="text-[13px] font-semibold text-[#35463b]" htmlFor="domain">Enter your domain name</Label>
                             <Input
                               id="domain"
                               type="text"
                               placeholder="e.g. yourgolfclub.com"
-                              className="h-11"
+                              className="h-12 rounded-xl border-[#d9ddd3] bg-white px-4 text-sm text-[#25372e] placeholder:text-[#a1aaa0] focus-visible:ring-[#91a957]/40"
                               value={domainName}
                               onChange={(e) => setDomainName(e.target.value)}
                               data-testid="input-domain"
@@ -899,12 +853,12 @@ export default function CreateAccountPage() {
                       )}
 
                       {validationErrors.length > 0 && step === "identity" && (
-                        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4" data-testid="validation-errors-identity">
+                        <div className="bg-[#fff0eb] border border-[#f2c7b7] rounded-2xl p-4" role="alert" data-testid="validation-errors-identity">
                           <div className="flex items-start gap-3">
-                            <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                            <AlertCircle className="w-5 h-5 text-[#b65036] flex-shrink-0 mt-0.5" />
                             <div>
-                              <p className="text-sm font-medium text-red-800 dark:text-red-300 mb-1">Please fix the following:</p>
-                              <ul className="list-disc pl-4 space-y-0.5 text-sm text-red-700 dark:text-red-400">
+                              <p className="text-sm font-semibold text-[#813b2a] mb-1">Please fix the following:</p>
+                              <ul className="list-disc pl-4 space-y-0.5 text-sm text-[#9e4a33]">
                                 {validationErrors.map((err, i) => (
                                   <li key={i}>{err}</li>
                                 ))}
@@ -917,7 +871,7 @@ export default function CreateAccountPage() {
                         <Button
                           type="button"
                           variant="outline"
-                          className="flex-1 h-11 gap-2"
+                          className="flex-1 h-12 gap-2 rounded-xl border-[#d9ddd3] bg-white text-[#405148] hover:bg-[#f1f3ec]"
                           onClick={() => { setValidationErrors([]); setStep("register"); }}
                           data-testid="button-identity-back"
                         >
@@ -926,7 +880,7 @@ export default function CreateAccountPage() {
                         </Button>
                         <Button
                           type="submit"
-                          className="flex-1 h-11 gap-2"
+                          className="flex-1 h-12 gap-2 rounded-xl border-0 bg-[#244336] text-[#f8f6ee] hover:bg-[#315744] font-semibold shadow-none"
                           disabled={checkingDomain || hasDomain === null || (hasDomain === true && !domainName.trim())}
                           data-testid="button-identity-next"
                         >
@@ -946,30 +900,30 @@ export default function CreateAccountPage() {
                         void handleCompleteSetup();
                       }}
                     >
-                      <h2 className="text-lg font-semibold">3. Terms & Conditions</h2>
-                      <div className="border border-border rounded-md p-4 max-h-[340px] overflow-y-auto text-sm text-muted-foreground space-y-4" data-testid="terms-content">
-                        <h3 className="font-bold text-foreground text-base">Tribal18 Platform Terms & Conditions</h3>
-                        <p className="font-semibold text-foreground">1. Acceptance of Terms</p>
+                      <h2 className="text-xs font-bold uppercase tracking-[0.17em] text-[#4e6d53]">03 <span className="mx-2 text-[#bdc4b8]">/</span> Terms & Conditions</h2>
+                      <div className="max-h-[340px] space-y-4 overflow-y-auto rounded-2xl border border-[#d9ddd3] bg-[#f4f5ef] p-5 text-sm leading-6 text-[#65746b]" data-testid="terms-content">
+                        <h3 className="text-base font-bold text-[#25372e]">Tribal18 Platform Terms & Conditions</h3>
+                        <p className="font-semibold text-[#35463b]">1. Acceptance of Terms</p>
                         <p>By creating an account and using the Tribal18 platform, you agree to be bound by these Terms and Conditions. If you do not agree, please do not proceed with account creation.</p>
-                        <p className="font-semibold text-foreground">2. Platform Usage</p>
+                        <p className="font-semibold text-[#35463b]">2. Platform Usage</p>
                         <p>The Tribal18 platform is provided as a Software-as-a-Service (SaaS) solution for managing communities, clubs, and related organisations. You agree to use the platform only for its intended purpose and in compliance with all applicable laws.</p>
-                        <p className="font-semibold text-foreground">3. Account Responsibilities</p>
+                        <p className="font-semibold text-[#35463b]">3. Account Responsibilities</p>
                         <p>You are responsible for maintaining the confidentiality of your account credentials. You agree to notify Tribal18 immediately of any unauthorised use of your account. You are responsible for all activities that occur under your account.</p>
-                        <p className="font-semibold text-foreground">4. Data Protection</p>
+                        <p className="font-semibold text-[#35463b]">4. Data Protection</p>
                         <p>We take data protection seriously. Your personal data and the data of your community members will be processed in accordance with our Privacy Policy and applicable data protection legislation including GDPR.</p>
-                        <p className="font-semibold text-foreground">5. Content</p>
+                        <p className="font-semibold text-[#35463b]">5. Content</p>
                         <p>You retain ownership of all content you upload to the platform. By uploading content, you grant Tribal18 a licence to host and display that content as part of the service. You must not upload content that is unlawful, offensive, or infringes on third-party rights.</p>
-                        <p className="font-semibold text-foreground">6. Subscription & Billing</p>
+                        <p className="font-semibold text-[#35463b]">6. Subscription & Billing</p>
                         <p>Access to certain features may require a paid subscription. Pricing details are available on our website. We reserve the right to modify pricing with reasonable notice. Free trial periods may be offered at our discretion.</p>
-                        <p className="font-semibold text-foreground">7. Termination</p>
+                        <p className="font-semibold text-[#35463b]">7. Termination</p>
                         <p>Either party may terminate the agreement at any time. Upon termination, your access to the platform will be suspended and your data may be deleted after a reasonable retention period.</p>
-                        <p className="font-semibold text-foreground">8. Limitation of Liability</p>
+                        <p className="font-semibold text-[#35463b]">8. Limitation of Liability</p>
                         <p>Tribal18 shall not be liable for any indirect, incidental, or consequential damages arising from the use of the platform. Our total liability shall not exceed the fees paid by you in the preceding 12 months.</p>
-                        <p className="font-semibold text-foreground">9. Changes to Terms</p>
+                        <p className="font-semibold text-[#35463b]">9. Changes to Terms</p>
                         <p>We may update these terms from time to time. Continued use of the platform following any changes constitutes acceptance of the revised terms.</p>
                       </div>
                       {tenantError && (
-                        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-3 text-sm text-red-700 dark:text-red-400" data-testid="text-tenant-error">
+                        <div className="bg-[#fff0eb] border border-[#f2c7b7] rounded-xl p-3 text-sm text-[#9e4a33]" role="alert" data-testid="text-tenant-error">
                           {tenantError}
                         </div>
                       )}
@@ -977,7 +931,7 @@ export default function CreateAccountPage() {
                         <Button
                           type="button"
                           variant="outline"
-                          className="flex-1 h-11 gap-2"
+                          className="flex-1 h-12 gap-2 rounded-xl border-[#d9ddd3] bg-white text-[#405148] hover:bg-[#f1f3ec]"
                           onClick={() => setStep("identity")}
                           data-testid="button-terms-back"
                         >
@@ -986,7 +940,7 @@ export default function CreateAccountPage() {
                         </Button>
                         <Button
                           type="submit"
-                          className="flex-1 h-11 gap-2"
+                          className="flex-1 h-12 gap-2 rounded-xl border-0 bg-[#244336] text-[#f8f6ee] hover:bg-[#315744] font-semibold shadow-none"
                           disabled={submitting}
                           data-testid="button-complete-setup"
                         >
@@ -998,7 +952,6 @@ export default function CreateAccountPage() {
                   )}
                 </>
             </CardContent>
-          </div>
         </Card>
         )}
       </div>
