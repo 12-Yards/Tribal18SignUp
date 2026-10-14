@@ -606,11 +606,8 @@ export default function CreateAccountPage() {
                       ))}
                     </div>
                     <h1 className="text-[2rem] font-semibold leading-[1.04] tracking-[-0.06em] sm:text-[2.5rem]" data-testid="heading-create-account">
-                      Let’s get your club<br className="hidden sm:block" /> on the map.
+                      Let’s get your club on the map.
                     </h1>
-                    <p className="mt-3 max-w-md text-sm leading-6 text-[#68776d]" data-testid="text-create-account-subtext">
-                      A few details now. A more connected community, just ahead.
-                    </p>
                   </div>
 
                   {step !== "register" && (
