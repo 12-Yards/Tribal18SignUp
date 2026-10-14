@@ -403,16 +403,16 @@ export default function CreateAccountPage() {
 
   return (
     <div
-      className="min-h-[100dvh] bg-[#f3f2e9] text-[#202d28] flex flex-col"
+      className="min-h-[100dvh] bg-[#0d1210] text-white flex flex-col"
       data-testid="page-create-account"
     >
-      <header className="w-full border-b border-[#d9ddd3] bg-[#f3f2e9]/95 backdrop-blur">
+      <header className="w-full border-b border-[#26332d] bg-[#0d1210]/95 backdrop-blur">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-5 sm:px-8">
           <a href="/#home-top" aria-label="Tribal18 home" className="flex items-center gap-3" data-testid="link-home">
             <img src={logoPath} alt="Tribal18 Logo" className="h-10 w-10 object-contain" />
-            <span className="text-[19px] font-bold tracking-[-0.04em] text-[#20352d]">Tribal18</span>
+            <span className="text-[19px] font-bold tracking-[-0.04em] text-white">Tribal18</span>
           </a>
-          <span className="hidden text-[11px] font-semibold uppercase tracking-[0.2em] text-[#718077] sm:block">A home for your golf community</span>
+          <span className="hidden text-[11px] font-semibold uppercase tracking-[0.2em] text-[#a7b5aa] sm:block">A home for your golf community</span>
         </div>
       </header>
 
