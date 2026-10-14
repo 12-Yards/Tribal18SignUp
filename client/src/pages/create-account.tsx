@@ -798,7 +798,7 @@ export default function CreateAccountPage() {
                                 <Input
                                   value={noDomainPrefix}
                                   onChange={(e) => setNoDomainPrefix(e.target.value.toLowerCase().replace(/[^a-z0-9]/g, ""))}
-                                  className="h-9 w-28 text-sm font-mono"
+                                  className="h-10 w-36 rounded-xl border-[#d9ddd3] bg-white px-3 text-sm font-mono text-[#25372e] placeholder:text-[#a1aaa0] selection:bg-[#dce9cb] focus-visible:ring-[#91a957]/40"
                                   autoFocus
                                   onBlur={() => setEditingNoDomainPrefix(false)}
                                   onKeyDown={(e) => {
