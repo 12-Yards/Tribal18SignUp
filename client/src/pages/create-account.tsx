@@ -71,8 +71,18 @@ export default function CreateAccountPage() {
     });
   };
 
-  const isValidDomain = (val: string) =>
-    /^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+$/.test(val);
+  const isValidDomain = (val: string) => {
+    const labels = val.trim().split(".");
+    const isValidLabel = (label: string) =>
+      label.length <= 63 && /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label);
+
+    return (
+      val.trim().length <= 253 &&
+      labels.length >= 2 &&
+      labels.every(isValidLabel) &&
+      /^[a-z]{2,63}$/i.test(labels[labels.length - 1])
+    );
+  };
 
   const handleRegisterNext = () => {
     const errors: string[] = [];
@@ -106,7 +116,7 @@ export default function CreateAccountPage() {
       if (!domainName.trim()) {
         errors.push("Please enter your domain name");
       } else if (!isValidDomain(domainName.trim())) {
-        errors.push("Please enter a valid domain name (e.g. yourgolfclub.com)");
+        errors.push("Please enter a valid domain name (e.g. clubhouse.top100golfcourses.com)");
       }
     } else if (hasDomain === false) {
       if (!noDomainPrefix.trim()) {
