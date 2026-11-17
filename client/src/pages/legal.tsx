@@ -40,59 +40,106 @@ export function PrivacyPage() {
     image: "/og/privacy.jpg",
   });
   return (
-    <LegalLayout title="Privacy Policy" updated="July 2026" testId="page-privacy">
+    <LegalLayout title="Privacy Policy" updated="17 November 2026" testId="page-privacy">
       <section>
         <h2>1. Who we are</h2>
         <p>
-          Tribal18 ("we", "us", "our") provides a community management platform for golf clubs, societies and communities. This Privacy Policy explains how we collect, use and protect your personal information when you use our website and services.
+          Tribal18 (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) provides a community management platform for golf clubs, societies, event organisers and golf communities. Tribal18 is operated by Tribal18 Limited, a UK registered company.
+        </p>
+        <p>
+          This Privacy Policy explains how we collect, use, share and protect your personal information when you use:
+        </p>
+        <ul>
+          <li>our website at tribal18.com; and</li>
+          <li>the Tribal18 mobile app on Android and iOS (the &quot;App&quot;), including any club- or society-branded versions of the App powered by Tribal18.</li>
+        </ul>
+        <p>
+          Together these are our &quot;Services&quot;. For data protection purposes, we are the controller of the personal information described in this policy. Where a golf club or society uses Tribal18 to manage its own members, that club or society may also be a controller of its members&apos; information.
         </p>
       </section>
       <section>
         <h2>2. Information we collect</h2>
+        <h3 className="text-base font-semibold text-foreground">Information you give us</h3>
         <ul>
-          <li>Account details you provide when registering, such as your name, email address and organisation name.</li>
+          <li>Account details you provide when registering, such as your name, email address, mobile number and organisation, club or society name.</li>
+          <li>Profile and membership information, such as your handicap, membership details, and event entries or bookings.</li>
           <li>Contact details you submit through our contact form, such as your name, email address and mobile number.</li>
-          <li>Technical information such as browser type, device information and pages visited, collected through cookies and similar technologies.</li>
+          <li>Content you post, such as messages, comments and photos shared within your community.</li>
         </ul>
-      </section>
-      <section>
-        <h2>3. How we use your information</h2>
+        <h3 className="text-base font-semibold text-foreground">Information collected automatically</h3>
         <ul>
-          <li>To create and manage your Tribal18 platform and account.</li>
-          <li>To respond to enquiries and provide customer support.</li>
-          <li>To send service updates and, where you agree, marketing communications.</li>
-          <li>To improve our website and services.</li>
+          <li>Location information from your device when you use the App, if you give permission (see Section 3).</li>
+          <li>Device and technical information, such as device type, operating system, app version, browser type, IP address and crash logs.</li>
+          <li>Usage information, such as pages and screens visited and features used, collected through cookies and similar technologies on our website, and analytics tools in the App.</li>
         </ul>
       </section>
       <section>
-        <h2>4. Sharing your information</h2>
-        <p>
-          We do not sell your personal information. We only share it with trusted service providers who help us operate our platform (such as hosting providers), or where required by law.
-        </p>
+        <h2>3. Location information</h2>
+        <p><strong className="text-foreground">What we collect.</strong> With your permission, the App collects your device&apos;s approximate location.</p>
+        <p><strong className="text-foreground">When we collect it.</strong> We collect location while you are using the App and, if you choose to allow it, in the background when the App is closed or not in use, so that live round tracking and offer alerts continue when your screen is locked. You can turn background location off at any time in your device settings.</p>
+        <p><strong className="text-foreground">Why we use it.</strong> We use your location to:</p>
+        <ul>
+          <li>show golf clubs, courses, societies and events near you;</li>
+          <li>let you check in to an event, competition or tee time when you arrive at the club;</li>
+          <li>alert you when offers are available nearby; and</li>
+          <li>help keep the Services secure and prevent misuse.</li>
+        </ul>
+        <p><strong className="text-foreground">Your choice.</strong> Location access is optional. The App will ask for your permission before it accesses your location, and you can allow, deny or withdraw permission at any time in your device settings. If you don&apos;t allow location access, you can still use the Services, but location-based features will not work.</p>
+        <p><strong className="text-foreground">Sharing.</strong> We do not sell your location information or share it with advertisers. We only share it with service providers that help us provide location features (such as mapping providers, e.g. Google Maps) and our hosting providers, as described in Section 5.</p>
+        <p><strong className="text-foreground">Retention.</strong> We do not store your location after it has been used to provide the feature you requested.</p>
       </section>
       <section>
-        <h2>5. Data retention and security</h2>
-        <p>
-          We keep your information only for as long as needed to provide our services and meet legal obligations. We use appropriate technical and organisational measures to protect your data.
-        </p>
+        <h2>4. How we use your information</h2>
+        <p>We use your information to:</p>
+        <ul>
+          <li>create and manage your Tribal18 account and your club or community platform;</li>
+          <li>provide the features of the Services, including location-based features;</li>
+          <li>manage memberships, events, bookings and reciprocal play;</li>
+          <li>respond to enquiries and provide customer support;</li>
+          <li>send service updates and, where you agree, marketing communications;</li>
+          <li>keep the Services secure and prevent fraud or misuse; and</li>
+          <li>improve our website, App and Services.</li>
+        </ul>
+        <p><strong className="text-foreground">Legal bases (UK/EU users).</strong> We process your information to perform our contract with you (providing the Services), on the basis of our legitimate interests (running, securing and improving the Services), with your consent (location access, marketing and non-essential cookies), and where needed to meet our legal obligations. You can withdraw consent at any time.</p>
       </section>
       <section>
-        <h2>6. Your rights</h2>
-        <p>
-          You may request access to, correction of, or deletion of your personal information at any time. To exercise these rights, please contact us via our <Link href="/contact" className="text-foreground underline">contact page</Link>.
-        </p>
+        <h2>5. Sharing your information</h2>
+        <p>We do not sell your personal information. We only share it:</p>
+        <ul>
+          <li>with the club, society or organisation whose community you join on Tribal18, so they can manage membership and events;</li>
+          <li>with trusted service providers who help us operate the Services, such as hosting, mapping and location services, analytics, email delivery and payment providers. They may only use your information to provide services to us;</li>
+          <li>where required by law, or to protect the rights, safety and security of our users or others; and</li>
+          <li>in connection with a merger, acquisition or sale of our business, in which case we will tell you.</li>
+        </ul>
+        <p>Some of our service providers may process information outside the UK. Where they do, we use appropriate safeguards such as the UK International Data Transfer Agreement or Standard Contractual Clauses.</p>
       </section>
       <section>
-        <h2>7. Cookies</h2>
-        <p>
-          We use cookies to keep the site working properly and to understand how it is used. You can control cookies through your browser settings. See our cookie notice shown when you first visit the site.
-        </p>
+        <h2>6. Data retention and security</h2>
+        <p>We keep your information only for as long as needed to provide our Services and meet legal obligations. Location data is kept as described in Section 3. When you delete your account, we delete or anonymise your personal information within 30 days, unless we need to keep some of it to meet legal obligations.</p>
+        <p>We use appropriate technical and organisational measures to protect your data, including encryption in transit.</p>
       </section>
       <section>
-        <h2>8. Changes to this policy</h2>
-        <p>
-          We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date.
-        </p>
+        <h2>7. Your rights</h2>
+        <p>You may request access to, correction of, or deletion of your personal information at any time. You may also object to or restrict certain processing, ask for a copy of your data in a portable format, and withdraw consent (for example, by turning off location access in your device settings).</p>
+        <p><strong className="text-foreground">Deleting your account.</strong> You can delete your account and associated data in the App under Profile &gt; Delete account or by emailing <a href="mailto:support@tribal18.com" className="text-foreground underline">support@tribal18.com</a>.</p>
+        <p>To exercise any of these rights, contact us at <a href="mailto:support@tribal18.com" className="text-foreground underline">support@tribal18.com</a> or via our <Link href="/contact" className="text-foreground underline">contact page</Link>. If you are in the UK and are unhappy with how we handle your information, you have the right to complain to the Information Commissioner&apos;s Office (<a href="https://ico.org.uk/" target="_blank" rel="noreferrer" className="text-foreground underline">ico.org.uk</a>).</p>
+      </section>
+      <section>
+        <h2>8. Children</h2>
+        <p>The Services are not intended for children under 13 without the involvement of a parent, guardian or their club. If junior members use the App, explain how their information is managed, e.g. by the club or with parental consent.</p>
+      </section>
+      <section>
+        <h2>9. Cookies</h2>
+        <p>We use cookies to keep the website working properly and to understand how it is used. You can control cookies through your browser settings. See our cookie notice shown when you first visit the site.</p>
+      </section>
+      <section>
+        <h2>10. Changes to this policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date, and where the changes are significant we will let you know in the App or by email.</p>
+      </section>
+      <section>
+        <h2>11. Contact us</h2>
+        <p>If you have any questions about this Privacy Policy or how we handle your information, contact us at:</p>
+        <p>Tribal18 Limited<br />Email: <a href="mailto:support@tribal18.com" className="text-foreground underline">support@tribal18.com</a></p>
       </section>
     </LegalLayout>
   );
